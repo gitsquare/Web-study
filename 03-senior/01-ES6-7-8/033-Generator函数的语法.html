@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function * gen(){
+		console.log('p');
+		yield 'get data1';//遇到yield表达式，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值
+		console.log('do something after get data1');
+		yield 'get data2';
+		console.log('do something after get data2');
+		yield 'get data3';
+		return 'data3';//碰见return就不往下走了，直接结束了,并将return语句后面的表达式的值，作为返回的对象的value属性值
+		// console.log('data4');
+	}
+	// console.log(typeof gen,gen);
+	let g = gen();
+	// console.log(g);//调用 Generator 函数后，该函数并不执行,返回一个遍历器对象
+	console.log(g.next());//value:'get data1'
+	console.log(g.next());//value:'get data2'
+	console.log(g.next());//value:'get data3'
+	console.log(g.next());//value:'data3'
+	//如果该函数没有return语句，则返回的对象的value属性值为undefined
+	//next方法的作用是分阶段执行Generator函数。每次调用next方法，会返回一个对象，表示当前阶段的信息（value属性和done属性）
+
+</script>
+</html>

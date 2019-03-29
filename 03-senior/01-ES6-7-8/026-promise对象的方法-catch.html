@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//不管Promise对象最后状态如何,都会执行的操作,finally方法的回调函数不接受任何参数 
+	let p1 = new Promise((resolve,reject)=>{
+		// resolve('成功');
+		reject('失败');
+	})
+
+	p1
+	.then((data)=>{
+		console.log(data);
+	})
+	.catch((data)=>{
+		console.log(data);
+	})
+	
+</script>
+</html>

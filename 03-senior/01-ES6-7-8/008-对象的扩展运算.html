@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	
+</body>
+<script>
+	let obj = {name:'tom',age:11,friend:{sex:'male',age:22}};
+	let obj2 = {...obj};
+	console.log('a',obj2);
+	obj2.name = 'jack';
+	console.log(obj);
+	console.log(obj2);
+	obj2.friend.sex = 'female';
+	console.log('b',obj);
+	console.log('c',obj2);
+	//如果被拷贝对象中有复杂数据,实际拷贝的是引用
+</script>
+</html>

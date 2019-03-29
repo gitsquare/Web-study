@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="div1"></div>
+	<div id="div2"></div>
+	<div>我是文字</div>
+	<div>
+		<p></p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div>p'));
+		console.log($('.div1'));
+		console.log($('#div'));
+	})
+</script>
+</html>

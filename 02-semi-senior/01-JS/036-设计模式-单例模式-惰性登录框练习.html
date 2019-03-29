@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.login{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -100px;
+			margin-top: -140px;
+			width: 200px;
+			height: 280px;
+			background-color: gray;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: skyblue;
+			margin-left: 100px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" id="btn" value="登录">
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	
+	
+
+
+	function isUnique(fn){
+		var obj = null;
+		return function(){
+			if(!obj){
+				obj = fn();
+			}
+			return obj;
+		}
+	}
+
+	function createElement(){
+		var oDiv = document.createElement('div');
+		oDiv.className = 'login';
+		document.body.appendChild(oDiv);
+		return oDiv;
+	}
+
+	var obj1 = isUnique(createElement);
+	oBtn.onclick = function(){
+		obj1();
+	}
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>点击</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("button").on('click',function(){
+			$("div").animate({
+				/*width:'200',
+				height:'200'*/
+				width:'+=200',
+				height:'-=10',
+				background:'purple'
+			},1000,function(){
+				alert('ending');
+			})
+		})
+	})
+	
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.用class定义的类也是函数
+	//2.constructor方法是类的默认方法,通过new命令生成对象实例时,自动调用该方法。
+	//3.一个类必须有constructor方法,如果没有显式定义,系统默认添加一个空的constructor方法
+	//4.constructor方法默认返回实例对象
+	//5.在class 中定义的方法实际上是给原型对象上添加方法
+	//6.类不存在变量提升
+	//7.静态方法前面添加static关键字,调用时用 类名.方法名 的形式调用
+
+	// new Person();//类不存在变量提升
+	class Person{
+		constructor(name,age){
+			console.log(this);
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+			console.log('I am '+this.name);
+		}
+		sayAge(){
+			console.log('I am '+this.age);
+		}
+		static sayHi(){
+			console.log('hi');
+		}
+	}
+	let p1 = new Person('jack',20);
+	console.log(p1);
+	p1.sayName();
+	p1.sayAge();
+	Person.sayHi();
+	console.log(Person.prototype);
+
+	//constructor中定义的属性可以称为实例属性（即定义在this对象上），constructor外声明的属性都是定义在原型上的，可以称为原型属性（即定义在class上)。hasOwnProperty()函数用于判断属性是否是实例属性。其结果是一个布尔值， true说明是实例属性，false说明不是实例属性。in操作符会在通过对象能够访问给定属性时返回true,无论该属性存在于实例中还是原型中。
+
+
+	//由下面代码可以看出类实质上就是一个函数。类自身指向的就是构造函数。所以可以认为ES6中的类其实就是构造函数的另外一种写法！
+	
+	console.log(typeof Person);//function
+	console.log(Person===Person.prototype.constructor);//true
+
+</script>
+</html>

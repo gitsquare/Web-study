@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="点击" id="btn">
+	<input type="text" id="txt">
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oTxt = document.getElementById('txt');
+
+	oBtn.onclick = function(){
+		var val = oTxt.value;
+		try{
+			if(isNaN(parseInt(val))){
+				throw new Error('not a number number');
+			}
+			var total = parseInt(val);
+			handleNum(total);
+		}catch(e){
+			console.log(e);
+		}finally{
+			console.log('finally...');
+		}
+	}
+	function handleNum(num){
+		console.log(num*10);
+	}
+
+	/*function sum(sum){
+		var result = 0;
+		for(var i = 0;i<sum;i++){
+			result += i;
+		}
+		return result;
+	}
+	debugger;
+	console.log(sum(4));
+*/
+	
+</script>
+</html>

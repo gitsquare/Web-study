@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//用箭头函数定义的函数，只能在其后面调用，因为没有声明的提升
+
+	//箭头函数就是使用"箭头"(=>)来定义函数
+	// fn(1,2);
+	//console.log(fn);
+	/*let fn = (n1,n2)=>{
+		console.log(n1,n2);
+	}*/
+	//用let定义没有声明的提升
+
+
+	/*console.log(fn);
+	var fn = (n1,n2)=>{
+		console.log(n1,n2);
+	}*/
+	//fn是变量，用var定义有声明的提升
+
+
+	//如果函数体只有返回值,函数体的花括号和return语句可以省略
+	/*let fn = (n1,n2)=>{
+		return n1+n2;
+	}
+	console.log(fn(1,2));*/
+	/*let fn = (n1,n2)=>n1+n2
+	console.log(fn(1,2));*/
+
+	//举例,排序函数用箭头函数
+	var arr = [5,7,1,7,9,3];
+	console.log(arr.sort((n1,n2)=>n1-n2));
+
+
+
+	//如果只有一个参数,圆括号可以省略
+	let fn = x=>x+10;
+	console.log(fn(1));
+
+</script>
+</html>

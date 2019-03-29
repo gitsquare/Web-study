@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function friend(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	friend.prototype.showName = function(){
+		console.log('fr'+this.name);
+	}
+	friend.prototype.showAge = function(){
+		console.log(this.age);
+	}
+	friend.prototype.EYES = 4;
+
+	var friend1 = new friend('tom','20');
+	friend1.LEGS = 2;
+	/*console.log(friend1);
+	for(var attr in friend1){
+		console.log(attr,friend1[attr]);
+	}*/
+
+	/*Object.defineProperty(friend1,'ARMS',{
+		value:6,
+		enumerable:true,
+		writable:true,
+		configurable:true
+	});
+	for(var attr in friend1){
+		console.log(attr,friend1[attr]);
+	}
+	console.log(friend1);
+	friend1.ARMS = 1;
+	console.log(friend1.ARMS);
+	console.log(delete friend1.ARMS);
+	console.log(friend1);
+	console.log(friend1.ARMS);*/
+
+	Object.defineProperty(friend1,'ARMS',{
+		value:6,
+		enumerable:true,
+		writable:false,
+		configurable:true
+	});
+	Object.defineProperty(friend1,'ARMS',{
+		value:6,
+		enumerable:false,
+		writable:true
+	});
+	for(var attr in friend1){
+		console.log(attr,friend1[attr]);
+	}
+	friend1.ARMS = 1;
+	console.log(friend1.ARMS);
+	//还可以在原型上自定义属性
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function show(sex,name,age){
+		sex = sex || 'female';
+		name = name || 'tom';
+		age = age || 11;
+		console.log(sex,name,age);
+	}*/
+
+	
+	function show(sex,name='tom',age=11){
+		console.log(sex,name,age);
+	}
+	show('male','jack');
+	show('male',30);
+</script>
+</html>

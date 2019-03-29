@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let getDataPromise = (delay)=>{
+		return new Promise((resolve,reject)=>{
+			setTimeout(()=>{
+				resolve('data:'+delay);
+			},delay);
+		})
+	}
+	let aPromises = [100,300,500].map(delay=>getDataPromise(delay));//return和大括号省略。
+	
+	let pa = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			reject('rejected data:'+400);
+		},400);
+	});
+	aPromises.push(pa);
+	let p = Promise.race(aPromises);//不管是成功还是失败，哪个Promise状态先改变就返回谁
+	console.log(p);
+
+	p
+	.then(data=>{
+		console.log(data);
+	})
+	.catch(err=>{
+		console.log(err);
+	})
+	
+</script>
+</html>

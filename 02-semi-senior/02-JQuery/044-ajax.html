@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$.ajax({
+				url:'044-data.json',
+				type:'POST',
+				// data:{name:'tom',age:111},
+				dataType:'json',
+				success:function(data,Msg,jqXHR){
+					console.log(data);
+					console.log(Msg);
+					console.log(jqXHR);
+				},
+				error:function(jqXHR,Msg){
+					console.log(jqXHR);
+					console.log(Msg);
+				},
+				complete:function(jqXHR,Msg){
+					console.log(jqXHR);
+					console.log(Msg);
+				},
+				timerout:1000,
+				statusCode:{
+					304:function(){
+						console.log('222');
+					},
+					503:function(){
+						console.log('333');
+					}
+				},
+				headers:{
+					test:'test'
+				}
+			})
+		})
+		
+	})
+</script>
+</html>

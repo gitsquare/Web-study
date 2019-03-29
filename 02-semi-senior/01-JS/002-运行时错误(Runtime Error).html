@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//ReferenceError变量引用异常
+	// console.log(a);
+
+	//TypeError 类型使用时错误
+	// var a = 1;
+	// a();
+
+	//RangeError: Maximum call stack size exceeded
+	function fn(){
+		fn();
+	}
+	fn();
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function friend(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	friend.prototype.showName = function(){
+		console.log('fr'+this.name);
+	}
+	friend.prototype.showAge = function(){
+		console.log(this.age);
+	}
+	friend.prototype.EYES = 4;
+
+
+	var friend1 = new friend('tom','20');
+
+	friend1.EYES = 2;
+	console.log(friend1);
+	console.log(friend1.EYES);
+
+	if(friend1.hasOwnProperty('name')){
+		console.log('实例');
+	}else{
+		console.log('nothing');
+	}
+
+	if('toString' in friend1){
+		console.log('原型链');
+	}else{
+		console.log('nothing');
+	}
+	if('showName' in friend1){
+		console.log('原型链');
+	}else{
+		console.log('nothing');
+	}
+
+	if(panduan(friend1,'toString')){
+		console.log('原型');
+	}else{
+		console.log('nothing');
+	}
+	function panduan(obj,attr){
+		return !obj.hasOwnProperty(attr) && (attr in obj);
+	}
+</script>
+</html>

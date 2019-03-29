@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box1{
+			color: yellow;
+		}
+		.box2{
+			border: 1px solid #000;
+			width: 100px;
+			height: 100px;
+		}
+		.box3{
+			background-color: #ff6700;
+		}
+		.box4{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<input type="button" value="点击" id="but">
+	<div class="box1">111</div>
+	<div>222</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').addClass('box1 box2 box3');
+		var oBtn = document.getElementById('but');
+		oBtn.onclick = function(){
+			// $('div').removeClass('box1 box3');
+			$('div').toggleClass('box1 box2 box3 box4');
+		}				
+	})
+</script>
+</html>

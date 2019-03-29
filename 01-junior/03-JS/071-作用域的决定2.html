@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var a = 1;
+	function fn1(){
+		console.log('one'+a);//
+	}
+	function fn2(){
+		// var a = 2;
+		a = 2;
+		fn1();
+	}
+	console.log('two'+a);//
+	fn2();
+	console.log('three'+a);//*/
+
+
+	//var a=b=2;//=>b=2;var a = b;
+
+	function ab(){
+		// 'use strict'
+		var b;
+		var a = b;
+		b=2;
+		console.log(a)
+	}
+	ab();
+	// console.log(a);
+	console.log(b);
+
+
+
+	console.log(typeof a == 'undefined');
+	console.log(typeof b == 'undefined');
+
+</script>
+</html>

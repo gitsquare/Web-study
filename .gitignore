@@ -1,0 +1,10 @@
+*.mp3
+*.ogg
+*.wav
+*.mp4
+**/node_modules
+**/bootstrap-3.3.7
+**/db
+
+
+

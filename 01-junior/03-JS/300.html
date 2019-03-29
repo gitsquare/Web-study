@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#father{
+			position: relative;	
+			margin-top: 30px;
+		}
+		#son{
+			position: absolute;
+			background-color: red;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn">生成格子</button>
+	<div id="father">
+		<div id="son"></div>
+	</div>
+</body>
+<script>
+	var oBtn = document.getElementById('btn');
+	var oFather = document.getElementById('father');
+	var aSon = oFather.children;
+	var aCol = 3;
+	var iWidth = 100;
+	var iHeight = 100;
+	var iMargin = 20;
+
+	oBtn.onclick = function(){
+		var oBox = aSon[0].cloneNode(false);
+		oFather.appendChild(oBox);
+		for(var i =0;i<aSon.length;i++){
+			var iLeft =	i%aCol*(iWidth +iMargin)+'px';
+			var iTop =	parseInt(i/aCol)*(iHeight +iMargin)+'px';
+			aSon[i].style.left = iLeft;
+			aSon[i].style.top = iTop;
+		}
+	}
+</script>
+</html>

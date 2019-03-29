@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			width: 100px;
+			height: 100px;
+			background-color: #00f;
+			margin: 100px auto;
+		}
+	</style>
+	<script>
+		function tobig(){
+			var oBox = document.getElementById('box');
+			oBox.style.width = '200px';
+			oBox.style.height = '200px';
+		}
+		function tosmall(){
+			var oBox = document.getElementById('box');
+			oBox.style.width = '50px';
+			oBox.style.height = '50px';
+		}
+	</script>
+</head>
+<body>
+	<div id="box" onmouseover="tobig()" onmouseout="tosmall()"></div>
+</body>
+</html>

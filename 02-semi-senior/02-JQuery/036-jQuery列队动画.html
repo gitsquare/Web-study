@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>点击</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("button").on('click',function(){
+			//多个动画按调用的顺序执行
+			$('div').animate({width:200},1000,function(){
+				console.log('width done');
+			});
+			$('div').animate({height:'200px'},1000,function(){
+				console.log('height done');
+			});
+			$('div').animate({opacity:0.5},1000,function(){
+				console.log('opacity done');
+			});
+
+			//在动画方法的回调中再执行动画,回调中的动画会等待前面的动画执行完毕
+			/*$('div').animate({width:200},1000,function(){
+				$('div').animate({height:200},1000,function(){
+					$('div').animate({opacity:0.5},1000,function(){
+						console.log('finished');
+					})
+				});
+			})*/
+
+			//多个动画链式调用,后面的动画会等待前面的动画执行完毕
+			/*$('div')
+			.animate({width:200},1000,function(){
+				console.log('width done');
+			})
+			.animate({height:200},1000,function(){
+				console.log('height done');
+			})
+			.animate({opacity:0.5},1000,function(){
+				console.log('opacity done');
+			});*/
+		})
+	})
+	
+</script>
+</html>

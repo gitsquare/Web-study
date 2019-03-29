@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function friend(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	friend.prototype.showName = function(){
+		console.log('fr'+this.name);
+	}
+	friend.prototype.showAge = function(){
+		console.log(this.age);
+	}
+
+
+	var friend1 = new friend('tom','20');
+
+	friend1.EYES = 2;
+	console.log(friend1);
+	console.log(friend1.EYES);
+
+	console.log(delete friend1.EYES);
+	console.log(delete friend1.LEGS);
+	console.log(friend1.EYES);
+
+	friend1.showName();
+	console.log(friend1.showName);
+	delete friend.prototype.showName;
+	console.log(friend1.showName);
+</script>
+</html>

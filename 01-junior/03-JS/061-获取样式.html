@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin-top: 30px;
+		}
+		.toblue{
+			background-color: blue;
+		}
+		.toblue:after{
+			content: '';
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">变红</button>
+	<button id="btn2">变蓝</button>
+	<button id="btn3">获取</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBtn3 = document.getElementById('btn3');
+	var oBox = document.getElementById('box');
+	function changeColor(obj,attr,val){
+		obj.style[attr] = val;
+	}
+	function changeClass(obj,name){
+		obj.className = name;
+	}
+	oBtn1.onclick = function(){
+		changeColor(oBox,'backgroundColor','red');
+	}
+	oBtn2.onclick = function(){
+		changeClass(oBox,'toblue');
+	}
+	oBtn3.onclick = function(){
+		// alert(oBox.style.backgroundColor);
+		// alert(getComputedStyle(oBox,false)['backgroundColor']);
+		// alert(getComputedStyle(oBox,false).backgroundColor);
+		 alert(getComputedStyle(oBox,':after').backgroundColor);
+	}
+</script>
+</html>

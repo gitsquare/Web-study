@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-ES8对象的新增方法.html</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+
+	let {
+		keys,
+		entries,
+		values,
+		getOwnPropertyDescriptors,
+		assign,
+		is
+	} = Object;//通过结构解析，把Object中的方法赋值给同名变量
+
+	Object.prototype.test = 'test';
+
+	let obj = {
+		name:"Tom",
+		age:"18"
+	}
+	Object.defineProperty(obj,"country",{
+		value:"China",
+		enumerable:false
+	})
+	console.log("obj",obj);
+
+	//ES5 引入了Object.keys方法，返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键名。
+	console.log("keys(obj)",keys(obj));
+
+
+	//返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值对数组
+	console.log("entries(obj)",entries(obj));
+
+
+	//返回一个数组，成员是参数对象自身的（不含继承的）所有可遍历（enumerable）属性的键值。
+	console.log("values(obj)",values(obj));
+
+
+	//返回指定对象所有自身属性（非继承属性）的描述对象
+	console.log("getOwnPropertyDescriptors(obj)",getOwnPropertyDescriptors(obj));
+
+
+	//assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+	let DEFAULTS = {
+		js:true,
+		interval:200
+	}
+
+	let options = {
+		js:false
+	}
+	let obj2 = assign({},DEFAULTS,options);
+	//后面的对象覆盖前面的对象，生成新的对象
+	console.log(obj2);
+	//也可以复制数组
+	let arr1 = assign([],[11,22,33]);
+	console.log(arr1);
+
+
+	console.log(1 == "1");//true
+	console.log(1 === "1");//false
+	console.log(is(1,"1"));//false
+	console.log(is(1,1));//true
+	//一般is方法相当于===；
+	//有两种特殊情况
+	console.log("+0 === -0:",+0 === -0);//true
+	console.log("is(+0,-0)",is(+0,-0));//false
+
+	console.log("NaN === NaN",NaN === NaN);//false
+	console.log("is(NaN,NaN)",is(NaN,NaN));//false
+
+
+
+
+
+//this的指向问题
+
+	/*function fn1(){
+		console.log(this);
+		function fn2(){
+			console.log(this);
+		}
+		fn2();
+		// console.log(1,window);
+	}
+	var f = new fn1();*/
+	// console.log(f);
+
+
+	/*let fn1 = ()=>{
+		console.log(this);
+		let fn2 = ()=>{
+			console.log(this);
+		}
+		fn2();
+	}
+	fn1();*/
+
+</script>
+</html>

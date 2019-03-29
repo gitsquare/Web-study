@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// let定义过的变量在其所在的块级作用域内不能再定义(可以重新赋值),var定义过的变量可以重新定义
+	/*var a = 1;
+	var a = 2;
+	console.log(a);
+	let b = 1;
+	b = 3;
+	let a = 2;
+	console.log(b);*/
+
+	//let定义的变量不会声明提升,var定义的变量会发生声明提升 
+	/*console.log(a);
+	var a = 1;*/
+
+	/*console.log(a);
+	let a = 1;*/
+
+	//let定义的变量在let命令所在的代码块内有效,var定义的变量在函数范围内有效
+	/*if(true){
+		let a = 1;
+	}
+	console.log(a);*/
+	/*function fn1(){
+		var a = 1;
+		function fn2(){
+			a = 2;
+			console.log('a'+a);
+		}
+		console.log('b'+a)
+		fn2();
+		console.log('c'+a);
+	}
+	fn1();*/
+
+	function fn1(){
+		let a = 1;
+		function fn2(){
+			let a = 2;
+			console.log('a'+a);
+		}
+		console.log('b'+a)
+		fn2();
+		console.log('c'+a);
+	}
+	fn1();
+
+</script>
+</html>

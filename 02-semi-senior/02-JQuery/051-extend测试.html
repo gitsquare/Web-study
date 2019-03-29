@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function kQuery(){
+
+	}	
+	kQuery.prototype.extend = kQuery.extend = function(options){
+		//console.log(this===kQuery.prototype);
+		for(key in options){
+			this[key] = options[key];//kQuery.prototype.test1 = function(){}
+		}
+	}
+	/*kQuery.extend = function(options){
+		//console.log(this===kQuery);
+		for(key in options){
+			this[key] = options[key];
+		}
+	}*/
+	kQuery.prototype.extend({
+		test1:function(){
+			console.log('test1');
+		},
+		test2:function(){
+			console.log('test2')
+		}
+	})
+	kQuery.extend({
+		test3:function(){
+			console.log('test3');
+		},
+		test4:function(){
+			console.log('test4');
+		}
+	})
+	var k = new kQuery();
+	k.test1();
+	k.test2();
+	kQuery.test3();
+	kQuery.test4();
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			border: 1px solid #000;
+			width: 100px;
+			height: 100px;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>复制1</button>
+	<button>复制2</button>
+	<div>
+		我是div
+		<p>我是段落</p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('我是div');
+		});
+		$('button').eq(0).on('click',function(){
+			var $div = $('div').clone(false);
+			$('body').append($div);
+		});
+		$('button').eq(1).on('click',function(){
+			var $div = $('div').clone(true);
+			$('body').append($div);
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">开始</button>
+	<button id="btn2">停止</button>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("#btn1").on('click',function(){
+			$('div').animate({width:200},1000,function(){
+				$('div').animate({height:200},1000,function(){
+					$('div').animate({opacity:0.5},1000,function(){
+						console.log('finished');
+					})
+				})
+			});
+			/*$('div').animate({width:200},1000);
+			$('div').animate({height:'200px'},1000);
+			$('div').animate({opacity:0.5},1000);*/
+		})
+
+		$('#btn2').on('click',function(){
+			// $('div').stop();
+			// $('div').stop(false,false);
+			// $('div').stop(false,true);
+			// $('div').stop(true,false);
+			$('div').stop(true,true);
+		})
+	})
+	
+</script>
+</html>

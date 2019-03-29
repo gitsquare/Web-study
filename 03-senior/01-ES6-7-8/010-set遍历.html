@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	let s2 = new Set([1,2,3,4]);
+	console.log(s2);
+	for(let key of s2.keys()){
+		console.log(key);
+	}
+
+	for(let value of s2.values()){
+		console.log(value);
+	}
+	for(let value of s2){
+		console.log(value);
+	}
+
+	for(let key of s2.entries()){
+		console.log(key);
+	}
+
+	s2.forEach(function(value,key){
+		console.log(value,key);
+	})
+
+	s2.add(5);
+	for(let key of s2.entries()){
+		console.log(key);
+	}
+</script>
+</html>

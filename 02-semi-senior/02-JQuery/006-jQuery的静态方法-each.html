@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div class="div1">div1</div>
+	<div id="div2">div2</div>
+	<div>div3</div>
+	<div>div4</div>
+	<div>div5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	var arr = [1,4,7,9,0];
+	var likeArr = {0:'aa',1:'bb',length:2};
+	var aDiv = document.getElementsByTagName('div');
+	console.log(aDiv);
+
+	arr.forEach(function(value,index){
+		console.log('000',value,index);
+	})
+
+	$.each(arr,function(index,value){
+		console.log('111',index,value);
+	})
+
+	$.each(aDiv,function(index,value){
+		console.log('333',index,value);
+	})
+
+	$.each(likeArr,function(index,value){
+		console.log('222',index,value);
+	})
+</script>
+</html>

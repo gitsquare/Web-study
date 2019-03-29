@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	
+	(function(w){
+		function friend(name,age){
+		this.name = name;
+		this.age = age;
+		}
+		/*friend.prototype.showName = function(){
+			console.log('I am'+this.name);
+		}
+		friend.prototype.showAge = function(){
+			console.log('I am'+this.age);
+		}
+		friend.prototype.EYES = 4;*/
+		friend.prototype = {
+			constructor:friend,
+			showName:function(){
+				console.log('I am'+this.name);
+			},
+			showAge:function(){
+				console.log('I am'+this.age);
+			},
+			EYES:4
+		}
+		w.friend = friend;
+	})(window);
+
+	var friend1 = new friend('Tom',18);
+
+	console.log(window);
+	console.log(friend.prototype);
+	console.log(friend1);
+</script>
+</html>

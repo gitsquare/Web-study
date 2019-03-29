@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Symbol是一个函数，但不是一个构造器
+	/*let s = new Symbol();
+	console.log(s);*/
+
+	/*let s = Symbol('hello');
+	console.log(s,typeof s);
+
+	let s1 = Symbol('hello');
+	console.log(s == s1,s === s1);*/
+
+	/*let obj = {username:'jack'};
+	obj.username2 = 'tom';
+	console.log(obj); */
+
+	let s1 = Symbol('username for Tom');
+	let s2 = Symbol('username for jack');
+	let obj = {
+		[s1]:'Tom',
+		age:22
+	};
+
+	obj[s2] = 'jack';//用中括号把s2包括起来，代表用的是变量的值，如果用点的话，会被当做一个属性名
+	console.log(obj[s2]);
+
+	/*console.log(Object.getOwnPropertyDescriptors(obj));
+	for(let key in obj){
+		console.log(key,obj[key]);
+	}*/
+
+	console.log(Reflect.ownKeys(obj));
+	let keys = Reflect.ownKeys(obj);
+	for(let key of keys){
+		console.log(key,obj[key]);
+	}
+</script>
+</html>

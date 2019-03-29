@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*var id = 11;
+	function Timer(id){
+		this.id = id;
+		setTimeout(function(){
+			console.log(this,this.id);
+		},400)
+	}
+	new Timer(222);*/
+
+	/*var id = 11;
+	function Timer(id){
+		this.id = id;
+		setTimeout(()=>{
+			console.log(this,this.id);
+		},400)
+	}
+	new Timer(222);*/
+
+
+
+	/*
+	function fn(){
+		'use strict';
+		console.log(this);//在严格模式下，这个this是undefined
+	}
+	fn();
+	*/
+	let username = 'jack';
+	function fn(){
+		console.log(this.username);//undefined，因为使用let定义的变量，作用域是块级作用域，在fn函数里拿不到username
+	}
+	fn();
+
+
+
+
+</script>
+</html>

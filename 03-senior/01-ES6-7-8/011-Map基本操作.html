@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//类似于对象,但键的范围不限于字符串,各种类型的值(包括对象)都可以当作键的数据结构
+	/*let obj = {
+		name:'tom',
+		age:11
+	}
+	let obj1 = {id:100};
+	let obj2 = {id:101};
+	obj[obj1] = 'Teacher';
+	obj[obj2] = 'Student';
+	for(let key in obj){
+		console.log(key,typeof key);
+	}
+	console.log(obj);*/
+
+	let map = new Map();
+	/*map.name = 'jack';
+	map.age= 11;
+	map[{id:200}] = 'Teacher';
+	map[{id:201}] = 'Student';*/
+
+	let obj1 = {id:100};
+	let obj2 = {id:101};
+
+	map.set('name','jack');
+	map.set('age',11);
+	map.set(obj1,'Teacher');
+	map.set(obj2,'Student');
+
+	console.log(map);
+	map.set('age',20);
+
+	console.log(map.get('age'));
+	console.log(map.get(obj2));
+
+	console.log(map.delete('age'));
+	console.log(map.delete(obj1));
+
+	console.log(map.has('name'));
+	console.log(map.has(obj2));
+
+	console.log(map.clear());
+
+	console.log(map);
+	console.log(map.size);
+	/*for(let key in map){
+		console.log(key,typeof key);
+	}*/
+</script>
+</html>

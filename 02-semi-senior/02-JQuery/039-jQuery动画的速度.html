@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">开始</button>
+	<div></div>
+	<div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$("#btn1").on('click',function(){
+			$('div').eq(0).delay(1000).animate({width:300},1000,'swing',function(){
+				console.log('finished1');
+			});
+			$('div').eq(1).delay(1000).animate({width:300},1000,'linear',function(){
+				console.log('finished2');
+			});
+		})
+	})
+</script>
+</html>

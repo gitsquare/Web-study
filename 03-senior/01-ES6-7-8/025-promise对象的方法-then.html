@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	let p1 = new Promise((resolve,reject)=>{
+		resolve('成功');
+	})
+
+	/*console.log(Promise.prototype);
+	console.log(p1);
+	let p2 = p1.then((data)=>{
+		console.log(data);
+		return data;
+	})
+	console.log(p1 == p2);//false,then方法返回的是一个新的Promise实例
+	console.log(p2);
+
+	//新的promise的成功执行函数的参数由上一个promise的return决定
+	p2.then((data)=>{
+		console.log(data);
+	})
+	console.log(p2);
+*/
+
+	//如果return的是一个promise,则用then方法生成的新的promise是在return出去的promise的基础上包装成的。
+	let p3 = null;
+	let p2 = p1.then((data)=>{
+		console.log(data);
+		p3 = new Promise((resolve,reject)=>{
+			resolve('hi');
+		});
+		return p3;
+	})
+	p2.then((data)=>{
+		console.log(data);
+		console.log('p2===p3',p2===p3);
+	})
+	console.log(p2);
+</script>
+</html>

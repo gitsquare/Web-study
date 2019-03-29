@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+   <style>
+   	*{
+   		margin: 0;
+   		padding: 0;
+   	}
+   	div{
+   		width: 100px;
+   		height: 100px;
+   		border: 1px solid #000;
+
+   	}
+   </style>
+</head>
+<body>
+   <button>点击</button>
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			$('div').css({backgroundColor:'red',border:'5px dotted purple'});
+		})
+	})
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			margin-top: 30px;
+		}
+		.toblue{
+			background-color: blue;
+		}
+		.toblue:after{
+			content: '';
+			background-color: black;
+		}
+	</style>
+</head>
+<body>
+	<button id="btn1">设置</button>
+	<button id="btn2">获取</button>
+	<div id="box"></div>
+</body>
+<script>
+	var oBtn1 = document.getElementById('btn1');
+	var oBtn2 = document.getElementById('btn2');
+	var oBox = document.getElementById('box');
+	function getStyle(obj,attr,val){
+		if(arguments.length == 2){
+			return getComputedStyle(obj,false)[attr];
+		}else{
+			return obj.style[attr] = val;
+		}
+	}
+	oBtn1.onclick = function(){
+		console.log(getStyle(oBox,'width','300px'));
+	}
+	oBtn2.onclick = function(){
+		console.log(getStyle(oBox,'width'));
+	}
+</script>
+</html>

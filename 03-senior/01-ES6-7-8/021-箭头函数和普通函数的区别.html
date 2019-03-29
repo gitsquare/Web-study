@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//箭头函数没有原型对象,所以不能用箭头函数来定义构造函数
+	/*function Person(){
+
+	}
+	console.log(Person.prototype);
+	console.log(new Person());*/
+
+	/*let Person = ()=>{
+
+	}
+	console.log(Person.prototype);*/
+
+	//箭头函数中没有arguments
+	/*function Person(){
+		console.log(arguments);
+	}
+	Person(1,2,3);*/
+
+	/*let Person = ()=>{
+		console.log(arguments);
+	}
+	Person(1,2,3)*/
+
+	//如果定义有名称的箭头函数,需要把箭头函数赋值给变量,所以箭头函数不存在声明的提升
+	/*Person(1,2,3);
+	function Person(){
+		console.log(arguments);
+	}*/
+
+	/*Person(1,2,3);
+	let Person = (n1,n2,n3)=>{
+		console.log(n1,n2,n3);
+	}*/
+
+	
+	/*fn();
+	let fn = function(){
+		console.log(1);
+	}*/
+</script>
+</html>

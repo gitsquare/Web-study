@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<button>移除</button>
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		function fn(){
+			alert('hi');
+		}
+		$('div').click(function(){
+		 	alert('hi1')
+		});
+		$('div').click(fn);
+		$('div').on('click',function(){
+			alert('hi2')
+		});
+		$('div').on('mouseover',function(){
+			alert('mouseover')
+		});
+
+		$('button').on('click',function(){
+			// $('div').off();
+			// $('div').off('click');
+			$('div').off('click',fn);
+		})	
+	})
+</script>
+</html>

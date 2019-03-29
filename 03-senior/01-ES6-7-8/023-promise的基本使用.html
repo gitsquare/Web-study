@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//Promise实例生成以后,可以用then方法分别指定resolved状态和rejected状态的回调函数,rejected状态的回调函数可以省略
+
+	//1.new Promise 新建后，传入的函数就会立即执行
+	let promise = new Promise((resolve,reject)=>{
+		console.log('kaishi');
+		//2.执行异步请求
+
+		//模拟异步请求成功
+		// resolve('成功');
+
+		//模拟异步请求失败
+		reject('失败');
+	});
+	// console.log(promise);
+
+	//3.通过promise实例对异步请求结果进行处理
+	promise.then((data)=>{
+		console.log('go',data)
+	},(err)=>{
+		console.log('failed',data)
+	})
+
+</script>
+</html>

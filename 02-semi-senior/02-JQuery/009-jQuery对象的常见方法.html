@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>1</div>
+	<div class="div2">2</div>
+	<div class="div3" data-key2='22'>3</div><!-- 以  data- 开头 -->
+	<div>4</div>
+	<div>5</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div').index(document.querySelector('.div2')));
+		console.log($('div').index($(document.querySelector('.div2'))));
+
+		$('div').each(function(index,element){
+			console.log(index,element);
+			console.log(this);//
+		})//这种方法更加灵活
+		$.each($('div'),function(index,element){
+			console.log(index,element);
+		})
+
+		$('.div2').data('age','20');//存储数据
+		console.log($('.div2').data('age'));//获取数据
+
+		console.log($('.div3').data('key2'));
+	})
+</script>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function fn(){
+		await 'hi';
+	}*///await is only valid in async function
+
+	//1.await只能放到async函数体中,一般async要和await配合使用
+	async function fn(){
+		let data1 = await 5+5;//2.await表示后面的处理需要等待，如果后面不是异步的promise，直接返回对应的值。await后面async函数内部return语句返回的值，会成为then方法回调函数的参数,如果没有return，则参数为undefined
+	}
+	console.log(fn());
+
+	
+
+	//3.await表示后面的处理需要等待,通常await后面是一个 Promise 对象，返回该对象的结果
+	let promise = new Promise((resolve,reject)=>{
+		setTimeout(()=>{
+			resolve('hello');
+		},100)		
+	})
+	/*async function fn2(){
+		let data2 = await promise;
+		console.log(data2);
+	}
+	fn2();*/
+
+	async function fn3(){
+		await Promise.reject('出错了！');
+		//如果await后面跟的是一个reject的promise，则不会继续向下解析
+		let data3 = await promise;
+		console.log(data3);
+	}
+	fn3()
+	.catch(err=>{
+		console.log(err);
+	})
+
+	//防止出错的方法，是await语句放在try...catch代码块之中。此处不太理解
+	async function fn4(){
+		try{
+			await Promise.reject('出错了');
+		}
+		catch(err){
+			console.log(err);
+		}
+
+		try{
+			let data4 = await promise;
+			console.log(data4);			
+		}
+		catch(err){
+			console.log(err);
+		}
+	}
+	fn4();
+</script>
+</html>

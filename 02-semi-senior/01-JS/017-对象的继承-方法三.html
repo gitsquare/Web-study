@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		console.log('ppp')
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log('I am'+ this.age);
+	}
+	Object.defineProperty(Person.prototype,'showAge',{
+		value:function(){
+			console.log('I am'+ this.age);
+		},
+	})
+	Person.prototype.EYES = 2;
+
+
+
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype.showMajor = function(){
+		console.log('I am from'+this.major);
+	}
+	/*//第一种方法
+	//Student.prototype = Person.prototype;
+	//第二种方法
+	for(var attr in Person.prototype){
+		Student.prototype[attr] = Person.prototype[attr];
+	}*/
+	//第三种方法
+	console.log(Student.prototype);
+	Student.prototype = new Person();
+	Student.prototype.constructor = Student;
+	console.log(Student.prototype);
+
+	Student.prototype.showMajor = function(){
+		console.log('I am from'+this.major);
+	}
+
+	var Student1 = new Student('Tom','20','computer');
+	console.log(Student1);
+
+	console.log(Student.prototype);
+	console.log(Person.prototype);
+	console.log(new Person());
+</script>
+</html>

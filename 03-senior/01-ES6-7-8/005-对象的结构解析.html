@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+
+	//对象结构的写法，意思是先声明变量然后在对象中寻找同名属性，最后将属性值赋值给变量
+	//所以结构解析的时候必须用let或const或var定义变量。
+	let obj = {
+		name:'jack',
+		age:11,
+		sex:'male'
+	}	
+	/*var name = obj.name;
+	var age = obj.age;
+	var sex = obj.sex;
+	console.log(name,age,sex);*/
+
+	let {name:name1,age:age1,sex:sex1}=obj;
+	console.log(name1,age1,sex1);
+
+
+	/*let {name,age,sex}=obj;
+	console.log(name,age,sex);*/
+
+	/*let {name,sex,age,friend}=obj;
+	console.log(name,age,sex,friend);*/
+	//默认值只在该属性真的没有值的或值为undefined的时候才会返回
+
+	let {name,sex,age,friend='tom'}={
+		name:'jack',
+		age:11,
+		friend:'leo',
+		sex:'male'
+	}
+	console.log(name,age,sex,friend);
+	//和属性顺序无关，只要找到对应的属性就行。	
+	console.log(Object);
+</script>
+</html>

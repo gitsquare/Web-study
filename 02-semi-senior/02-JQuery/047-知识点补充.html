@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			margin-top: 10px;
+		}
+		.div3{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div style="opacity: 0;width: 0;height: 0">div1</div>
+	<div>div2</div>
+	<div class="div3">div3</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//hover事件
+		/*$('div').hover(function(){
+			console.log('in');
+		},function(){
+			console.log('out');
+		})*/
+
+		//jQuery对象.is(选择器) ,检测jQuery对象中是否有匹配元素
+		/*console.log($('div').is('.div3'));
+		console.log($('div').is('p'));*/
+
+		//可见性过滤
+		console.log($('div:hidden'));
+		console.log($('div:visible'));
+
+		//$.proxy(函数,内部this),改变函数的内部this指向
+		/*function fn(){
+			console.log(this);
+		}
+		var fn1 = fn.bind({name:'Tom'});
+		fn1();
+		var fn2 = $.proxy(fn,{name:'jack'});
+		fn2();*/
+	})
+</script>
+</html>

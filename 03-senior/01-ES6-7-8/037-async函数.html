@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.async function表示这个函数里面有异步处理	
+	async function fn(){
+		return 5+5;//2.async函数内部return语句返回的值，会成为then方法回调函数的参数,如果没有return，则参数为undefined
+	}
+	console.log(fn());
+
+	//3.async函数返回一个 Promise 对象，可以使用then方法添加回调函数。
+	fn()
+	.then((data)=>{
+		console.log(data);
+	})
+
+
+</script>
+</html>

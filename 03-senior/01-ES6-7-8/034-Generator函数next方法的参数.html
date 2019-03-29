@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function * gen(x){
+		console.log('x=',x);//5
+		let y = yield (x+5);
+		console.log('y=',y);//20
+		let z = yield (y+10);
+		console.log('z=',z);//50
+	}
+
+	let g = gen(5);
+	//next方法可以带一个参数，该参数就会被当作上一个yield表达式的返回值。如果不传参数，则表达式返回值是undefined
+	console.log(g.next(100));//value:10由于next方法的参数表示上一个yield表达式的返回值，所以在第一次使用next方法时，传递参数是无效的。
+	console.log(g.next(20));//value:30
+	console.log(g.next(50));//value:undefined*/
+
+
+	
+
+	function * gen(x){
+		console.log('x=',x);
+		let y = yield (x + 5);
+		console.log('y=',y);
+		let z = yield (y + 10);
+		console.log('z=',z);
+		return (x + y + z);
+
+	}
+
+	let g = gen(5);
+	console.log(g);
+	
+	/*console.log(g.next());//{value:10,done:false}
+	console.log(g.next());//{value:NaN,done:false}
+	console.log(g.next());//{value:NaN,done:true}*/
+	
+	console.log(g.next());//{value:10,done:false}
+	console.log(g.next(20));//{value:30,done:false}
+	console.log(g.next(40));//{value:65,done:true}
+</script>
+</html>

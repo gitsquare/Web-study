@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			display: flex;
+		}
+		.son{
+			height: 50px;
+		}
+		.s1{
+			width: 100px;
+			background-color: red;
+			flex-basis: 1;
+		}
+		.s2{
+			width: 200px;
+			background-color: purple;
+			flex-basis: 0;
+		}
+		.s3{
+			width: 300px;
+			background-color: skyblue;
+			flex-basis: 1;
+			flex: 0;
+			/*
+			默认是0 1 auto
+			但是一般只写0就可以了，后面两个属性可选
+			*/
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son s1">div1</div>
+		<div class="son s2">div2</div>
+		<div class="son s3">div3</div>
+	</div>
+</body>
+</html>

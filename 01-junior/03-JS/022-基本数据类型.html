@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box"></div>
+</body>
+<script>
+	var a;
+	console.log(a);
+	console.log(typeof a);
+	console.log(typeof b);
+
+	var b = document.getElementById('box');
+	console.log(b);
+	console.log(typeof b);
+
+	var c = null;
+	console.log(c);
+	console.log(typeof c);
+
+	var d = 1;
+	console.log(d);
+	console.log(typeof d);
+
+	var e = "string字符串"
+	console.log(e);
+	console.log(typeof e);
+
+	var f = true;
+	var g = false;
+	console.log(f);
+	console.log(g);
+	console.log(typeof f,typeof g);
+
+	//所有类型的值都可以表示布尔值
+	if(true){
+		console.log('1');
+	}
+	if(1){
+		console.log('2');
+	}
+	if('zifu'){
+		console.log('3');
+	}
+	if(' '){
+		console.log('4');
+	}
+	if(document){
+		console.log('5');
+	}
+	function show(){
+
+	}
+	if(show){
+		console.log('6');
+	}
+
+
+
+
+
+	if(false){
+		console.log('1');
+	}
+	if(0){
+		console.log('2');
+	}
+	if(''){
+		console.log('3');
+	}
+	if(null){
+		console.log('4');
+	}
+	if(b){
+		console.log('5');
+	}
+	if(undefined){
+		console.log('6');
+	}
+</script>
+</html>

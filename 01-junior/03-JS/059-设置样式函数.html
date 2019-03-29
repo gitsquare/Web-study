@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		ul{
+			margin: 100px auto;
+			width: 600px;
+		}
+		li{
+			float: left;
+			list-style: none;
+			width: 100px;
+			height: 100px;
+			background-color: #000;
+			margin-right: 30px;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</body>
+<script>
+	var oBox1 = document.getElementsByTagName('li')[0];
+	var oBox2 = document.getElementsByTagName('li')[1];
+	var oBox3 = document.getElementsByTagName('li')[2];
+
+	function css(obj,attr,val){
+		obj.style[attr] = val;
+
+	}
+	oBox1.onclick = function(){
+		css(oBox1,'width','200px')
+		css(oBox1,'height','200px')
+		css(oBox1,'backgroundColor','red')
+	}
+	oBox2.onclick = function(){
+		css(oBox2,'width','50px')
+		css(oBox2,'height','50px')
+		css(oBox2,'backgroundColor','green')
+	}
+</script>
+</html>

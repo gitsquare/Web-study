@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.father{
+			width: 1000px;
+			height: 600px;
+			border: 1px solid #000;
+			margin: 50px auto;
+			display: flex;
+		}
+		.son{
+			height: 50px;
+		}
+		.s1{
+			width: 200px;
+			background-color: red;
+			flex-grow: 2;
+		}
+		.s2{
+			width: 200px;
+			background-color: purple;
+			flex-grow: 1;
+		}
+		.s3{
+			width: 200px;
+			background-color: skyblue;
+			flex-grow: 1;
+		}
+	</style>
+</head>
+<body>
+	<div class="father">
+		<div class="son s1">div1</div>
+		<div class="son s2">div2</div>
+		<div class="son s3">div3</div>
+	</div>
+</body>
+</html>

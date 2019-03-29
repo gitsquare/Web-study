@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function friend(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	friend.prototype.showName = function(){
+		console.log('fr'+this.name);
+	}
+	friend.prototype.showAge = function(){
+		console.log(this.age);
+	}
+	friend.prototype.EYES = 4;
+
+	var friend1 = new friend('Tom','20');
+	Object.defineProperties(friend1,{
+		LEGS:{
+			value:5,
+			enumerable:true,
+			writable:true,
+			configurable:true
+		},
+		ARMS:{
+			value:6,
+			enumerable:true,
+			writable:true,
+			configurable:true
+		}
+	})
+	console.log(friend1);
+	for(var attr in friend1){
+		console.log(attr,friend1[attr]);
+	}
+
+	console.log(Object.getOwnPropertyDescriptor(friend1,'LEGS'));
+	console.log(Object.getOwnPropertyDescriptor(friend1,'name'));
+	console.log(Object.getOwnPropertyDescriptor(friend1,'showName'));//在原型上，所以是undefined
+</script>
+</html>

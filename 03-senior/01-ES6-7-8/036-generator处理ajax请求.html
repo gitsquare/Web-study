@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>035-遍历generator遍历器.html</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+<script>
+	let getDataPromise = url=>{
+		return new Promise((resolve,reject)=>{
+			$.get(url,data=>{
+				resolve(data);
+			})
+		})
+	}
+	function * gen(url){
+		let data1 = yield getDataPromise(url);
+		let data2 = yield getDataPromise(data1);
+		let data3 = yield getDataPromise(data2);
+		console.log(data3);
+	}
+	let g = gen('https://api.github.com/users/kuazhu');
+	g.next().value
+	.then(data=>{
+		return g.next(data.followers_url).value//传的参数作为上一次yield表达式的返回值		
+	})
+	.then(data=>{
+		return g.next(data[0].followers_url).value
+	})
+	.then(data=>{
+		// console.log(data);
+		g.next(data);
+	})
+
+
+
+	
+
+</script>
+</html>

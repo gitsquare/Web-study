@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//内部执行环境可以通过一个链条向上搜索作用域中的变量或者函数,这个链条就是作用域链
+	var a = 1;
+	var b = 22;
+	function fn1(){
+		var b = 2;
+		console.log("fn1 a",a);
+		console.log("fn1 b",b);
+		function fn2(){
+			var c = 3;
+			var b = 4;
+			var b = 111;
+			console.log("fn2 a",a);
+			console.log("fn2 b",b);
+			console.log("fn2 c",c);
+			var a = 1;
+		}
+		fn2();
+	}
+	fn1();
+</script>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//局部执行环境也叫函数执行环境
+	var a = 1;
+	function fn(){
+		var a = 2;
+		console.log(a);
+	}
+	fn();
+	console.log('aa');
+	console.log(a)
+</script>
+</html>

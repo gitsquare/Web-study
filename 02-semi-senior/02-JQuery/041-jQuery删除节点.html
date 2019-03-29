@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			border: 1px solid #000;
+			width: 100px;
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<button>删除1</button>
+	<button>删除2</button>
+	<button>删除3</button>
+	<div>
+		我是div
+		<p>我是段落</p>
+	</div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('div').on('click',function(){
+			alert('div');
+		});
+		$('button').eq(0).on('click',function(){
+			var $div = $('div').remove();
+			console.log($div);
+			$('body').append($div);
+		});
+		$('button').eq(1).on('click',function(){
+			var $div = $('div').empty();
+		});
+		$('button').eq(2).on('click',function(){
+			var $div = $('div').detach();
+			$('body').append($div);
+		});
+	})
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.showName = function(){
+		console.log('I am'+ this.age);
+	}
+	Person.prototype.showAge = function(){
+		console.log('I am'+ this.age);
+	}
+	Person.prototype.EYES = 2;
+
+
+
+	function Student(name,age,major){
+		Person.call(this,name,age);
+		this.major = major;
+	}
+	Student.prototype.showWeight = function(){
+		console.log('I am'+this.weight);
+	}
+
+	/*var Student1 = new Student('Tom',20,'computer');
+	console.log(Student1);
+	var Student2 = new Student('jack',18,'tumu');
+	console.log(Student2);*/
+	var Student1 = new Student('Tom',20,'computer');
+	Student1.showWeight();
+	Student.prototype = Person.prototype;
+	console.log(Student1);
+	Student.prototype.LEGS = 3;
+	console.log(Student1);
+
+	Student.prototype.showMajor = function(){
+		console.log('I am from'+this.major);
+	}
+	console.log(Student1);
+	var Person1 = new Person('rose',40);
+	console.log(Person1);
+
+	console.log(Person.prototype);
+
+	Student1.weights();//因为Student的prototype原型指向了Person的原型，所以在Student.prototype = Person.prototype之前的方法不能够访问到了
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//碰到return函数就停止，不向下进行了
+	function sum(){
+		var result = 0;
+		for(var i = 0;i<arguments.length;i++){
+			result += arguments[i];
+		}
+		return 123;
+		console.log(arguments[0]);
+	}
+	console.log(sum(1,2,3,4,10));
+</script>
+</html>

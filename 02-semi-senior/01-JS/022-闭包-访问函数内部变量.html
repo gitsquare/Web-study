@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	/*function fn1(){
+		var n = 1;
+		add = function(){
+			n++;
+		}
+		return function(){
+			return n;
+		}
+	}
+	var result = fn1();
+	console.log(result());//1
+	add();
+	console.log(result());//2*/
+
+	function fn1(){
+		var n = 1;
+		return fn2 = function(){
+			console.log(n);
+			n++;
+		}
+	}
+	fn1();
+	// fn1()();
+	console.log(window);
+</script>
+</html>

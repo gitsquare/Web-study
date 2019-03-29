@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" value="aaa" name="a1">
+	<input type="text" value="bbb" name="b1">
+	<input type="checkbox" checked>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		//获取
+		/*console.log($('input').attr('name'));	
+		console.log($('input').eq(1).attr('name'));	
+		console.log($('input').prop('name'));	
+
+		console.log($('input').eq(2).attr('checked'));
+		console.log($('input').eq(2).prop('checked'));*/
+
+		//设置
+		/*console.log($('input').attr('value','a2'));
+		console.log($('input').prop('value','a2'));*/
+
+		//删除
+		// console.log($('input').removeAttr('value'));
+		/*console.log($('input').removeProp('value'));
+		console.log($('input').eq(2).removeAttr('name'));*/
+		console.log($('input').eq(2).removeProp('name'));
+	})
+</script>
+</html>

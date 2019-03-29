@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Document</title>
+</head>
+<body>
+   
+</body>
+<script>
+ 	(function(){
+ 		window.$=function(){
+ 			console.log('$$$');
+ 		}
+ 	})(window);
+</script>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	/*$(function(){
+		console.log('hi');
+	});*/
+
+	//第一种方法
+	/*jQuery.noConflict();
+	$();
+	jQuery(function(){
+		console.log('hello');
+	})*/
+
+	//第二种方法
+   var kz = jQuery.noConflict();
+   $();
+   kz(function(){
+    console.log('hello');
+   });
+
+</script>
+</html>

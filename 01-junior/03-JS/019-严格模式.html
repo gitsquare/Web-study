@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>019-严格模式.html</title>
+	<script>
+		//放在第一行，对整个文件起作用
+		/*"use strict"
+		function sayHi(){
+			alert(!this);
+		}
+		function sayHello(){
+			alert(!this);
+		}
+		sayHi();
+		sayHello();*/
+
+
+		//放在某个函数的第一行，对整个函数起作用
+		function sayHi(){
+			"use strict"
+			alert(!this);
+		}
+		function sayHello(){
+			alert(!this);
+		}
+		sayHi();
+		sayHello()
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

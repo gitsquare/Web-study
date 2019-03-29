@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function fact(n){
+		if(n==1){
+			return 1;
+		}//递归调用的终止条件，如果没有会发生爆栈
+		// return n * fact(n-1);
+		return n * arguments.callee(n-1);
+	}
+	console.log(fact(5));
+
+	var fact2 = fact;
+	console.log(fact);
+	fact = 1;
+	console.log(fact2);
+	console.log(fact);
+</script>
+</html>

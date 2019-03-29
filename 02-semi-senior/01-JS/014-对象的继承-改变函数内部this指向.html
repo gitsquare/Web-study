@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function Person(n1,n2){
+		console.log(this)
+		console.log(n1,n2)
+	}
+
+	Person.call(1,2,3);
+	Person.call({
+		name:'first'
+	},2,3);
+	Person.call(null,2,3);
+
+	Person.apply(1,[2,3]);
+	Person.apply({
+		name:'second'
+	},[2,3]);
+	Person.apply(null);
+
+
+	console.log(Person.bind());
+	var Person1 = Person.bind(1);
+	Person1(2,3);
+	Person.bind({
+		name:'third'
+	})(4,5);
+	Person.bind(null)(4,5);
+	
+
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var a = 1;
+	function fn(){
+		console.log("fn",a);
+		//a = 2;//代表重新给a赋值；
+		 var a = 2;//写var代表重新定义了一个变量a；
+		function fn1(){
+			console.log('fn1',a);
+		}
+		fn1();
+	}
+	fn();
+	console.log("global",a);
+	console.log(window);
+</script>
+</html>

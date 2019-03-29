@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//1.定义常量(一旦定义,值就不能改变)
+	/*const a = 1;
+	a= 2;*/
+
+	//2.定义常量的时候必须赋初值
+	// const a = 1;
+	// console.log(a);
+	// let sssz = '111';
+	// const b = sssz;
+	// console.log(b);
+
+	//3.对于简单数据来说值就保存在变量指向的那个内存地址,因此不可以再赋值
+	/*const a = 1;
+	a=2;*/
+	//4.对于复杂数据来说常量指向数据保存的地址,const保证的是这个地址不变,但地址指向的数据是可以修改的
+	/*const CONFIG = {
+		name:'xxx',
+		age:11
+	}
+	CONFIG.name = 'yyy';
+	CONFIG.age = 22;
+	console.log(CONFIG);*/
+
+	//5.const定义的常量在const命令所在的代码块内有效
+	/*if(true){
+		const a = 1;
+		console.log(a);
+	}
+	console.log(a);*/
+
+	//6.const定义的常量不会声明提升
+	console.log(a);
+	const a = 1;
+</script>
+</html>

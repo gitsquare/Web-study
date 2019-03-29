@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	class Person{
+		constructor(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		sayName(){
+			console.log('I am '+ this.name);
+		}
+		sayAge(){
+			console.log('I am '+ this.age);
+		}
+		static sayHi(){
+			console.log('hi');
+		}
+	}
+	let p = new Person('jack',22);
+	console.log(p);
+	p.sayName('jack');
+	p.sayAge(22);
+	Person.sayHi();
+
+	//通过extends关键字实现继承
+	class Student extends Person{
+		constructor(name,age,major){
+			super(name,age);//在子类的构造函数中,只有调用super之后,才可以使用this关键字.子类必须在constructor方法中调用super方法,该super方法实际上是调用父类的constructor
+			this.major = major;
+		}
+		sayMajor(){
+			console.log('I am from '+this.major);
+		}
+	}
+	let s = new Student('小明',18,'machine');
+	console.log(s);
+	s.sayName();
+	s.sayAge();
+	s.sayMajor();
+	Student.sayHi();//父类的静态方法,可以被子类继承
+	console.log(Student.prototype.constructor);
+</script>
+</html>

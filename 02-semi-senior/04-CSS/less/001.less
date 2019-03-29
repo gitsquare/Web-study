@@ -1,0 +1,138 @@
+//我是注释一 编译被删除
+/*我是注释二 编译被保留*/
+@color:#00f;
+@width:200px;
+@height:100px;
+
+.box1{
+	color: @color;
+	width:@width;
+	height: @height;
+	background: skyblue;
+}
+.box2{
+	/* color: @color;
+	width:@width;
+	height: @height; */
+	//基本混合，直接把选择器写在另一个选择中
+	.box1;
+}
+.border-radius(@r){
+	-webkit-border-radius:@r;
+	-ms-border-radius:@r;
+	-o-border-radius:@r;
+	border-radius: @r;
+}
+.border-radius-def(@r:20px){
+	-webkit-border-radius:@r;
+	-ms-border-radius:@r;
+	-o-border-radius:@r;
+	border-radius: @r;
+}
+.box3{
+	.box1;
+	// .border-radius(50px);
+	.border-radius-def(50px);
+}
+/* .triangle{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+	border-width: 10px;
+	border-color: transparent red transparent transparent;
+} */
+
+.triangle(top,@w,@c){//top是匹配模式不是参数
+	/* width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid; */
+	border-width: @w;
+	border-color: @c transparent transparent transparent;
+}
+.triangle(left,@w,@c){
+	/* width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid; */
+	border-width: @w;
+	border-color: transparent transparent transparent @c;
+}
+.triangle(bottom,@w,@c){
+	/* width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid; */
+	border-width: @w;
+	border-color: transparent transparent  @c transparent;
+}
+.triangle(right,@w,@c){
+	/* width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid; */
+	border-width: @w;
+	border-color: transparent @c transparent transparent;
+}
+.triangle(@_,@w,@c){
+	width: 0;
+	height: 0;
+	overflow: hidden;
+	border-style: solid;
+}
+.box4{
+	.triangle(top,20px,purple);
+}
+
+.list{
+	width: 500px;
+	li{
+		width: 100%;
+		height: 30px;
+		line-height: 30px;
+		list-style: none;
+		span{
+			float: left;
+		}
+		a{
+			float: right;
+			text-decoration: none;
+		}
+		&:hover{
+			background: yellow;
+		}
+	}
+}
+.fs(@val){
+	// font-size: @val;
+	// font-size: @val + 10px;
+	font-size: @val - 10px;
+	// font-size: @val * 10px;
+	// font-size: @val / 10px;
+}
+.box5{
+	.fs(20px);
+}
+
+.box6{
+	font-size: ~'calc(30px - 10px)';
+}
+.box7{
+	.box1 !important;
+}
+
+/* .set(@attr,@val){
+	@{attr}:@val;
+}
+.box8{
+	color: #00f;
+	.set(width,10px);
+} */
+.set(@attr,@val){
+	@{attr}:unit(@val*5,px);
+}
+.box8{
+	color: #00f;
+	.set(width,10);
+}

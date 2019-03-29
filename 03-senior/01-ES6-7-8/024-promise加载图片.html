@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	//加载是异步操作，不能立即知道是否加载成功，方法一：利用回调函数；方法二：通过事件
+	/*function loadImg(url,success,error){
+		var img = new Image();
+		img.onload = function(){
+			success(url);
+		}
+		img.onerror = function(){
+			error(url);
+		}
+		img.src = url;
+		console.log(img);
+	}
+	loadImg('images/a.jpg',function(url){
+		console.log('loadImg is successed '+url);
+	},function(url){
+		console.log('loadImg is failed '+url);
+	})*/
+
+	/*let promise = new Promise((resolve,reject)=>{
+		var img = new Image();
+		img.onload = ()=>{
+			resolve('images/a.jpg');
+		}
+		img.onerror = ()=>{
+			reject('images/a.jpg');
+		}
+		img.src = 'images/a.jpg';
+	})
+	promise
+	.then((url)=>{
+		console.log(url+' is successed');
+	},(err)=>{
+		console.log(err+' is failed');
+	})*/
+
+	let getLoadImgPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			var img = new Image();
+			img.onload = ()=>{
+				resolve(url);
+			}
+			img.onerror = ()=>{
+				reject(url);
+			}
+			img.src = url;
+		})
+		
+	}
+	getLoadImgPromise('images/aa.jpg')
+	.then((url)=>{
+		console.log(url+' is successed');
+	},(err)=>{
+		console.log(err+' is failed');
+	})
+
+	/*function loadImg(url,success,error){
+		var img = new Image();
+		img.onload = function(){
+			console.log('suc');
+		}
+		img.onerror = function(){
+			console.log('fai');
+		}
+		img.src = url;
+	}
+	loadImg('images/bs.jpg');*/
+	
+</script>
+</html>

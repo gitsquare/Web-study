@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div>我是文字</div>
+	<div><p>我是文字2</p></div>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		console.log($('div:eq(3)'));
+	})
+	$(function(){
+		console.log($('div:eq(-1)'));//倒数第一个
+		console.log($('div:eq(-4)'));//倒数第四个
+	})
+</script>
+</html>

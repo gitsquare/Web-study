@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+<script>
+	/*let arr = [1,2];
+	console.log(arr);
+	console.log(...arr);*/
+
+	//函数调用时使用把数组转换为参数列表
+	/*function sum(n1,n2){
+		return n1+n2;
+	}
+	console.log(sum(...arr));*/
+
+	//函数定义时使用把参数列表转换为数组
+	function sum(...arr){
+		console.log(arguments);
+		console.log(...arr);
+		console.log(arr);
+		let result = 0;
+		for(var i = 0;i<arr.length;i++){
+			result += arr[i];
+		}
+		return result;
+	}
+	console.log(sum(1,2));
+	
+	//求数组的最大数
+	/*let arr = [21,3,5,75,13,77];
+	console.log(Math.max.apply(null,arr));
+	console.log(Math.max(...arr));*/
+
+	//深拷贝数组
+	let arr = [21,3,5,75,13,77];
+
+	/*let arr2 = arr.concat();
+	console.log(arr2);
+
+	let arr3 = arr.slice();
+	console.log(arr3);
+	*/
+
+	/*let arr4 = [...arr];
+	console.log(arr4);*/
+
+	let [...arr4] = arr;
+	console.log(arr4);
+
+
+	//可以用数组的扩展运算来把伪数组转换伪真数组
+	let aDiv = document.getElementsByTagName('div');
+	let arr11 = [...aDiv];
+	console.log(arr11);
+
+
+	function show(n1,n2,n3){
+		console.log(arguments);
+		let arr22 = [...arguments];
+		console.log(arr22);
+	}
+	show(1,2,3);
+
+	let str = 'zifuchuan';
+	console.log(str.length);
+	console.log(str);
+	let arr33 = [...str];
+	console.log(arr33);
+</script>
+</html>

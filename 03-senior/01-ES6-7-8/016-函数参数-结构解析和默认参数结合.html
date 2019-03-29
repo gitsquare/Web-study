@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function show(url,{method='GET',body='name=tom'}={}){
+		console.log(url,method,body);
+	}
+	show('https://www.kuazhu.com/');
+	show('https://www.kuazhu.com/',{body:'name=jack'});
+	show('https://www.kuazhu.com/',{body:'name=jack',method:'POST'});
+</script>
+</html>

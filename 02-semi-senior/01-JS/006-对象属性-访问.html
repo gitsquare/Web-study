@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	function friend(name,age){
+		// this.name = name;
+		this.age = age;
+	}
+/*	friend.prototype.showName = function(){
+		console.log('fr'+this.name);
+	}
+	friend.prototype.showAge = function(){
+		console.log(this.age);
+	}*/
+	friend.prototype = {
+		info:{
+			name:'jack'
+		}
+	}
+	// Object.prototype.name = 'rose';
+
+
+	var friend1 = new friend('tom','20');
+	var friend2 = new friend('gff','210');
+	friend1.info.name = 'h111';
+	// friend2.info.name = 'h222';
+	console.log(friend1.info.name);
+	console.log(friend2.info.name);
+	/*console.log(friend1.showName);
+	console.log(friend1.toString);
+	console.log(friend1.test);
+	friend1.showAge();
+	friend1.test();*/
+</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	var fn = function(x,y){
+		console.log(x,y);
+		return x+y;
+	}
+	console.log(fn(1,5));
+
+	let fn2 = (x,y)=>{
+		console.log(x,y);
+		return x+y;
+	}
+	console.log(fn2(4,4));
+
+	let fn3 = x =>{
+		console.log(x);
+		return x;
+	}
+	console.log(fn3(9));
+</script>
+</html>

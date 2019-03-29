@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id="btn1">点击</button>
+</body>
+<script>
+	console.log(fn);
+	console.log(sayHi);
+
+	var oBtn1 = document.getElementById('btn1');
+	sayHi();
+	function sayHi(){
+		alert('hi');
+	}
+	oBtn1.onclick = sayHi;
+
+
+	oBtn1.onclick = function(){
+		alert('hi');
+	}
+
+
+	/*fn();*/
+	var fn = function(){
+		alert('hi');
+	}
+	fn();
+</script>
+</html>

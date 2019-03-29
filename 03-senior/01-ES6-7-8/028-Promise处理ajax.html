@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+
+	/*$.get('https://api.github.com/users/kuazhu',(data)=>{
+		console.log(data);
+		$.get(data.followers_url,(data1)=>{
+			console.log(data1);
+			$.get(data1[0].followers_url,(data2)=>{
+				console.log(data2);
+			})
+		})
+	})*/
+
+
+
+
+
+	let getDataPromise = (url)=>{
+		return new Promise((resolve,reject)=>{
+			$.get(url,(data)=>{
+				resolve(data);
+			})
+		})
+	}
+	let promise = getDataPromise('https://api.github.com/users/kuazhu');
+
+	promise
+	.then(data1=>{
+		getDataPromise(data1.followers_url)
+		.then(data2=>{
+			getDataPromise(data2[0].followers_url)
+			.then(data3=>{
+				console.log(data3);
+			})
+		})
+	})
+
+	/*promise
+	.then(data1=>{
+		return getDataPromise(data1.followers_url);
+	})
+	.then(data2=>{
+		return getDataPromise(data2[0].followers_url);
+	})
+	.then(data3=>{
+		console.log(data3);
+	})*/
+</script>
+</html>

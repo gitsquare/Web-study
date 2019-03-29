@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>038-逻辑运算.html</title>
+	<script>
+		
+		var a = 0;
+		console.log(!!a);//变成布尔值true
+		console.log(typeof !!a);
+		console.log(!false);
+		console.log(!true);
+		
+		//console.log(0 && 1);//0
+		
+		if(1 && 1){
+			console.log('true');
+		}
+		console.log(1&&2&&3&&4);
+		console.log(1&&undefined);
+		//console.log(1 && 2);//2
+		//console.log(1 && null);//null
+		// console.log(0 || 1);//1
+		// console.log(0 || null);//null
+		// console.log(2 || 3);//2
+		// console.log(4 || null);//4
+		//console.log(undefined || 5);//5
+		if(null || undefined || 1){
+			console.log(true);
+		}
+		console.log(null || undefined || null);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
