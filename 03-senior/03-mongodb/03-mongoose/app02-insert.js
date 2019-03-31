@@ -48,7 +48,7 @@ db.once('open',()=>{
 	})*/
 	//第二种方法
 	//插入一条
-	/*UserModel.insertMany({name:getName(),age:getRandom(10,100),major:getMajor()},(err,doc)=>{
+	/*UserModel.insert({name:getName(),age:getRandom(10,100),major:getMajor()},(err,doc)=>{
 		if(err){
 			console.log('updateMany err',err);
 		}else{

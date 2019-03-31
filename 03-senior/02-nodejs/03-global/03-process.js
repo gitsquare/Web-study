@@ -15,11 +15,15 @@
 
 //将 callback 添加到下一个时间点的队列。 
 //一旦当轮的事件循环全部完成，则调用下一个时间点的队列中的所有回调。
-console.log(1);
-process.nextTick(()=>{
-	console.log(2);
-})
-console.log(3);
+for(let i = 0;i<=3;++i){
+		process.nextTick(()=>{
+		console.log(i);
+	})
+}
+//使用let定义的变量的作用域是块级作用域
+/*console.log(1);
+
+console.log(3);*/
 //功能：在事件循环的下一次循环中调用 callback 回调函数。
 //效果是将一个函数推迟到代码书写的下一个同步方法执行完毕时或异步方法的事件回调函数开始执行时；与setTimeout(fn, 0) 函数的功能类似，但它的效率高多了。
 
