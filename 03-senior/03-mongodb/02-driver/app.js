@@ -24,14 +24,14 @@ client.connect(function(err) {
 
   //Insert a Document
   
-  /*collection.insertMany([{name:"Tom",age:19,major:"computer"},{name:"Jack",age:29,major:"computer"}],(err,result)=>{
+  collection.insertMany([{name:"Tom",age:19,major:"computer"},{name:"Jack",age:29,major:"computer"}],(err,result)=>{
   	if(err){
   		console.log('insertMany err:',err);
   	}else{
   		console.log(result);
   	}
   	client.close();
-  }) */
+  }) 
 
   //Find all
   /*collection.find({}).toArray((err,result)=>{
@@ -63,14 +63,14 @@ client.connect(function(err) {
   })*/
 
   //Remove a document
-  collection.deleteOne({name:"Tom"},(err,result)=>{
+ /* collection.deleteOne({name:"Tom"},(err,result)=>{
 	if(err){
 	console.log('Remove err:',err);
   	}else{
   		console.log(result);
   	}
   	client.close();
-  })
+  })*/
 
 
 });

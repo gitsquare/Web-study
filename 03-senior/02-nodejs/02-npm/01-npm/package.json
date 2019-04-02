@@ -10,3 +10,10 @@
   "author": "",
   "license": "ISC"
 }
+
+/*npm init会生成package.json文件,package.json 位于模块的目录下,
+用于定义包的属性,锁定大版本*/
+
+//参数--yes表明不出现提问设置,所有参数采用默认值 
+
+//在测试和学习阶段，用 npm init --yes 就可以了
