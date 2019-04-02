@@ -15,7 +15,7 @@ db.once('open',()=>{
 	BlogModel.insertMany({
 		title:"title2",
 		content:"content2",
-		author:"5ca2c2fd83a7723564e537e9"
+		author:"5ca301021bb3f214403c3cd0"
 	},(err,doc)=>{
 		if(err){
 			console.log('insertMany error',err);

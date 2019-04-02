@@ -19,12 +19,14 @@ db.on('error', (err)=>{
 db.once('open', ()=>{
 	console.log('connection successful');
 	//需求:找博文的标题是"title1"的第一篇文章的所有信息(包括博文的信息和作者的信息)
-	/*
-	BlogModel.findOne({title:"title1"},(err,blog)=>{
+	
+	/*BlogModel.findOne({title:"title1"},(err,blog)=>{
 		if(err){
 			console.log('find blog err::',err);
 		}else{
-			//console.log(blog);
+			// console.log(blog);
+
+			//定义一个对象
 			const result = {
 				blog:blog
 			};
@@ -36,23 +38,18 @@ db.once('open', ()=>{
 					console.log(result)
 				}
 			})
-
 		}
-	})
-	*/
-	/*
-	BlogModel.findOne({title:"title1"})
-	.populate('author','name age -_id')
+	})*/
+	
+	
+	/*BlogModel.findOne({title:"title1"})
+	.populate('author','name age -_id')//_id会默认存在，如果不要_id,则前面加-号
 	.then(result=>{
 		console.log(result);
-	})
-	*/
+	})*/
+	
 	BlogModel.findBlog({title:"title1"})
 	.then(result=>{
 		console.log(result);
 	})
-
-
-
-
 });

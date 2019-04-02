@@ -2,8 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.use(express.static('blog-static'));
-// app.use('/static',express.static('blog-static'));
+//如果要使用多个静态资源目录,调用 express.static 中间件函数
+
+//所有的静态资源的请求路径都会相对于静态资源目录
+// app.use(express.static('blog-static'));
+//如果请求路径的是/css/index.css,设置的静态资源目录是static,则服务器端获取文件的路径是静态资源目录/css/index.css
+
+//设置了虚拟路径后,静态资源请求时需要加上虚拟路径.虚拟路径是根本不存在的目录
+app.use('/static',express.static('blog-static'));
 //两种都能用，但是第一种比较好用
 
 app.get('/', (req, res) => res.send('<h1>Hello World!</h1>'));
