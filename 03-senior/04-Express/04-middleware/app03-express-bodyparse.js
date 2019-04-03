@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-28 20:13:49
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-29 19:27:48
-*/
 const querystring = require('querystring')
 
 const express = require('express');

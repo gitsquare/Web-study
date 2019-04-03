@@ -15,7 +15,10 @@
 	$(function(){
 		$('#get').on('click',function(){
 			$.ajax({
+				//方法1:Route parameters
 				// url:'/users/123/books/888',
+
+				//方法2:req.query
 				// url:'/?userId=123&bookId=888',
 				url:"/",
 				type:'get'

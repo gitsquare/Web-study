@@ -1,10 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-29 19:32:15
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-29 20:16:09
-*/
-
 const express = require('express')
 const swig = require('swig')
 const app = express();

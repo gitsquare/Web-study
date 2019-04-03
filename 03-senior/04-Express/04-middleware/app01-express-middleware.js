@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-28 20:13:49
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-29 19:03:38
-*/
 const express = require('express');
 
 const app = express();
@@ -12,7 +6,7 @@ const port = 3000
 
 app.use((req,res,next)=>{
 	console.log("A1")
-	next()
+	next()//用中间件的时候，一定要调用next方法，除非程序到此结束
 	console.log('A2')
 })
 app.use((req,res,next)=>{

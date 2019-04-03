@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-28 20:13:49
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-29 18:27:00
-*/
 const express = require('express');
 
 const app = express();
@@ -13,15 +7,18 @@ const port = 3000
 app.use(express.static('public'))
 
 app.get('/',(req,res)=>{
-	//res.send({name:"Tom"})
-	//res.send('<h1>get response data...</h1>')
-	//res.send('get response data...')
+	//在send里面不用管是什么类型，它会自动识别数据类型
+	// res.send({name:"Tom"})
+	// res.send('<h1>get response data...</h1>')
+	res.send('get response data...')
 	
-	//res.end({name:"Tom"})
-	//res.end('<h1>get response data...</h1>')
-	//res.end('get response data...')
+	//end一般发送文本
+	//res.end({name:"Tom"})//会报错
+	// res.end('<h1>get response data...</h1>')
+	// res.end('get response data...')
 	
-	res.json({name:"Tom"})
+	//发送json，用send也可以，但是用json语义更强
+	// res.json({name:"Tom"})
 });
 
 

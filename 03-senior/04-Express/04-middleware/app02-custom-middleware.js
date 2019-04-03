@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-29 19:04:22
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-29 19:13:16
-*/
 const http = require('http')
 
 //version 1
