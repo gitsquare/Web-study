@@ -25,25 +25,28 @@ db.once('open', ()=>{
 			console.log('find blog err::',err);
 		}else{
 			// console.log(blog);
-
 			//定义一个对象
 			const result = {
 				blog:blog
-			};
+			};//添加blog信息
 			UserModel.findById(blog.author,(err,user)=>{
 				if(err){
 					console.log('find user err::',err)
 				}else{
-					result.user = user;
-					console.log(result)
+					result.user = user;//添加user信息
+					console.log(result);
 				}
 			})
 		}
 	})*/
 	
 	
-	/*BlogModel.findOne({title:"title1"})
-	.populate('author','name age -_id')//_id会默认存在，如果不要_id,则前面加-号
+	/*BlogModel.findOne({title:"title1"})//返回的是一个Query对象
+	.populate('author','name age -_id')//返回一个相当于promise
+	//如果用populate关联查询，必须添加ref属性，值为表的名称。
+
+	//第一个参数是关联的字段，第二个参数是需要显示的字段，
+	//但是_id会默认存在，如果不要_id,则前面加-号
 	.then(result=>{
 		console.log(result);
 	})*/
@@ -51,5 +54,8 @@ db.once('open', ()=>{
 	BlogModel.findBlog({title:"title1"})
 	.then(result=>{
 		console.log(result);
+	})
+	.catch((err)=>{
+		console.log(err);
 	})
 });

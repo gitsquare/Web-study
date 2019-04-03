@@ -14,13 +14,13 @@ const BlogSchema = new mongoose.Schema({
 		//ObjectId(mongoose.Schema.Types.ObjectId)
 		// type:String
 
-		type:mongoose.Schema.Types.ObjectId,
-		ref:'user'
+		type:mongoose.Schema.Types.ObjectId,//在mongoose当中ObjectId是一种数据类型
+		ref:'user'//如果用populate关联查询，必须添加ref属性，值为表的名称。
 	}
 });
 
-BlogSchema.statics.findBlog = function(query){
- 	return this.findOne(query)
+BlogSchema.statics.findBlog = function(query={}){//设置参数的默认值，默认查询所有
+ 	return this.find(query)
  	.populate('author','name age -_id');
  }
 

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Document</title>
-  <link rel="stylesheet" href="lib/bootstrap-3.3.7/dist/css/bootstrap.min.css">
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>我的博客</title>
+	<link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/common.css">
   <link rel="stylesheet" href="css/detail.css">
 </head>
@@ -20,15 +20,16 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand link" href="#">我的个人中心</a>
+        <a class="navbar-brand link" href="#">我的个人博客</a>
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="index.html">首页<span class="sr-only">(current)</span></a></li>
-          <li><a href="list.html">HTML/CSS</a></li>
+          <li><a href="index.html">首页</span></a></li>
+          <li class="active"><a href="list.html">HTML/CSS<span class="sr-only">(current)</a></li>
           <li><a href="list.html">JavaScript</a></li>
           <li><a href="list.html">学无止境</a></li>
+          <li><a href="list.html">我的足迹</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container -->
@@ -39,44 +40,48 @@
         <div class="col-md-8">
           <div class="panel panel-default custom-panel detail-panel">
             <div class="panel-heading">
-              <h3 class="panel-title">深入了解Bootstrap</h3>
+              <h3 class="panel-title">深入了解 Bootstrap 底层结构的关键部分</h3>
               <p class="sub-title">
-                <span class="text-muted">HTML</span>
-                <span class="text-muted">点赞</span>
-                <span class="text-muted"><em>1000</em>阅读人数</span>
+                <span class="text-muted">HTML/CSS</span>
+                <span class="text-muted">2018-06-18</span>
+                <span class="text-muted"><em>1461</em>人已阅读</span>
               </p>
             </div>
             <div class="panel-body">
               <div class="well">
-                <strong>简介</strong>Bootstrap，来自 Twitter，是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS、JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。
+                <strong>简介:</strong>深入了解 Bootstrap 底层结构的关键部分，包括我们让 web 开发变得更好、更快、更强壮的最佳实践。HTML5 文档类型 Bootstrap 使用到的某些 HTML 元素和 CSS 属性需要将页面设置为 HTML5 文档类型。在你项目中的每个页面都要参照下面的格式进行设置
               </div>
-              <p>它由Twitter的设计师Mark Otto和Jacob Thornton合作开发，是一个CSS/HTML框架。Bootstrap提供了优雅的HTML和CSS规范，它即是由动态CSS语言Less写成。Bootstrap一经推出后颇受欢迎，一直是GitHub上的热门开源项目，包括NASA的MSNBC（微软全国广播公司）的Breaking News都使用了该项目。国内一些移动开发者较为熟悉的框架，如WeX5前端开源框架等，也是基于Bootstrap源码进行性能优化而来。</p>
+              <p>
+                移动设备优先 在 Bootstrap 2 中，我们对框架中的某些关键部分增加了对移动设备友好的样式。而在 Bootstrap 3 中，我们重写了整个框架，使其一开始就是对移动设备友好的。这次不是简单的增加一些可选的针对移动设备的样式，而是直接融合进了框架的内核中。也就是说，Bootstrap 是移动设备优先的。针对移动设备的样式融合进了框架的每个角落，而不是增加一个额外的文件。
+              </p>
             </div>
-          </div>
+          </div>                                        
         </div>
         <div class="col-md-4 hidden-xs hidden-sm">
           <div class="ad">
             <a href="#" class="thumbnail">
-              <img src="images/ad1.jpg" alt="广告图片">
+              <img src="img/ad/ad1.jpg" alt="广告1">
             </a>
-             <a href="#" class="thumbnail">
-              <img src="images/ad2.jpg" alt="广告图片">
+          </div>
+          <div class="ad">
+            <a href="#" class="thumbnail">
+              <img src="img/ad/ad2.jpg" alt="广告2">
             </a>
           </div>
           <div class="panel panel-default custom-panel">
             <div class="panel-heading">
-              <h3 class="panel-title">个人介绍</h3>
+              <h3 class="panel-title">博主介绍</h3>
             </div>
             <div class="panel-body">
               <div class="media">
                 <div class="media-left">
                   <a href="#">
-                    <img class="media-object img-circle imgrenwu" src="images/renwu.jpg" alt="人物">
+                    <img class="media-object img-me img-circle" src="img/me.jpg" alt="博主帅照">
                   </a>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading">超人</h4>
-                  超人（Superman）是漫画史上第一位超级英雄。本名卡尔-艾尔（Kal-El），出生于氪星。
+                  <h4 class="media-heading">Tom</h4>
+                  80后草根！07年入行。一直潜心研究web技术，一边工作一边积累经验，分享一些个人心得。
                 </div>
               </div>
             </div>
@@ -87,30 +92,36 @@
             </div>
             <div class="panel-body">
               <ul class="list-group">
-                <li class="list-group-item"><a href="list.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="list.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="list.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="list.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-                <li class="list-group-item"><a href="list.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odio</a></li>
-              </ul>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>
+                <li class="list-group-item"><a href="detail.html" class="link text-ellipsis" target="_blank">Cras justo odioCras justo odioCras justo odioCras justo odioCras justo odio</a></li>                                                 
+              </ul>     
             </div>
           </div>
           <div class="panel panel-default custom-panel">
             <div class="panel-heading">
-              <h3 class="panel-title">关注</h3>
+              <h3 class="panel-title">关注我</h3>
             </div>
             <div class="panel-body">
-              <img src="images/chat.jpg" class="img-responsive" alt="二维码">
+              <img src="img/wechat.jpeg" class="img-responsive" alt="">
             </div>
-          </div>
+          </div>                                         
         </div>
       </div>
     </div>
   </div>
   <footer>
-    © 2018 <a href="#">kuazhu.com</a><a href="#"> 豫ICP备15027861号-2</a>
+    Blog Design by <a href="#">Kuazhu</a> <a href="#">豫ICP备11002373号-1</a>.
   </footer>
+
+
+<script src="lib/jquery/jquery-1.12.4.min.js"></script>	
+<script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 </body>
-<script src="lib/jquery/jquery-1.12.4.js"></script>
-<script src="lib/bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+
 </html>
