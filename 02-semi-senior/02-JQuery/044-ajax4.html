@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>044-ajax4</title>
+</head>
+<body>
+	<button>获取数据</button>
+</body>
+<script src="js/jquery-1.12.4.js"></script>
+<script>
+	$(function(){
+		$('button').on('click',function(){
+			//XMLHttpRequest
+			var jqXHR = $.ajax({
+				url:"044-data.json",
+				type:"GET",
+				dataType:"json",
+				/*
+				success:function(data,statusMsg,jqXHR){
+					console.log("1:::");
+					console.log(data);
+					console.log(statusMsg)
+					console.log(jqXHR)
+				},
+				error:function(jqXHR,statusMsg){
+					console.log("2:::");
+					console.log(jqXHR);
+					console.log(statusMsg);
+				},
+				complete:function(jqXHR,statusMsg){
+					console.log("3:::");
+					console.log(jqXHR);
+					console.log(statusMsg);					
+				},
+				*/
+			});
+			//jqXHR对象.abort() 终止请求
+			// jqXHR.abort();
+			// console.log(jqXHR);
+			jqXHR.done(function(data,statusMsg,jqXHR){
+				//jqXHR对象 .done(回调函数) 请求成功时执行,回调函数的参数依次为 返回数据,状态信息,jqXHR对象
+				console.log("1:::");
+				console.log(data);
+				console.log(statusMsg);
+				console.log(jqXHR);				
+			});
+			jqXHR.fail(function(jqXHR,statusMsg){
+				//jqXHR对象 .fail(回调函数) 请求失败时执行,回调函数的参数依次为 jqXHR对象,状态信息
+				console.log("2:::");
+				console.log(jqXHR);
+				console.log(statusMsg);				
+			});
+			jqXHR.always(function(jqXHR,statusMsg){
+				//jqXHR对象 .always(回调函数) 无论成功还是失败都执行,如果成功,回调函数的参数和done的一样,如果失败，回调函数的参数和fail的一样
+				console.log("3:::");
+				console.log(jqXHR);
+				console.log(statusMsg);					
+			});
+		});
+	});
+	//$.ajax()方法返回jqXHR对象,可以通过调用jqXHR对象上的方法来实现连缀调用
+</script>
+</html>

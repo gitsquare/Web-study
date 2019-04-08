@@ -14,18 +14,23 @@
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){
 		//1.生成ajax对象(购买电话)
-		var oAjax = new XMLHttpRequest();
+		var oAjax = new XMLHttpRequest();//内置的对象
 		console.log('after new::',oAjax.readyState);//0 没有初始化,还没有调用open方法
 		//2.建立连接(拨号)
-		oAjax.open('GET','http://127.0.0.1:3000/042-data.json',true);
+		oAjax.open('GET','http://127.0.0.1:3000/042-data.json?name=jack',true);
+		//第一个参数是请求方法，第二个是请求地址，第三个是否异步。一般ajax都是异步请求
+		//GET请求发送数据放在地址的问号后面
+
 		console.log('after open::',oAjax.readyState);//1 启动,已调用open方法但是还没有调用send方法
 		
-		//可选,设置请求头
+		//可选,设置请求头，必须在open方法和send方法之间添加
+		//oAjax.setRequestHeader(属性名,值)
 		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 
 		//3.发送信息(说话)
 		oAjax.send();
 		//4.监听事件接收数据(听)
+		//只要状态发生改变，就会触发此事件
 		oAjax.onreadystatechange = function(){
 			console.log('in onreadystatechange::',oAjax.readyState);
 			//2 发送,已调用send方法但还没有返回数据
@@ -33,7 +38,9 @@
 			//4 完成,数据完全返回
 			if(oAjax.readyState == 4){//数据完全返回
 				if(oAjax.status == 200){//请求成功
+					//如果json解析失败，就把错误
 					try{
+						//返回的数据在ajax对象.responseText中
 						var obj = JSON.parse(oAjax.responseText);
 						console.log(obj.name);
 					}catch(e){

@@ -1,15 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-01-03 20:43:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-01-04 20:10:23
-*/
-
-/*
-	可以响应并返回文件
-	处理GET请求+POST请求
- */
-
 var http = require('http');
 var fs   = require('fs');
 var url = require('url');

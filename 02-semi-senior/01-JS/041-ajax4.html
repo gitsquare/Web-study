@@ -16,7 +16,7 @@
 		//1.生成ajax对象(购买电话)
 		var oAjax = new XMLHttpRequest();
 
-		if(method.toUpperCase() == 'POST'){
+		if(method.toUpperCase() == 'POST'){//字符串的方法把字符串变成大写
 			//2.建立连接(拨号)
 			oAjax.open(method,url,true);
 			//可选,设置请求头
@@ -66,7 +66,7 @@
 			);
 		*/
 		ajax(	'get',
-				'http://127.0.0.1:3000/042-data.json',
+				'http://127.0.0.1:3000/042-data2.json',
 				'',
 				function(arr){
 					var oUl = document.createElement('ul');

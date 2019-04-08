@@ -4,7 +4,7 @@ const app = express();
 
 const port = 3000
 
-app.use(express.static('public'))
+app.use(express.static('public'))//已经请求到根目录下面的index.html文件，所以不会往下走了
 
 app.get('/',(req,res)=>{
 	//在send里面不用管是什么类型，它会自动识别数据类型

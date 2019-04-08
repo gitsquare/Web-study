@@ -11,7 +11,7 @@ var server = http.createServer(function(req,res){
 	var urlStr = req.url;
 	var parm = url.parse(urlStr,true).query;
 	var obj = '{"name":"Tom","age":18}';
-	res.end(parm.callback+'('+obj+')');
+	res.end(parm.callback+'('+obj+')');//相当于返回的是调用函数的结果，参数是obj
 
 });
 

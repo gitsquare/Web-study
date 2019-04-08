@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>044-ajax1</title>
 </head>
 <body>
 	<button>获取数据1</button>
@@ -12,23 +12,25 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
+		//$.get(url[,参数][,回调函数][,返回数据类型])//发送GET请求 
 		$('button').eq(0).on('click',function(){
-			$.get('044-data.json',{name:'tom',age:10},function(data){
+			$.get("044-data.json",{name:"Amy",age:88},function(data){
 				console.log(data);
-			});
+			},"json")
 		});
-
+		//$.post(url[,参数][,回调函数][,返回数据类型]) //发送POST请求
 		$('button').eq(1).on('click',function(){
-			$.post('044-data.json',{name:'tom',age:10},function(data){
+			$.post("044-data.json",{name:"Amy",age:88},function(data){
 				console.log(data);
-			});
+			},"text")
 		});
-
+		//$.getJSON(url[,回调函数]) //获取JSON数据
 		$('button').eq(2).on('click',function(){
-			$.getJSON('044-data.json',function(data){
+			$.getJSON("044-data.json",function(data){
 				console.log(data);
-			});
-		})
-	})
+			})
+		});			
+
+	});
 </script>
 </html>

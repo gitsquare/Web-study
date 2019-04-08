@@ -24,7 +24,7 @@
 		oAjax.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 		
 		//3.发送信息(说话)
-		oAjax.send('{"name":"Tom","age":18}');
+		oAjax.send('{"name":"Tom","age":18}');//用POST方法的时候，发送数据
 		//4.监听事件接收数据(听)
 		oAjax.onreadystatechange = function(){
 			console.log('in onreadystatechange::',oAjax.readyState);

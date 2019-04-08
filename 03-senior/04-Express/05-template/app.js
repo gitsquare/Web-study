@@ -16,25 +16,26 @@ app.set('views', './views')
 app.set('view engine', 'html')
 
 app.get("/test",(req,res)=>{
-	//渲染模板
+    //渲染模板
     //第一个参数是相对于模板目录的文件
     //第二个参数是传递给模板的数据
     res.render('test',{
         title:'跨猪网',
         content:'我是内容',
         obj:{
-        	name:"Tom",
-        	age:18
+            name:"Tom",
+            age:18
         },
         name:"Peter",
         arr:["Apple","Orange","Banana"]
-    })	
+    })  
 })
 app.get('/',(req,res)=>{
-	res.render('index')
+    res.render('index')
 })
 app.get('/list',(req,res)=>{
-	res.render('list')
+    res.render('list')
 })
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
+

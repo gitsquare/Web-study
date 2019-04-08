@@ -20,7 +20,7 @@
 
 				//方法2:req.query
 				// url:'/?userId=123&bookId=888',
-				url:"/",
+				url:"/",//会先找根目录下的index.html文件，如果没有的话，继续往下走
 				type:'get'
 			})
 			.done(function(result){

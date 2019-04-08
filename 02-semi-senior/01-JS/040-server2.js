@@ -1,22 +1,15 @@
 /*
-* @Author: TomChen
-* @Date:   2019-01-03 20:43:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-01-04 20:09:33
-*/
-
-/*
 	可以响应并返回文件
- */
+*/
 
 var http = require('http');
 var fs   = require('fs');
 
 var server = http.createServer(function(req,res){
-	var urlStr = req.url;
+	var urlStr = req.url;//端口号后面的路径
 	console.log('req.url:::',urlStr);
 	if(urlStr == '/favicon.ico'){
-		res.end('favicon.ico');
+		res.end('favicon.ico');//一碰到end整个程序就结束了
 	}
 	if(urlStr.search(/\?/) != -1){
 		var parm = url.parse(urlStr,true).query;
@@ -24,7 +17,7 @@ var server = http.createServer(function(req,res){
 		var json = JSON.stringify(parm);
 		res.end(json);
 	}	
-	var filePath = './'+urlStr;
+	var filePath = './'+urlStr;//  ./代表当前目录  urlStr代表 /test.html
 	fs.readFile(filePath,function(err,data){
 		if(!err){
 			res.end(data);
