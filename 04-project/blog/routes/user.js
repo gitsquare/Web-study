@@ -34,7 +34,7 @@ router.post("/register",(req,res)=>{
 			})
 		}
 	})
-	.catch(err=>{//不是查询不到时的err
+	.catch(err=>{//不是查询不到时的err,是查询的时候出现异常，很少碰到
 		result.status = 10
 		result.message = '服务器端错误,请稍后再试一试'
 		res.json(result)		

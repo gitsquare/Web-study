@@ -12,6 +12,8 @@ const UserSchema = new mongoose.Schema({
 		type:Boolean,
 		default:false
 	}
+	//对于简单的系统来说，把管理员和普通用户放在一张表中
+	//默认是普通用户，只有isAdmin的值为true的时候，为管理员
 });
 
 

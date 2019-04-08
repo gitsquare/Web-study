@@ -1,6 +1,7 @@
 
 const crypto = require('crypto')
 //1.根据算法生成hash对象
+//'md5'  'sha256'  'sha512'三种算法
 // const hash = crypto.createHash('md5')
 // const hash = crypto.createHash('sha256')
 // const hash = crypto.createHash('sha512')
