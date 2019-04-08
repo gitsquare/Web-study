@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-31 11:06:49
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-01 20:55:26
-*/
+
 const express = require('express')
 const CategoryModel = require('../models/category.js')
 const pagination = require('../util/pagination.js')

@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-31 11:06:49
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-01 19:52:36
-*/
+
 const express = require('express')
 const UserModel = require('../models/user.js')
 const pagination = require('../util/pagination.js')

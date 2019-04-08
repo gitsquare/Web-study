@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-31 11:39:03
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-31 11:50:09
-*/
+
 const crypto = require('crypto')
 //1.根据算法生成hash对象
 // const hash = crypto.createHash('md5')

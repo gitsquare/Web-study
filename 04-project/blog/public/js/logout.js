@@ -1,9 +1,4 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-13 18:10:45
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-31 17:15:07
-*/
+
 ;(function($){
 	//用户退出
 	$('#logout').on('click',function(){
