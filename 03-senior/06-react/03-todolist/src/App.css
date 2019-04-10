@@ -1,0 +1,11 @@
+.App{
+	width: 300px;
+	margin: 50px auto;
+}
+.App li{
+	list-style: none;
+	height: 20px;
+	line-height: 20px;
+	border-bottom: 1px dashed;
+	margin-top: 10px;
+}
