@@ -6,7 +6,12 @@ import React,{ Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Item extends Component{
+	constructor(props){
+		console.log('Item constructor')
+		super(props)
+	}
 	render(){
+		console.log('Item render...')
 		const {handleDel,content} = this.props;//解构赋值
 		return (
 			/*用解构赋值可以将this.props.handleDel简写为handleDel，this.props.content简写为content*/
@@ -33,3 +38,14 @@ Item.defaultProps = {
 	content:'上天'
 }
 export default Item;
+
+
+
+
+//props/state/render的关系
+
+//1.this.state 存放组件内部数据,this.props存放组件的外部数据,render负责渲染页面
+
+//2.当组件的state或者props发生改变时render函数会重新执行
+
+//3.当父组件的render函数执行时,子组件的render函数也会被执行

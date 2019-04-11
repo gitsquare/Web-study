@@ -43,6 +43,7 @@ class App extends Component{
 	//必须有一个render方法
 	//在render方法里面的this指的是App
 	constructor(props){
+		console.log('App constructor...')
 		//this.state 存放组件内部数据
 		//初始化
 		super(props);
@@ -57,6 +58,20 @@ class App extends Component{
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 		
+	}
+
+	//多用于如果props有变化,需要更新state的场景,该方法返回state的更新
+	static getDerivedStateFromProps(nextProps, prevState){
+		return {
+			list:[
+				'吃饭'
+			]
+		}
+	}
+
+	//组件挂载完毕执行,多用于发送ajax获取数据
+	componentDidMount(){
+		console.log('componentDidMount')
 	}
 	getItems(){
 		return this.state.list.map((item,index)=>{
@@ -92,22 +107,27 @@ class App extends Component{
 		})*/
 
 		//第三种写法简写
-		this.setState(preState=>
-			({
-				list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
-				val:''//把val变为空，就是把输入框里的值给消除掉
-			
-		}))//返回体是对象的时候需要加上小括号
+		//由于setState是一个异步方法,如果需要获取最新的Dom,
+		//需要写在setState方法的第二个回调函数中
+
+		//返回体是对象的时候需要加上小括号
+		this.setState(preState=>({
+			list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
+			val:''//把val变为空，就是把输入框里的值给消除掉
+		}),()=>{
+			console.log(this.ul.querySelectorAll('li'))	
+		})
 	}
 	handleChange(ev){
 		//this.state.val = ev.target.value;
 		//第一种写法
 		/*this.setState({
-			val:ev.target.value,//获取输入框的值，存在state.val
+			val:ev.target.value,//获取输入框的值，把值存在state.val
 		})*/
 
 		//第二种写法
-		const val = ev.target.value;
+		// const val = ev.target.value;
+		const val = this.input.value;
 		this.setState(()=>({
 			// val:val
 			//简写
@@ -129,18 +149,33 @@ class App extends Component{
 		}))
 	}
 	render(){
+		console.log('App render...');
 		//render方法的return语句后面不能是空白行,可以用()来格式化代码 
 		return(
 			//只能返回一个标签例如<div><input/><button></button></div>,注意必须的有结束标签。如果不用div标签包裹，
 			//就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签，如果不想用div，
 			//就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中
 			<Fragment>
-				<input onChange={this.handleChange} value={this.state.val}/>
+				<input 
+					onChange={this.handleChange} 
+					value={this.state.val}
+					//获取DOM节点
+					ref={(input)=>{
+						// console.log(input)
+						this.input = input
+						//给App对象上动态添加属性input，把DOM节点input付给它
+					}}
+				/>
 				{/*添加事件注意事项：1.on后面的字母大写。2. =号后面的{}中的是javascript代码。 
 				3.事件函数中通常需要用当前的组件对象,所以需要在绑定事件时bind(this)*/}
 				<button onClick={this.handleAdd}>添加</button>
 				{/*添加样式一：行内: style = {{color:'#333'}}。二：添加className*/}
-				<ul className="App">
+				<ul 
+					className="App"
+					ref={(ul)=>{
+						this.ul=ul
+					}}
+				>
 					{/*<li style={{backgroundColor:'#333',color:'#999'}}>看书</li>
 					<li>运动</li>
 					<li>学习</li>*/}
