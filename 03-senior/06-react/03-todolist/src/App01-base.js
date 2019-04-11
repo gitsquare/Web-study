@@ -45,88 +45,37 @@ class App extends Component{
 	constructor(props){
 		//this.state 存放组件内部数据
 		//初始化
-		super(props);
+		super(props),
 		this.state={
 			list:[
 				"运动",
 				"学习",
 				"读书"
 			],
-			val:'',//初始化定义state的属性val
+			val:''//初始化定义state的属性val
 		}
-		this.handleChange = this.handleChange.bind(this)
-		this.handleAdd = this.handleAdd.bind(this)
-		
-	}
-	getItems(){
-		return this.state.list.map((item,index)=>{
-			return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
-		})			
 	}
 	handleAdd(){
 		//this.state.list.push(this.state.val);
-		//this.setState方法改变数据会引起页面数据的变化
-
-		//第一种写法
-		/*this.setState({
+		this.setState({
 			list:[...this.state.list,this.state.val],//点击后把输入框的值放在数组里面
 			val:''//把val变为空，就是把输入框里的值给消除掉
-		})*/
-
-		//第二种写法
-		//接受一个函数，返回一个对象，会和this.state进行合并
-		/*this.setState(()=>{
-			return {
-				list:[...this.state.list,this.state.val],//点击后把输入框的值放在数组里面
-				val:''//把val变为空，就是把输入框里的值给消除掉
-			}
-		})*/
-
-		//第三种写法
-		//参数preState代表原生的this.state,所以可以把this.state换成preState
-		/*this.setState((preState)=>{
-			return {
-				list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
-				val:''//把val变为空，就是把输入框里的值给消除掉
-			}
-		})*/
-
-		//第三种写法简写
-		this.setState(preState=>
-			({
-				list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
-				val:''//把val变为空，就是把输入框里的值给消除掉
-			
-		}))//返回体是对象的时候需要加上小括号
+		})
+		//this.setState方法改变数据会引起页面数据的变化
 	}
 	handleChange(ev){
 		//this.state.val = ev.target.value;
-		//第一种写法
-		/*this.setState({
+		this.
+		setState({
 			val:ev.target.value,//获取输入框的值，存在state.val
-		})*/
-
-		//第二种写法
-		const val = ev.target.value;
-		this.setState(()=>({
-			// val:val
-			//简写
-			val
-		}))
+		})
 	}
 	handleDel(index){
 		const list = [...this.state.list];
 		list.splice(index,1);
-
-		//第一种写法
-		/*this.setState({
+		this.setState({
 			list:list
-		})*/
-
-		//第二种写法
-		this.setState(()=>({
-			list
-		}))
+		})
 	}
 	render(){
 		//render方法的return语句后面不能是空白行,可以用()来格式化代码 
@@ -135,17 +84,17 @@ class App extends Component{
 			//就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签，如果不想用div，
 			//就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中
 			<Fragment>
-				<input onChange={this.handleChange} value={this.state.val}/>
+				<input onChange={this.handleChange.bind(this)} value={this.state.val}/>
 				{/*添加事件注意事项：1.on后面的字母大写。2. =号后面的{}中的是javascript代码。 
 				3.事件函数中通常需要用当前的组件对象,所以需要在绑定事件时bind(this)*/}
-				<button onClick={this.handleAdd}>添加</button>
+				<button onClick={this.handleAdd.bind(this)}>添加</button>
 				{/*添加样式一：行内: style = {{color:'#333'}}。二：添加className*/}
 				<ul className="App">
 					{/*<li style={{backgroundColor:'#333',color:'#999'}}>看书</li>
 					<li>运动</li>
 					<li>学习</li>*/}
 					{
-						//this.state.list.map((item,index)=>{
+						this.state.list.map((item,index)=>{
 							/*return (
 								<li 
 									key={index}
@@ -154,16 +103,9 @@ class App extends Component{
 								{item}
 								</li>
 							)*/
-						//	return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
+							return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
 							//父组件给子组件传递参数,父组件定义属性并赋值
-						//})
-
-						//把这一部分js代码封装成一个函数来处理
-					}
-
-					{/*调用getItems函数*/}
-					{ 
-						this.getItems() 
+						})
 					}
 				</ul>
 				{
