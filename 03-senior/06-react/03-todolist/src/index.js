@@ -21,7 +21,7 @@ console.log(def);*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './App.js';
+import App from './App04.js';
 ReactDOM.render(<App />,document.getElementById('root'));
 
 

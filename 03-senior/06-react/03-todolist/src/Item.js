@@ -7,11 +7,12 @@ import PropTypes from 'prop-types';
 
 class Item extends Component{
 	constructor(props){
-		console.log('Item constructor')
 		super(props)
 	}
+	componentWillUnmount(){
+		console.log('Item componentWillUnmount')
+	}
 	render(){
-		console.log('Item render...')
 		const {handleDel,content} = this.props;//解构赋值
 		return (
 			/*用解构赋值可以将this.props.handleDel简写为handleDel，this.props.content简写为content*/
