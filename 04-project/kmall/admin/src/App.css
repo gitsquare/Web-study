@@ -1,0 +1,13 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+	float: left;
+	margin-right: 10px;
+}
+.nav{
+	height: 40px;
+	margin-bottom: 20px;
+}

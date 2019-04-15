@@ -26,7 +26,7 @@ export{
 /*const a=1
 export default a*/
 /*一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，
-import命令后面才不用加大括号，因为只可能唯一对应export default命令。
+import命令后面才不能加大括号，因为只可能唯一对应export default命令。
 
 正是因为export default命令其实只是输出一个叫做default的变量，
 所以它后面不能跟变量声明语句。
@@ -39,6 +39,9 @@ import Item from './Item.js';//Item组件是App组件的子组件
 import './App.css';
 //定义组件
 //必须继承React.Component
+
+//在jsx语法中使用组件分为html组件和自定义组件,自定义组件必须大写字母开头
+//自定义组件就相当于一个构造函数
 class App extends Component{
 	//必须有一个render方法
 	//在render方法里面的this指的是App
@@ -80,15 +83,17 @@ class App extends Component{
 	render(){
 		//render方法的return语句后面不能是空白行,可以用()来格式化代码 
 		return(
-			//只能返回一个标签例如<div><input/><button></button></div>,注意必须的有结束标签。如果不用div标签包裹，
+			//只能返回一个标签例如<div><input/><button></button></div>,标签必须得有闭合。如果不用div标签包裹，
 			//就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签，如果不想用div，
 			//就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中
 			<Fragment>
-				<input onChange={this.handleChange.bind(this)} value={this.state.val}/>
+				<input onChange={this.handleChange.bind(this)} value={this.state.val} />
 				{/*添加事件注意事项：1.on后面的字母大写。2. =号后面的{}中的是javascript代码。 
 				3.事件函数中通常需要用当前的组件对象,所以需要在绑定事件时bind(this)*/}
 				<button onClick={this.handleAdd.bind(this)}>添加</button>
+				{/*添加样式一最外面的花括号代表里面是js代码，里面的花括号代表是一个对象*/}
 				{/*添加样式一：行内: style = {{color:'#333'}}。二：添加className*/}
+				{/*在react当中class是关键字所以类名用className*/}
 				<ul className="App">
 					{/*<li style={{backgroundColor:'#333',color:'#999'}}>看书</li>
 					<li>运动</li>
@@ -119,7 +124,12 @@ class App extends Component{
 	}
 }
 //导出组件 == module.exports = App;
-export default App;
+function Person(name){
+	this.name = name;
+	console.log(name);
+}
+export {Person}
+export default App
 
 
 

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App.js';
 
-//引入react就是是用react语法来解析文件。如下面这样的代码写法
+//引入react就是是用react语法来解析文件(js文件中有html代码)。如下面这样的代码写法
 // ReactDOM.render(<h1>nihao</h1>,document.getElementById('root'));
-ReactDOM.render(<App/>,document.getElementById('root'));
-
+ReactDOM.render(<App />,document.getElementById('root'));
+//<App/>就是一个组件

@@ -29,9 +29,12 @@ module.exports = {
 			        }
 		        ]
 	    	},
+
+	    	//手动安装webpack并配置。修改webpack配置文件添加bable-loader
+	    	//加了babel-loader以后，所有的js文件就用babel-loader处理
 	    	{
 			    test: /\.js$/,
-			    exclude: /(node_modules)/,//排除node_modules下面的js文件
+			    exclude: /(node_modules)/,//过滤的作用，排除node_modules下面的js文件
 			    use: {
 			      	loader: 'babel-loader',
 			      	options: {

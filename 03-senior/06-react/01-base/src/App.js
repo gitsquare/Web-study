@@ -1,7 +1,7 @@
-import React from 'react';
+import React,{ Component } from 'react';
 //定义组件
 //必须继承React.Component
-class App extends React.Component{
+class App extends Component{
 	//必须有一个render方法
 	render(){
 		return(
