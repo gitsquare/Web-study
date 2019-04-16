@@ -19,13 +19,13 @@ console.log(def);*/
 
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-DOM';
 
-import App,{ Person } from './App01-base.js';//App是默认输出default，而{ Person }是其它的输出值
+import App from './App02-DOM.js';//App是默认输出default，而{ Person }是其它的输出值
 // import App from './App01-base.js';
 ReactDOM.render(<App />,document.getElementById('root'));
 //<App />，相当于把组件里的render方法调用
-let person = new Person("tom");
+
 
 
 

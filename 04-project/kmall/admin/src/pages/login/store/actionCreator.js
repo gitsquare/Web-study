@@ -1,38 +1,40 @@
-import * as types from './actionTypes.js'
+import * as types from './actionTypes.js';
 import axios from 'axios';
-export const getAddItemAction = ()=>{
+import { message } from 'antd';
+const getLoginRequestAction = ()=>{
 	return {
-		type:types.ADD_ITEM
+		type:types.LOGIN_REQUEST
 	}
 }
-export const getChangeItemAction = (payload)=>{
+const getLoginDoneAction = ()=>{
 	return {
-		type:types.CHANGE_ITEM,
-		payload
+		type:types.LOGIN_DONE
 	}
 }
-export const getDelItemAction = (payload)=>{
-	return  {
-		type:types.DEL_ITEM,
-		payload
-	}
-}
-
-export const loadInitDataAction = (payload)=>{
-	return {
-		type:types.LOAD_DATA,
-		payload
-	}
-}
-
-export const getInitDataAction = ()=>{
+export const getLoginAction = (values)=>{
 	return (dispatch)=>{
-		axios
-		.get('http://127.0.0.1:3000/')
-		.then(result=>{
-			const action = loadInitDataAction(result.data);
-			dispatch(action)
-		})
+		dispatch(getLoginRequestAction())
+        axios({
+        	method:'post',
+        	url:'http://127.0.0.1:3000/admin/login',
+        	data:values
+        })
+        .then(result=>{
+        	// console.log(result)
+        	if(result.data.code == 0){//登录成功
+        		//跳转到后台首页
+        		window.location.href = "/"
+        	}else if(result.data.code == 1){
+        		message.error(result.data.message)
+        	}
+        })
+        .catch(err=>{
+        	// console.log(err);
+        	message.error('网络请求失败,请稍后再试')
+        })
+        .finally(()=>{
+        	dispatch(getLoginDoneAction())
+        })
 	}
 }
 

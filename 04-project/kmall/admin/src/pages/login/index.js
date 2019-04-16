@@ -1,4 +1,7 @@
 import React,{ Component } from 'react'
+import { connect } from 'react-redux'
+
+import { actionCreator } from './store'
 import axios from 'axios'
 import {
   Form, Icon, Input, Button, message,
@@ -10,16 +13,17 @@ class NormalLoginForm extends Component {
   constructor(props){
   	super(props);
   	this.handleSubmit = this.handleSubmit.bind(this)
-    this.state = {
-      isFething:false
-    }
+    /*this.state = {
+      isFetching:false
+    }*/
   }
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        // console.log('Received values of form: ', values);
-        this.setState(()=>({isFething:true}))
+        this.props.handleLogin(values);
+
+       /* this.setState(()=>({isFetching:true}))
         axios({
         	method:'post',
         	url:'http://127.0.0.1:3000/admin/login',
@@ -39,8 +43,8 @@ class NormalLoginForm extends Component {
         	message.error('网络请求失败,请稍后再试')
         })
         .finally(()=>{
-          this.setState(()=>({isFething:false}))
-        })
+          this.setState(()=>({isFetching:false}))
+        })*/
       }
     });
   }
@@ -68,7 +72,7 @@ class NormalLoginForm extends Component {
 			  <Button type="primary" 
         onClick={this.handleSubmit} 
         className="login-form-button"
-        loading={this.state.isFething}
+        loading={this.props.isFetching}
         >
 			    登录
 			  </Button>
@@ -80,5 +84,21 @@ class NormalLoginForm extends Component {
 }
 
 const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
+const mapStateToProps = (state)=>{
+  return {
+    isFetching:state.get('login').get('isFetching')
+  }
+}
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    //1.派发登录的action
+    //2.这个登录得action是一个能够发送ajax请求的函数
+    //3./dispatch能够派发函数是因为引用了redux-thunk
+   handleLogin:(values)=>{
+    const action = actionCreator.getLoginAction(values);
+    dispatch(action)
+   }
+  }
+}
 
-export default WrappedNormalLoginForm;
+export default connect(mapStateToProps,mapDispatchToProps)(WrappedNormalLoginForm);

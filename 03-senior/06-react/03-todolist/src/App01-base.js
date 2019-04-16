@@ -64,23 +64,33 @@ class App extends Component{
 			list:[...this.state.list,this.state.val],//点击后把输入框的值放在数组里面
 			val:''//把val变为空，就是把输入框里的值给消除掉
 		})
+		//this.setState方法里面的参数是一个对象时，对象的值是什么，this.state的值就是什么
 		//this.setState方法改变数据会引起页面数据的变化
 	}
+
+	//获取输入框的数据
+	//1.给输入框添绑定onChange事件
+	//2.在onChange的事件函数中通过event.target.value获取值,当input框里面的值改变时，将获取到的值赋值给this.state.val
 	handleChange(ev){
-		//this.state.val = ev.target.value;
+		// console.log(ev.target.value)//这里的target其实就是input
 		this.
 		setState({
 			val:ev.target.value,//获取输入框的值，存在state.val
 		})
+
+		// console.log(this)
 	}
 	handleDel(index){
-		const list = [...this.state.list];
-		list.splice(index,1);
+		const list = [...this.state.list];//首先把数组复制一份
+		list.splice(index,1);//通过索引，把当前的<li></li>给删除
+		// const list = this.state.list.splice(index,1)//不能这么写，splice方法返回的是删除项
+		//改变this.state里面的数据必须通过this.setState方法
 		this.setState({
 			list:list
 		})
 	}
 	render(){
+		console.log('app01-base render...')
 		//render方法的return语句后面不能是空白行,可以用()来格式化代码 
 		return(
 			//只能返回一个标签例如<div><input/><button></button></div>,标签必须得有闭合。如果不用div标签包裹，
@@ -109,7 +119,10 @@ class App extends Component{
 								</li>
 							)*/
 							return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
+							//调用子组件时，传递的数据都会传到props对象上面
+
 							//父组件给子组件传递参数,父组件定义属性并赋值
+							//子组件想修改父组件中的数据，需要父组件传递方法给子组件，然后由子组件调用
 						})
 					}
 				</ul>
@@ -132,6 +145,11 @@ export {Person}
 export default App
 
 
+//props/state/render的关系
+
+//1.this.state 存放组件内部数据,this.props存放组件的外部数据,render负责渲染页面
+//2.当组件的state或者props发生改变时render函数会重新执行
+//3.当父组件的render函数执行时,子组件的render函数也会被执行
 
 
 

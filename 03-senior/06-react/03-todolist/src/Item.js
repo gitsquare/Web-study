@@ -1,13 +1,17 @@
 import React,{ Component } from 'react';
 
+//定义父组件传入子组件数据的校验规则
+//安装react时会默认安装prop-types,所以无需安装
 import PropTypes from 'prop-types';
 
 class Item extends Component{
 	constructor(props){
 		super(props)
 	}
+	//reder方法负责渲染
 	render(){
-		const {handleDel,content} = this.props;
+		console.log('item render..')
+		const {handleDel,content} = this.props;//通过解构赋值，写起来更方便
 		return (
 			<li onClick={handleDel}>
 				{content}

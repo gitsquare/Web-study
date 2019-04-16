@@ -55,19 +55,20 @@ class App extends Component{
 			],
 			val:'',//初始化定义state的属性val
 		}
+
+		//写在这里，当生成对象的时候，就要执行这个函数
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
-		
 	}
 
 	//多用于如果props有变化,需要更新state的场景,该方法返回state的更新
-	static getDerivedStateFromProps(nextProps, prevState){
+	/*static getDerivedStateFromProps(nextProps, prevState){
 		return {
 			list:[
 				'吃饭'
 			]
 		}
-	}
+	}*/
 
 	//组件挂载完毕执行,多用于发送ajax获取数据
 	componentDidMount(){
@@ -79,7 +80,6 @@ class App extends Component{
 		})			
 	}
 	handleAdd(){
-		//this.state.list.push(this.state.val);
 		//this.setState方法改变数据会引起页面数据的变化
 
 		//第一种写法
@@ -89,7 +89,7 @@ class App extends Component{
 		})*/
 
 		//第二种写法
-		//接受一个函数，返回一个对象，会和this.state进行合并
+		//接收一个函数，返回一个对象，会和this.state进行合并
 		/*this.setState(()=>{
 			return {
 				list:[...this.state.list,this.state.val],//点击后把输入框的值放在数组里面
@@ -98,14 +98,13 @@ class App extends Component{
 		})*/
 
 		//第三种写法
-		//参数preState代表原生的this.state,所以可以把this.state换成preState
+		//参数preState代表原始的this.state,所以可以把this.state换成preState
 		/*this.setState((preState)=>{
 			return {
 				list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
 				val:''//把val变为空，就是把输入框里的值给消除掉
 			}
 		})*/
-
 		//第三种写法简写
 		//由于setState是一个异步方法,如果需要获取最新的Dom,
 		//需要写在setState方法的第二个回调函数中
@@ -117,17 +116,19 @@ class App extends Component{
 		}),()=>{
 			console.log(this.ul.querySelectorAll('li'))	
 		})
+		//由于setState是一个异步方法,如果需要获取最新的Dom,需要写在setState方法的第二个回调函数中
 	}
 	handleChange(ev){
-		//this.state.val = ev.target.value;
 		//第一种写法
 		/*this.setState({
 			val:ev.target.value,//获取输入框的值，把值存在state.val
 		})*/
 
 		//第二种写法
+		//因为this.setState方法的参数是函数时，在这个函数里拿不到ev对象，所以要在外面保存
 		// const val = ev.target.value;
-		const val = this.input.value;
+
+		const val = this.input.value;//通过拿到的DOM节点获取value值
 		this.setState(()=>({
 			// val:val
 			//简写
@@ -156,6 +157,7 @@ class App extends Component{
 			//就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签，如果不想用div，
 			//就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中
 			<Fragment>
+				{/*获取DOM：在dom元素上添加ref属性  ref = {(input)=>{this.input = input}}*/}
 				<input 
 					onChange={this.handleChange} 
 					value={this.state.val}
@@ -170,6 +172,7 @@ class App extends Component{
 				3.事件函数中通常需要用当前的组件对象,所以需要在绑定事件时bind(this)*/}
 				<button onClick={this.handleAdd}>添加</button>
 				{/*添加样式一：行内: style = {{color:'#333'}}。二：添加className*/}
+
 				<ul 
 					className="App"
 					ref={(ul)=>{
@@ -199,6 +202,7 @@ class App extends Component{
 					{/*调用getItems函数*/}
 					{ 
 						this.getItems() 
+						//有几条数据就执行几次
 					}
 				</ul>
 				{
