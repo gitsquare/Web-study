@@ -28,7 +28,7 @@ import './App.css'
 	}
 }*/
 
-//UI组件
+//UI组件也叫做无状态组件
 const AppUI = (props)=>{
 	const {handleChange,val,handleAdd,list,handleDel} = props;
 	return( 

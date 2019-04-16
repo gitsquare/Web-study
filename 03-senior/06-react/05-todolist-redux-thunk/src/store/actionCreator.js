@@ -1,4 +1,4 @@
-import {ADD_ITEM,CHANGE_ITEM,DEL_ITEM} from './actionTypes.js'
+import { ADD_ITEM,CHANGE_ITEM,DEL_ITEM,LOAD_DATA } from './actionTypes.js'
 export const getAddItemAction = ()=>{
 	return {
 		type:ADD_ITEM
@@ -16,3 +16,11 @@ export const getDelItemAction = (payload)=>{
 		payload
 	}
 }
+export const loadInitDataAction = (payload)=>{
+	return{
+		type:LOAD_DATA,
+		payload
+	}
+}
+
+

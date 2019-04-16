@@ -1,4 +1,4 @@
-import { ADD_ITEM,CHANGE_ITEM,DEL_ITEM } from './actionTypes.js'
+import { ADD_ITEM,CHANGE_ITEM,DEL_ITEM,LOAD_DATA } from './actionTypes.js'
 const defaultState = {
 	list:["运动","看书",],
 	val:'啦啦啦',
@@ -27,7 +27,12 @@ export default (state=defaultState,action)=>{
 		}
 		if(action.type == DEL_ITEM){
 			const newState = JSON.parse(JSON.stringify(state))
-			newState.list.splice(action.payload,1)
+			newState.list.splice(action.payload,1) 
+			return newState
+		}
+		if(action.type == LOAD_DATA){
+			const newState = JSON.parse(JSON.stringify(state))
+			newState.list = action.payload
 			return newState
 		}
 	return state;
