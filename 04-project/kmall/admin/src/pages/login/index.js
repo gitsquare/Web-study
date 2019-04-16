@@ -10,15 +10,19 @@ class NormalLoginForm extends Component {
   constructor(props){
   	super(props);
   	this.handleSubmit = this.handleSubmit.bind(this)
+    this.state = {
+      isFething:false
+    }
   }
   handleSubmit(e){
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         // console.log('Received values of form: ', values);
+        this.setState(()=>({isFething:true}))
         axios({
         	method:'post',
-        	url:'http://127.0.0.1:300/admin/login',
+        	url:'http://127.0.0.1:3000/admin/login',
         	data:values
         })
         .then(result=>{
@@ -31,8 +35,11 @@ class NormalLoginForm extends Component {
         	}
         })
         .catch(err=>{
-        	console.log(err);
+        	// console.log(err);
         	message.error('网络请求失败,请稍后再试')
+        })
+        .finally(()=>{
+          this.setState(()=>({isFething:false}))
         })
       }
     });
@@ -52,13 +59,17 @@ class NormalLoginForm extends Component {
 			</Form.Item>
 			<Form.Item>
 			  {getFieldDecorator('password', {
-			    rules: [{ required: true, message: '请输入密码!' },,{ pattern: /^\w{3,6}$/, message: '密码为3到6位的字符!' }],
+			    rules: [{ required: true, message: '请输入密码!' },{ pattern: /^\w{3,6}$/, message: '密码为3到6位的字符!' }],
 			  })(
 			    <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
 			  )}
 			</Form.Item>
 			<Form.Item>
-			  <Button type="primary" onClick={this.handleSubmit} className="login-form-button">
+			  <Button type="primary" 
+        onClick={this.handleSubmit} 
+        className="login-form-button"
+        loading={this.state.isFething}
+        >
 			    登录
 			  </Button>
 			</Form.Item>
