@@ -7,17 +7,10 @@
 //componentDidMount()挂载完毕
 
 import React,{ Component,Fragment } from 'react';
-import Item from './Item.js';//Item组件是App组件的子组件
+import Item from './Item.js';
 import './App.css';
-//定义组件
-//必须继承React.Component
 class App extends Component{
-	//必须有一个render方法
-	//在render方法里面的this指的是App
 	constructor(props){
-		console.log('App constructor...')
-		//this.state 存放组件内部数据
-		//初始化
 		super(props);
 		this.state={
 			list:[
@@ -25,22 +18,22 @@ class App extends Component{
 				"学习",
 				"读书"
 			],
-			val:'',//初始化定义state的属性val
+			val:'',
 		}
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
-		
 	}
 
 	//多用于如果props有变化,需要更新state的场景,该方法返回state的更新
 	static getDerivedStateFromProps(nextProps, prevState){
-		//nextProps指的是
-		//prevState指的是
+		//App相当于根组件，这里的nextProps为空
+		console.log('AppgetDerived',nextProps, prevState)
 		return {
 			list:[
 				'吃饭'
 			]
 		}
+		//return出去的数据和prevState进行合并
 	}
 
 	//组件挂载完毕执行,多用于发送ajax获取数据
