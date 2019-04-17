@@ -1,5 +1,5 @@
 import React,{ Component,Fragment } from 'react';
-import { DatePicker,Button } from 'antd';
+import { DatePicker,Button } from 'antd';//使用按需加载
 import Item from './Item.js';
 import './App.css';
 // import 'antd/dist/antd.css';//引入样式
@@ -56,7 +56,7 @@ class App extends Component{
 							this.getItems() 
 						}
 					</ul>
-					 <Button type="primary">Primary</Button>
+					 <Button type="primary">按钮</Button>
 					<DatePicker />
 				</div>
 			</Fragment>

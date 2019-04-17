@@ -1,5 +1,5 @@
 import React,{ Component,Fragment } from 'react'
-import { Input,Button,Row, Col,List  } from 'antd';
+import { Input,Button,Row,Col,List } from 'antd';
 import './App.css'
 //容器组件
 /*class AppUI extends Component{
@@ -46,8 +46,9 @@ const AppUI = (props)=>{
 			</Row>
 			<List
 				style={{marginTop:10}}
-			  	bordered
+			  	bordered//是否需要边框
 			  	dataSource={list}
+			  	//用什么方法显示
 			  	renderItem={(item,index) => (<List.Item onClick={()=>{handleDel(index)}}>{item}</List.Item>)}
 			/>				
 		</div>

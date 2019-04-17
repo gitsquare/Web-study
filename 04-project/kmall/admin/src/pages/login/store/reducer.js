@@ -1,4 +1,3 @@
-
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'
@@ -6,7 +5,6 @@ import * as types from './actionTypes.js'
 const defaultState = fromJS({
 	isFetching:false
 })
-
 export default (state=defaultState,action)=>{
 	if(action.type == types.LOGIN_REQUEST){
 		return state.set('isFetching',true)

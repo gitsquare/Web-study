@@ -21,7 +21,7 @@ console.log(def);*/
 import React from 'react';
 import ReactDOM from 'react-DOM';
 
-import App from './App03-monut.js';//App是默认输出default，而{ Person }是其它的输出值
+import App from './App05-antd.js';//App是默认输出default，而{ Person }是其它的输出值
 // import App from './App01-base.js';
 ReactDOM.render(<App />,document.getElementById('root'));
 //<App />，相当于把组件里的render方法调用

@@ -21,9 +21,7 @@ class App extends Component{
 		super(props);
 		this.state={
 			list:[
-				"运动",
-				/*"学习",
-				"读书"*/
+				"运动"
 			],
 			val:'',//初始化定义state的属性val
 		}
@@ -34,8 +32,6 @@ class App extends Component{
 
 	//多用于如果props有变化,需要更新state的场景,该方法返回state的更新
 	static getDerivedStateFromProps(nextProps, prevState){
-		//nextProps指的是
-		//prevState指的是
 		console.log('App getDerivedStateFromProps(nextProps, prevState)',nextProps, prevState)
 		return {
 			/*list:[
@@ -44,23 +40,26 @@ class App extends Component{
 		}
 	}
 
-	//该方法返回布尔值,根据返回的布尔值决定是否执行后续的周期函数,一般用来阻止不必要的页面渲染
+	// 该方法返回布尔值,根据返回的布尔值决定是否执行后续的周期函数,一般用来阻止不必要的页面渲染
+	//如果没有此方法，则继续执行后续的周期函数
 	shouldComponentUpdate(nextProps, nextState){
 		console.log('App shouldComponentUpdate(nextProps, nextState)',nextProps, nextState)
 		// return false;
 		return true;
 	}
 
-
+	//该方法返回一个值,这个值会随后被传入到 componentDidUpdate 中使用
+	//意思是在update之前获取一些数据片段，获取后在componentDidUpdate方法中拿到
 	getSnapshotBeforeUpdate(prevProps, prevState){
 		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState)
-		return 13
+		return 'lalala'
 	}
 
 	//组件更新完成后执行
 	componentDidUpdate(prevProps, prevState,snapshot){
 		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState,snapshot)
 	}
+	//上面这些方法执行顺序和写的顺序无关
 
 
 	handleAdd(){
@@ -88,6 +87,7 @@ class App extends Component{
 		})			
 	}
 	render(){
+		console.log('App render..')
 		return(
 			<Fragment>
 				<input 

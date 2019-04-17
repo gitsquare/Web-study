@@ -9,6 +9,8 @@ class Item extends Component{
 	constructor(props){
 		super(props)
 	}
+
+	//卸载,当组件从 DOM 中移除时会调用
 	componentWillUnmount(){
 		console.log('Item componentWillUnmount')
 	}
