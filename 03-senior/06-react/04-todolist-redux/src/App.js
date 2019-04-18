@@ -21,7 +21,7 @@ class App extends Component{
 		//当store中的数据发生变化时触发
 		store.subscribe(()=>{
 			//获取store中的最新数据来更新当前组件的state数据
-			this.setState(()=>store.getState())
+			this.setState(()=>store.getState())//把state给return出去
 			console.log(this.state)
 		})
 		this.handleChange = this.handleChange.bind(this)

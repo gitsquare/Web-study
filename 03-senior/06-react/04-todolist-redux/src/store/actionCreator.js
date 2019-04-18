@@ -8,6 +8,7 @@ export const getChangeItemAction = (payload)=>{
 	return {
 		type:CHANGE_ITEM,
 		payload
+		//相当于payload:payload,前者是属性名，后者是传递进来的参数payload
 	}
 }
 export const getDelItemAction = (payload)=>{

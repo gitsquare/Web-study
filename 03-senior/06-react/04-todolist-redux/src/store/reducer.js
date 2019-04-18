@@ -7,6 +7,7 @@ const defaultState = {
 //2. reducer是一个纯函数(固定的输入就有固定的输出)
 //3. reducer的主要作用是负责业务逻辑处理,生成新的state,由store来最终改变
 export default (state=defaultState,action)=>{
+	//第一个参数state是上一次的state
 		if(action.type == CHANGE_ITEM){
 			//1.copy上一次的state
 			const newState = JSON.parse(JSON.stringify(state))
