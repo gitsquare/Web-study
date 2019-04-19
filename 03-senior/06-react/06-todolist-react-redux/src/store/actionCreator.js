@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-11 20:15:26
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-12 18:14:10
-*/
 import {ADD_ITEM,CHANGE_ITEM,DEL_ITEM,LOAD_DATA} from './actionTypes.js'
 import axios from 'axios';
 export const getAddItemAction = ()=>{

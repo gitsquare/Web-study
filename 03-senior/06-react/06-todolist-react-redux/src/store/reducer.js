@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-11 18:56:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-11 20:58:06
-*/
 import {ADD_ITEM,CHANGE_ITEM,DEL_ITEM,LOAD_DATA} from './actionTypes.js'
 
 

@@ -5,6 +5,7 @@
 
 import { createStore,applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
+//redux-logger中间件主要用来提供派发数据的信息分析，供开发时使用
 import { createLogger } from 'redux-logger';
 import reducer from './reducer.js'
 

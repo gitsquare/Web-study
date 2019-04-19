@@ -25,6 +25,7 @@ export const loadInitDataAction = (payload)=>{
 }
 export const getInitDataAction = (payload)=>{
 	return (dispatch)=>{
+		//axios是发送ajax的，返回一个promise
 		axios
 		.get('http://127.0.0.1:3000')//返回一个promise
 		.then(result=>{

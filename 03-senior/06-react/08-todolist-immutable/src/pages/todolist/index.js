@@ -1,10 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-09 19:29:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-12 20:54:27
-*/
-
 import React,{ Component,Fragment } from 'react'
 import { Input,Button,Row, Col,List  } from 'antd';
 
@@ -43,6 +36,9 @@ class TodoList extends Component{
 
 const mapStateToProps = (state)=>{
 	return {
+		// val:state.todolist.get('val'),
+		//immutable数据通过get方法拿到
+		//因为在最顶层的store目录中的reducer.js文件中已经把state变成了immutable数据，所以要用get方法		
 		val:state.get('todolist').get('val'),
 		list:state.get('todolist').get('list')
 	}

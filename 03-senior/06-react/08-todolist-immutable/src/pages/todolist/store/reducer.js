@@ -1,13 +1,9 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-11 18:56:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-12 20:51:38
-*/
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'
 
+//把defaultState中的数据变成immutable的数据，其实类型是Map
+//把初始数据变成immutable的数据以后，就相当于state变成了immutable的数据
 const defaultState = fromJS({
 	list:["吃饭","睡觉"],
 	val:'打豆豆'
@@ -35,6 +31,8 @@ export default (state=defaultState,action)=>{
 		 */
 		//newState.val = action.payload
 		//return newState;
+
+		//通过immutable上面的方法处理数据
 		return state.set('val',action.payload)
 	}	
 
@@ -58,7 +56,9 @@ export default (state=defaultState,action)=>{
 		newState.list.splice(action.payload,1)
 		return newState
 		*/
-		const list = [...state.get('list')]
+
+		//必须得用扩展运算符，如果直接从immutable数据中拿数组修改以后不能再赋
+		const list = [...state.get('list')]//相当于复制数组，然后再操作
 		list.splice(action.payload,1)
 		return state.set('list',list)
 	}
@@ -69,6 +69,7 @@ export default (state=defaultState,action)=>{
 		return newState
 		*/
 		return state.set('list',action.payload)
+		//state.set方法接收key和value
 	}
 
 	return state;

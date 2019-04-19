@@ -1,12 +1,7 @@
-/*
-* @Author: TomChen
-* @Date:   2019-04-09 19:29:30
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-04-14 15:54:33
-*/
-
 import React,{ Component,Fragment } from 'react'
 
+
+//BrowserRouter其实就是h5路由
 import { 
 	BrowserRouter as Router, 
 	// HashRouter as Router, 
@@ -57,10 +52,12 @@ class App extends Component{
 			 />
 		)
 		return( 
+			//对顶层组件用Router进行包裹
 			<Router>
 				<div className="App">
 					<ul className="nav">
 						<li>
+							{/*通过引入的Link,来实现要跳转到哪里，地址用to来指定，用Link实际生成了a标签*/}
 							<Link to="/">Home</Link>
 						</li>
 						<li>
@@ -79,6 +76,9 @@ class App extends Component{
 							<Link to="/users/profile">/users/profile</Link>
 						</li>												
 					</ul>
+					{/*Route是用来定义规则的，意思就是根据点击的path来确定跳转到哪个页面*/}
+
+					{/*加exact意思是精确的匹配，比如说path="/"的时候，就只能匹配到路径为/的组件*/}
 					<Route exact path="/" component={Home} />				
 					<Route path="/about" render={()=>(<h1>this about page</h1>)} />							
 					<ProtectRoute path="/info" component={Info}  />	
