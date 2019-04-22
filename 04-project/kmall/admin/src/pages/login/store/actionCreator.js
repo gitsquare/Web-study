@@ -1,15 +1,19 @@
 import * as types from './actionTypes.js'
-import axios from 'axios';
 import { message } from 'antd';
 
 import { request,setUserName } from 'util'
 import { ADMIN_LOGIN } from 'api'
 
+
+//因为这两个action是在内部使用，所以不用导出去
+
+//发送ajax请求之前派发action，设置isFetching:true
 const getLoginRequestAction = ()=>{
 	return {
 		type:types.LOGIN_REQUEST
 	}
 }
+//发送ajax请求之后派发action，设置isFetching:false
 const getLoginDoneAction = ()=>{
 	return {
 		type:types.LOGIN_DONE
@@ -25,8 +29,12 @@ export const getLoginAction = (values)=>{
 		//1.4 store再把action转交个reducer
 		//1.5 相当于程序流程走到./reducer.js
 		dispatch(getLoginRequestAction());
+        //把发送ajax封装成一个函数
         request({
                 method:'post',
+
+                //这里的url其实就是一个接口，一个API。什么是api?
+                //把所有的接口放到一个文件中，便于维护
                 url:ADMIN_LOGIN,
                 data:values
         })
@@ -37,10 +45,12 @@ export const getLoginAction = (values)=>{
                 //跳转到后台首页
                  window.location.href = "/"
             }else if(result.code == 1){
+                //登录失败
                 message.error(result.message)
             }                       
         })
         .catch(err=>{
+            //发送ajax失败
             console.log(err);
             message.error('网络请求失败,请稍后再试')
         })

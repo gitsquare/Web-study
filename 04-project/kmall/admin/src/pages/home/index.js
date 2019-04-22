@@ -16,7 +16,7 @@ class Home extends Component{
 		this.props.handleCount()
 	}
     render(){
-    	const { usernum,productnum,ordernum } = this.props
+    	const { usernum,productnum,ordernum } = this.props//用解构赋值
         return (
         	<div className="Home">
         		<Layout>
