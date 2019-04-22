@@ -13,6 +13,7 @@ import './index.css'
 
 class Home extends Component{
 	componentDidMount(){
+		//当组件挂载完毕之后，向后台发送一个ajax请求
 		this.props.handleCount()
 	}
     render(){

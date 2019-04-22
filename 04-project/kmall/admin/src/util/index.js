@@ -7,12 +7,16 @@ export const request = (options)=>{
         	method:options.method || 'get',	
 			url:options.url || '',
 			data:options.data || '',
+
+			//在跨域发送ajax请求时，默认不会把cookie携带过去，可以设置withCredentials:true修改
 			withCredentials:true
 		}
 		axios(params)
 		.then(result=>{
 			const data = result.data;
+			//保证前后台用户登录信息相同
 			if(data.code == 10){//没有权限
+				//如果后台没有登录信息
 				//移除前端的登录信息
 				removeUserName();
 				//跳转到登录页面

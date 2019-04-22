@@ -1,9 +1,9 @@
-
 import { fromJS } from 'immutable'
 
 import * as types from './actionTypes.js'
 
 const defaultState = fromJS({
+	//用fromJS方法把数组list转换成了immutable数据
 	list:[{
 	  _id: 'ID1',
 	  username: 'admin',
@@ -15,6 +15,10 @@ const defaultState = fromJS({
 })
 
 export default (state=defaultState,action)=>{
-
+	if(action.type == types.SET_PAGE){
+		return state.merge({
+			list:fromJS(action.payload.list)
+		})
+	}
 	return state;
 }
