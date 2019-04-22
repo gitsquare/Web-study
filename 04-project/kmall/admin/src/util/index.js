@@ -1,6 +1,6 @@
-//是异步程序，是ajax请求的发送，会返回一个promise
 import axios from 'axios';
-
+//是异步程序，是ajax请求的发送，会返回一个promise
+//所以封装的函数应该返回一个promise
 export const request = (options)=>{
 	return new Promise((resolve,reject)=>{
 		const params = {

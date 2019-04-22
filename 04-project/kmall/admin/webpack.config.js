@@ -27,10 +27,10 @@ module.exports = {
 		//出口的文件所在的目录
 		path: path.resolve(__dirname, 'dist')
 	},
-	//配置别名
+	//配置别名，可以缩短引用路径
 	resolve:{
 		alias:{
-			pages:path.resolve(__dirname,'./src/pages'),
+			pages:path.resolve(__dirname,'./src/pages'),//当前目录下的src/pages
 			util:path.resolve(__dirname,'./src/util'),
 			api:path.resolve(__dirname,'./src/api'),
 			common:path.resolve(__dirname,'./src/common'),

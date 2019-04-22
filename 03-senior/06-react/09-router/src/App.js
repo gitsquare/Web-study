@@ -1,9 +1,12 @@
 import React,{ Component,Fragment } from 'react'
-
-
-//BrowserRouter其实就是h5路由
 import { 
-	BrowserRouter as Router, 
+	//路由方式 <BrowserRouter>,<HashRouter> 
+	//<Route> 路由规则; <Switch> 路由选项; <Link>,<NavLink> 跳转,导航; <Redirect> 自动跳转
+
+	//使用BrowserRouter时,页面刷新会向服务器发送请求,而HashRouter不会
+	//使用BrowserRouter时devServer的historyApiFallback:true
+
+	BrowserRouter as Router, //BrowserRouter其实就是h5路由
 	// HashRouter as Router, 
 	Route, 
 	Switch,
@@ -43,8 +46,10 @@ class App extends Component{
 		this.state = {
 			isLogin:false
 		}
+		//确定用户是否处于登录状态
 	}
 	render(){
+		//自定义路由
 		const ProtectRoute = ({component:Component,...rest})=>(
 			<Route
 				{...rest}
@@ -52,7 +57,8 @@ class App extends Component{
 			 />
 		)
 		return( 
-			//对顶层组件用Router进行包裹
+			//对顶层组件用Router进行包裹，它的作用是
+			//Router组件是最外层组件
 			<Router>
 				<div className="App">
 					<ul className="nav">

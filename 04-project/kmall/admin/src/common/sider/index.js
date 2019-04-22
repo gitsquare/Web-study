@@ -20,6 +20,7 @@ class AdminSider extends Component{
 			    >
 			        <Menu.Item key="1">
 			        	<NavLink exact to="/"><Icon type="home" />首页</NavLink>
+			        	{/*把Link换成NavLink,作用是当路由匹配以后，会给NavLink加一个class="active"*/}
 			        </Menu.Item>
 			        <Menu.Item key="2">
 			        	<NavLink to="/user"><Icon type="user" />用户管理</NavLink>
