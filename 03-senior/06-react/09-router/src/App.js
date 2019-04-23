@@ -26,6 +26,7 @@ class User extends Component{
 			<Route exact path="/users" render={()=><h1>this is users page,no id</h1>}  />
 			<Route path="/users/profile" render={()=><h1>this is user profile page</h1>} />
 			<Route path="/users/:id" render={(route)=><h1>this is users page,user id is {route.match.params.id}</h1>} />
+			{/*path="/users/profile"必须得在path="/users/:id"前面，否则会先匹配到：id*/}
 		</Switch>
 	}
 }
@@ -49,13 +50,16 @@ class App extends Component{
 		//确定用户是否处于登录状态
 	}
 	render(){
-		//自定义路由
+		//自定义路由可以实现：只有登录的用户才能访问到home页面，如果没有登录，就直接跳转到登录页面
+		//ProtectRoute是一个方法，该方法返回一个路由
+		//component:Component, Component是由component={}中的组件传递过去的
+		//如果还有其他参数，就用...rest表示。例如path="/about"就是其他参数
 		const ProtectRoute = ({component:Component,...rest})=>(
 			<Route
 				{...rest}
 				render={(props)=>(this.state.isLogin ? <Component {...props} /> : <Login />)}
 			 />
-		)
+		)	/*props代表组件上的属性*/
 		return( 
 			//对顶层组件用Router进行包裹，它的作用是
 			//Router组件是最外层组件
@@ -89,12 +93,11 @@ class App extends Component{
 					<Route path="/about" render={()=>(<h1>this about page</h1>)} />							
 					<ProtectRoute path="/info" component={Info}  />	
 					<ProtectRoute path="/users" component={User}  />
-
+					{/*用<ProtectRoute path="/users" component={User}  />相当于把<Route path="/info" component={Info}原封不动返回回来  />	*/}
+					{/*把ProtectRoute当成一个组件*/}
 				</div>
 			</Router>
 		)
 	}
 }
-
-
 export default App;

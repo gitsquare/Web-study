@@ -6,10 +6,21 @@ export const request = (options)=>{
 		const params = {
         	method:options.method || 'get',	
 			url:options.url || '',
-			data:options.data || '',
-
+			
 			//在跨域发送ajax请求时，默认不会把cookie携带过去，可以设置withCredentials:true修改
 			withCredentials:true
+		}
+	
+		//如果是GET或者是DELETE方法，用params属性传参
+		//如果是其他方法，用data属性传参
+		//toUpperCase()方法是变为大写
+		switch(params.method.toUpperCase()){
+			case 'GET':
+			case 'DELETE':
+				params.params = options.data
+				break
+			default:
+			params.data = options.data
 		}
 		axios(params)
 		.then(result=>{
@@ -27,6 +38,7 @@ export const request = (options)=>{
 			}
 		})
 		.catch(err=>{
+			console.log('lal')
 			reject(err)
 		})
 	})

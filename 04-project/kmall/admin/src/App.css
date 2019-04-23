@@ -2,15 +2,11 @@
 	margin: 0;
 	padding: 0;
 }
-/* li{
-	list-style: none;
-	float: left;
-	margin-right: 10px;
+.ant-table-content{
+	min-height: 650px;
+	margin-top: 20px;
 }
-.nav{
-	height: 40px;
-	margin-bottom: 20px;
-} */
 
 /*在此文件中写的样式会作用的全局*/
 /*因为引入了ant-design组件,所以尽量不要写全局样式，避免引起冲突*/
+/*只有都用的到的时候，才在此文件中写样式*/

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route,Redirect,Switch } from "react-router-dom
 import Login from 'pages/login'//登录页面，在登录状态下，路由为login时，会跳转到Home
 import Home from 'pages/home'//首页，如果没有登录就跳转到登录页面
 import User from 'pages/user'
+import Category from 'pages/category'
 import Err from 'common/err'
 
 import { getUserName } from 'util'
@@ -35,16 +36,14 @@ class App extends Component{
 			: <Component {...rest} />
 		}
 		return( 
+			//Router组件是最外层组件,意思是整个组件都需要用前端路由
 			<Router>
 				<div className="App">
 					<Switch>{/*为什么加Switch*/}
 						<ProtectRoute exact path="/" component={Home} />
-						{
-							//当匹配到路由"/login"后,渲染Login组件
-						}
-						<LoginRoute path="/login" component={Login} />
 						<ProtectRoute path="/user" component={User} />
-
+						<ProtectRoute path="/category" component={Category} />
+						<LoginRoute path="/login" component={Login} />
 						{/*这里不要加path属性，上面所有路由都匹配不到时，就只有访问错误页面*/}
 						<Route component={Err} />
 					</Switch>

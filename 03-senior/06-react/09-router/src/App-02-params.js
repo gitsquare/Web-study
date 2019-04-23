@@ -39,7 +39,8 @@ class App extends Component{
 					</ul>
 					<Route exact path="/" component={Home} />				
 					<Route path="/about" render={()=>(<h1>this about page</h1>)} />				
-					<Route path="/users/:id" component={User}  />				
+					<Route path="/users/:id" component={User}  />
+					{/*传参数通过 ：id 接收，：代表后面起的名字是参数*/}				
 				</div>
 			</Router>
 		)

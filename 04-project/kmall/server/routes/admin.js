@@ -27,7 +27,7 @@ const router = Router();
 });*/
 
 //创造一些用户和管理员的数据
-/*router.get("/init",(req,res)=>{
+router.get("/init",(req,res)=>{
 	const users = [];
 	for(let i = 0;i<500;i++){
 		users.push({
@@ -41,7 +41,7 @@ const router = Router();
 	.then(result=>{
 		res.send('ok')
 	})
-});*/
+});
 //用户登录
 router.post("/login",(req,res)=>{
 	let body = req.body;
