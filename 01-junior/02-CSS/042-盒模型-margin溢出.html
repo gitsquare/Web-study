@@ -4,6 +4,14 @@
 	<meta charset="UTF-8">
 	<title>042-盒模型-margin溢出.html</title>
 	<style>
+
+		/*普通父子元素上外边距
+			子元素的上margin值会与父元素的上margin重叠,margin重叠后子元素的上margin值会传递出去和父元素的上margin值比较,然后父元素取较大的值,子元素的上margin值会消失
+		阻止普通的父子元素上外边距重叠的方法
+			给父元素添加上边框
+			给父元素添加上内边距
+			触发父元素的BFC*/
+
 		.father{
 			width: 100px;
 			height: 100px;

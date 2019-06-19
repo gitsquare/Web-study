@@ -4,6 +4,11 @@
 	<meta charset="UTF-8">
 	<title>030-提高优先级.html</title>
 	<style>
+
+		/*!important必须写在需要改变优先级属性的分号;前面
+		!不能省略
+		!important只能提高某个属性的优先级,不能提高该选择器中其他属性的优先级
+		由于!important会改变选择器的优先规则,所以在实际项目中谨慎使用*/
 		p{
 			color: red !important;
 			font-size: 12px;

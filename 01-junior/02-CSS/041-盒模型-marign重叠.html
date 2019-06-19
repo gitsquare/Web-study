@@ -4,6 +4,21 @@
 	<meta charset="UTF-8">
 	<title>041-盒模型-marign重叠.html</title>
 	<style>
+
+		/*普通兄弟元素垂直方向上
+			普通兄弟元素只在垂直方向上会发生margin重叠
+			第一个元素的下外边距与第二个元素的上外边距会发生重叠
+			margin重叠后取较大的值
+			阻止普通兄弟元素垂直方向上外边距重叠方法是让兄弟元素在不同的BFC中(用overflow:hidden触发)*/
+
+		/*
+		1.BFC(Block Formatting Context)块级格式上下文,BFC是一个独立的布局环境,其中的元素布局是不受外界的影响
+		2.如何触发
+			float的值不是none(可以是left或者right)
+			position的值不是static或者relative.(可以是absolute或fixed)
+			display的值是inline-block、table-cell、flex、table-caption或者inline-flex
+			overflow的值不是visible（可以是hidden、scroll、auto）一般用overflow：hidden用的多
+		*/
 		.box1{
 			width: 100px;
 			height: 100px;
