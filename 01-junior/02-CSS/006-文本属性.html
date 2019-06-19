@@ -4,22 +4,41 @@
 	<meta charset="UTF-8">
 	<title>006-文本属性.html</title>
 	<style>
-
+		*{
+			margin: 0;
+			padding: 0;
+		}
 		a{
 			text-decoration: none;
 		}
 		p{
+
+			/*装饰属性text-decoration
+			underline 对元素加下划线
+			overline 顶端画一个上划线
+			line-through 文本中间画一个贯穿线
+			none 取消装饰，常见的用途就是用于去掉超链接的下划线*/
 			/*text-decoration: none;*/
 			/*text-decoration: underline;*/
 			/*text-decoration: overline;*/
 			/*text-decoration: line-through;*/
+
+
 			 /*text-align:left; */
 			 /*text-align: center;*/
 			 /*text-align: right;*/
+
+			/*取值为:数字＋单位(px|em)
+			这个单位可以是px(像素),也可以是em(一个文字的宽度),用的最多的还是em*/
 			 /*text-indent: 20px;*/
-			 /*text-indent: 2em;*/
+			 text-indent: 2em;
+
 			 color: red;
-			 text-shadow: 5px 5px 2px #f0f;
+			 text-shadow: -10px 5px 5px #f0f;
+			 /*
+			 	取值为:水平偏移距离 垂直偏移距离 模糊距离 阴影颜色;
+				水平偏移距离 垂直偏移距离可以取负值，模糊距离不能取负值
+			 */
 		}
 
 	</style>

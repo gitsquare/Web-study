@@ -5,13 +5,15 @@
 	<title>020-路径.html</title>
 </head>
 <body>
+	<!-- 如果是通过"相对路径"来指定资源文件, 不能跨盘符 -->
 	<img src="./020.jpeg" alt="">
 	<img src="020.jpeg" alt="">
 	<img src="./resource/1.jpg" alt="">
 	<img src="resource/1.jpg" alt="">
 	<img src="../002-020.jpeg" alt="">
-	<img src="../../02-semi-senior/00.jpeg" alt="">
-	<!--c:\imgs\a\b\1.jpg-->
-	<img src="/Users/Tom/Documents/Training/00_OfflineCourse/w1802/00-wip/01-junior/002-020.jpeg" alt="">
+
+	<!-- 绝对路径 windows从指定的盘符开始查找-->
+	<!-- 路径不要出现中文 -->
+	<img src="D:\WEB资料\Web-study\01-junior/01-HTML\020.jpeg" alt="">
 </body>
 </html>

@@ -4,6 +4,16 @@
 	<meta charset="UTF-8">
 	<title>019-序选择器-不区分类型.html</title>
 	<style>
+		/*同级别不区分类型(所有的兄弟元素都算数)
+			选择器:first-child 找到同级别的第一个元素
+			选择器:last-child 找到同级别的最后一个元素
+			选择器:nth-child(n) 找到同级别的第n个元素
+				n为具体的数字
+				odd(奇数)或者even(偶数)
+				xn+y   x,y是用户自定义数字,n的取值由系统从0到最大元素个数递增,每次增一,
+				例如: p:nth-child(3n+0)可以选中3的倍数
+		选择器:nth-last-child(n) 找到同级别的倒数第n个元素
+		选择器:only-child 找到父元素的唯一子元素*/
 		/*
 		p:first-child{
 			color: red;

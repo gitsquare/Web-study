@@ -5,6 +5,7 @@
 	<title>021-视频.html</title>
 </head>
 <body>
+	<!-- preload: 预加载视频, 但是需要注意preload和autoplay相冲, 如果设置了autoplay属性, 那么preload属性就会失效 -->
 	<!--
 	<video src="resource/s1.ogg" 
 		   controls
@@ -16,6 +17,9 @@
 		   height="200px" 
 	>
 	-->
+
+
+	<!-- 这种格式是为了解决浏览器适配问题,因为没有一种视频格式是所有浏览器都支持的 -->
 	<video width="300px" height="200px" controls>
 		<source src="resource/s1.ogg" type="video/ogg"></source>
 		<source src="resource/s1.mp4"  type="video/mp4"></source>
