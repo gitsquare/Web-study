@@ -4,6 +4,16 @@
 	<meta charset="UTF-8">
 	<title>089-布局-相对定位.html</title>
 	<style>
+		/*相对于自己在标准流当中的位置发生的移动
+		只写position: relative;元素是不会发生任何移动的,需要配合设置四条边的移动距离来一起使用
+		设置四条边的移动距离分别用 top|right|bottom|left
+		四条边的移动距可以写一个,也可以写两个,写两个的时候要注意在同一个方向的只能设置一个边
+		同一方向两个都写的话，只有left和bottom生效
+		相对定位元素是不脱离标准流的,所以相对定位元素在标准流当中的空间不会释放出来
+		相对定位元素是不脱离标准流的,所以相对定位元素区分块状，行内，行内块状
+		如果元素有margin/border/padding值,相对定位是在margin/border/padding值生效后起作用
+		相对定位元素主要用来对对元素进行微调和设置绝对定位的参考元素*/
+
 		*{
 			margin: 0;
 			padding: 0;
@@ -15,10 +25,10 @@
 
 			position: relative;
 			/*left:50px;*/
-			/*top:50px;*/
+			/*top:-50px;*/
 			/*left:-50px;*/
 			/*right: 50px;*/
-			/*bottom: 50px;*/
+			/*bottom: -50px;*/
 			
 			/*right: 50px;*/
 			/*left:50px;*/

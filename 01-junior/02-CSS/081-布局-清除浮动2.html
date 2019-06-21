@@ -4,6 +4,11 @@
 	<meta charset="UTF-8">
 	<title>080-布局-清除浮动1.html</title>
 	<style>
+		/*方式二,通过给第二个盒子添加clear属性来清除前面元素浮动带来的影响
+		clear属性的取值有:left|right|both|none(默认)
+		clear属性的意思是不让自己的子元素找前面浮动的元素
+		通过clear属性清除浮动会导致第一个盒子的margin-bottom和第二个盒子的margin-top失效,第二个盒子的margin-top失效是因为margin的值传递*/
+
 		*{
 			margin: 0;
 			padding: 0;

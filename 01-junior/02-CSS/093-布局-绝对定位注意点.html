@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>093-布局-绝对定位注意点.html</title>
 	<style>
+		/*只写position: absolute;元素是不会发生任何移动的,需要配合设置四条边的移动距离来一起使用
+		设置四条边的移动距离分别用 top|right|bottom|left
+		四条边的移动距可以写一个,也可以写两个,写两个的时候要注意在同一个方向的只能设置一个边
+		绝对定位元素是脱离标准流的,所以绝对定位元素在标准流中的空间会被释放出来
+		绝对定位元素是脱离标准流的,所以绝对定位元素不区分块状,行内,行内块状*/
+
 		*{
 			margin: 0;
 			padding: 0;
@@ -24,8 +30,8 @@
 		span{
 			width: 100px;
 			height: 100px;
-			margin: 20px;
-			padding: 20px;
+			margin: 50px;
+			padding: 50px;
 			background: yellow;
 			position: absolute;
 			left:50px;

@@ -4,6 +4,11 @@
 	<meta charset="UTF-8">
 	<title>084-布局-清除浮动4.html</title>
 	<style>
+		/*方式四,内墙法,给第一个盒子所有元素的后面添加一个空盒子,并且给这个空盒子设置clear:both属性
+		第一个盒子的margin-bottom可以用,第二个盒子的margin-top也可以用
+		也可以通过设置空盒子的高度来达到设置margin-bottom/top的效果
+		内墙法可以撑起盒子的高度,而外墙法不可以*/
+
 		*{
 			margin: 0;
 			padding: 0;
