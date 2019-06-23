@@ -4,6 +4,21 @@
 	<meta charset="UTF-8">
 	<title>133-css3-自定义字体的使用.html</title>
 	<style>
+		/*@font-face{
+		   font-family: 自定义字体名称;
+		   src:url(字体文件1),
+		   url(字体文件2);
+		   [font-weight: bold;]
+		   [font-style: italic;]    
+		}*/
+
+		/*1.src中的url可以是本地字体文件也可以是网络上的字体文件,如果是网络上的字体文件注意跨域的问题
+		2.自定义字体默认的font-weight和font-style都是normal
+		3.font-weight和font-style是可选项
+		4.加粗和倾斜本质上也是对应有一个字体文件
+		5.font-weight需要单独指定一个包含了粗体的字体文件,如果不指定,使用自定义字体时,浏览器会使用默认的加粗效果
+		6.font-style需要单独指定一个包含了斜体的字体文件,如果不指定,使用自定义字体时,浏览器会使用默认的倾斜效果*/
+
 		*{
 			margin: 0;
 			padding: 0;
@@ -13,6 +28,11 @@
 			src:url(fonts/Sansation_Light.ttf),
 				url(fonts/Sansation_Light.eot);
 		}
+
+		/*加了font-weight: bold;
+		或font-style: italic;
+		虽然自定义字体取的名字相同，但其实是不同的字体*/
+		/*
 		@font-face{
 			font-family: testFont;
 			src:url(fonts/Sansation_Bold.ttf),
@@ -24,7 +44,8 @@
 			src:url(fonts/Sansation_Bold.ttf),
 				url(fonts/Sansation_Bold.eot);
 			font-style: italic;
-		}		
+		}
+		*/
 		p{
 			width: 200px;
 			height: 200px;
@@ -38,6 +59,7 @@
 			*/
 			font-family: testFont;
 			font-style: italic;
+			/*如果有加粗或者倾斜，则会匹配到带有加粗或者倾斜的自定义字体，如果没有则会匹配到不带加粗或倾斜的自定义字体*/
 		}
 	</style>
 </head>

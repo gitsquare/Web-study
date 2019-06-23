@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 200px auto;
+			list-style: none;
+			transform: rotateX(10deg) rotateY(20deg);
+			transform-style: preserve-3d;
+		}
+		li{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 200px;
+			height: 200px;
+			line-height: 100px;
+			text-align: center;
+		}
+		li:nth-child(1){
+			background: yellow;
+			transform: translateX(-100px) rotateY(90deg);
+		}
+		li:nth-child(2){
+			background: gray;
+			transform: translateX(100px) rotateY(90deg);
+		}
+		li:nth-child(3){
+			background: pink;
+			transform: translateY(-100px) rotateX(90deg);
+		}
+		li:nth-child(4){
+			background: purple;
+			transform: translateY(100px) rotateX(-90deg);
+		}
+		li:nth-child(5){
+			background: green;
+			transform: translateZ(100px);
+		}
+		li:nth-child(6){
+			background: blue;
+			transform: translateZ(-100px);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+		<li>5</li>
+		<li>6</li>
+	</ul>
+</body>
+</html>
