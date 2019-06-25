@@ -16,14 +16,15 @@
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){
 		
-		var val1 = parseInt(oTxt1.value);
-		var val2 = parseInt(oTxt2.value);
+		/*var val1 = parseInt(oTxt1.value);
+		var val2 = parseInt(oTxt2.value);*/
 		
-		/*var val1 = parseFloat(oTxt1.value);
-		var val2 = parseFloat(oTxt2.value);	*/	
+		
+		var val1 = parseFloat(oTxt1.value);
+		var val2 = parseFloat(oTxt2.value);		
 		// console.log(typeof oTxt1.value);
-		//NaN 
 		alert(val1);
+
 		if(isNaN(val1)){
 			alert('第一个输入不是数字');
 		}else if(isNaN(val2)){
@@ -32,5 +33,10 @@
 			alert(val1 + val2);
 		}
 	}
+	/*转换规则
+		1.忽略字符串前面的空格
+		2.如果第一个字符不是数字或者负号加数字,会返回NaN(Not a Number)
+		3.从左到右解析直到第一个非数字为止 
+		4.arseFloat()把字符串转换成浮点数,parseFloat()和parseInt非常相似，不同之处在于parseFloat会解析第一个. 遇到第二个.或者非数字结束。如果解析的内容里只有整数，解析成整数。*/
 </script>
 </html>

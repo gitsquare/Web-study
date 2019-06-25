@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>011-浏览器渲染过程.html</title>
+	<link rel="stylesheet" href="css/011.css">
+</head>
+<body id="box">
+	<div class="box">123</div>
+	<img src="images/mn.jpg" alt="">
+</body>
+<script src="js/011.js"></script>
+</html>
+
+
+<!-- 1.解析HTML遇到外部CSS立即请求,所以需要合并CSS文件,减少HTTP请求
+2.新的CSS会修改CSSOM,会重新渲染页面所以CSS文件应放在头部,缩短首次渲染时间
+3.遇到<img>会发出请求,但不会阻塞,服务器返回图片文件,由于图片占用了一定面积,影响了后面段落的排布,因此浏览器需要回过头来重新渲染这部分代码,所以最好为图片都设置尺寸，避免重新渲染
+4.遇到<script> 标签,会立即执行js代码,阻塞渲染,所以通常将js代码放在body的最后
+5.js修改DOM会重新渲染,所以页面初始化样式不要使用js控制 -->
+
+<!-- CSS和HTML 被视为阻塞渲染的资源
+	1.HTML无论如何都要加载,所有的渲染都是从HTML加载后开始的
+	2.CSS文件加载时DOM构造继续进行,当CSS文件返回一些内容后CSSOM构造就开始
+	3.JS文件加载时DOM构造就暂停,直到JS解析执行完毕
+	4.CSSOM没有构建完毕,浏览器将不会渲染任何已处理的内容,而JavaScript 不仅可以读取和修改 DOM 属性,还可以读取和修改 CSSOM 属性,所以CSS 资源先于 JavaScript 资源的引入 -->

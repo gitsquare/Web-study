@@ -17,3 +17,8 @@
 	<div id="box"></div>
 </body>
 </html>
+
+<!-- 1.HTML是从上至下加载,HTML页面中出现<script>标签后,就会让HTML页面暂停解析等待脚本的解析和执行。
+2.如果在JS中要使用页面中的元素,需要保证页面中的元素加载后再使用
+	方法一:通常将js代码放在body的最后(推荐)
+	方法二:放在head标签中,但需要把把代码写在window.onload函数中,window.onload指的是当页面加载完成后执行的函数,其实window就是指浏览器 -->

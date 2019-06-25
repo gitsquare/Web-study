@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>015-window.onload和DOMContentLoaded.html</title>
+
+	1.window.onload需要页面上所有的资源(图片,音频,视频等)被加载以后才会触发
+	2.DOMContentLoaded的触发不需要等待所有的资源(图片,音频,视频等)加载完成
 	<script>
 		console.log(1);
 		window.onload = function(){

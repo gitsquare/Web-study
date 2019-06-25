@@ -4,14 +4,23 @@
 	<meta charset="UTF-8">
 	<title>030-转字符串-toString.html</title>
 	<script>
-		var a = 15;
-		// var b = a.toString(16);//"false"
-		var b = a.toString();
+		// var a = 15;
+
+		var a = false;
+		var b = a.toString();//"false"
+
+		// var b = a.toString(16);
 		
 		console.log(a);
 		console.log(typeof a);
 		console.log(b);
 		console.log(typeof b);
+
+		// 用法:调用被转换数据类型的toString()方法
+		/*注意点
+			null和undefined这两个值没有toString()方法，如果调用他们的方法，会报错
+			该方法不会影响到原变量，它会将转换的结果返回
+			数值类型的toString()，可以携带一个参数，输出对应进制的值*/
 	</script>
 </head>
 <body>

@@ -4,15 +4,18 @@
 	<meta charset="UTF-8">
 	<title>039-优先级.html</title>
 	<script>
-		//console.log("aa"+1+1+"bb");//"aa11bb"
-		//console.log("aa"+(1+1)+"bb");//"aa2bb"
-		//console.log(0 || 1 && 2);//2
-		//console.log(!0 || 1 && 2);//true
-		//console.log(!(0 || 1) && 2);//false
-		//console.log(1 || 0 && 3 && 4)//1
-		//console.log((1 || 0 ) && 3 && 4)//4
-		//console.log(1 || !0  && 3 && 4)//1
-		//console.log((1 || 0 && 3) && 4)
+		// 1.逻辑运算中的优先级顺序为:逻辑非>逻辑与>逻辑或
+		// 2.可以用括号()来改变优先级
+
+		console.log("aa"+1+1+"bb");//"aa11bb"
+		console.log("aa"+(1+1)+"bb");//"aa2bb"
+		console.log(0 || 1 && 2);//2
+		console.log(!0 || 1 && 2);//true
+		console.log(!(0 || 1) && 2);//false
+		console.log(1 || 0 && 3 && 4)//1
+		console.log((1 || 0 ) && 3 && 4)//4
+		console.log(1 || !0  && 3 && 4)//1
+		console.log((1 || 0 && 3) && 4)//4
 		
 	</script>
 </head>

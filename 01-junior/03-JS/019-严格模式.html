@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>019-严格模式.html</title>
 	<script>
+		// 作用:告诉JS引擎切换到严格模式下解析代码,这种模式可以消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为,这是在ES5中新增的一种运行模式
+
 		//放在第一行，对整个文件起作用
 		/*"use strict"
 		function sayHi(){
@@ -26,6 +28,9 @@
 		}
 		sayHi();
 		sayHello()
+
+		// 1.同样的代码,在"严格模式"中,可能会有不一样的运行结果
+		// 2.一些在"正常模式"下可以运行的语句,在"严格模式"下将不能运行
 	</script>
 </head>
 <body>

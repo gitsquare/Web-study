@@ -10,6 +10,25 @@
 		var b = a + "";
 		console.log(b);
 		console.log(typeof b);
+		console.log(String(111 + 22))
+
+		// 用法:将被转换的数据传入String()函数中
+		/*注意点
+			1.有些值没有toString()，这个时候可以使用String()。比如：undefined和null
+			2.对于Number和Boolean实际上就是调用的toString()方法
+			3.对于null和undefined，就不会调用toString()方法.而是在内部生成一个新的字符串
+			4.转型函数String(),适用于任何数据类型（null,undefined 转换后为null和undefined）,是全局方法
+			5.该方法可用于任何类型的数字，字母，变量，表达式*/
+
+
+		/*用法:将被转换的数据和+""连接到一起
+		注意点
+			1.任何数据和 +"" 连接到一起都会转换为字符串
+			2.内部实现原理和String()函数一样*/
+			console.log(1/null);
+			console.log(1/false);
+			console.log(1/true);
+			console.log(1/undefined);
 	</script>
 </head>
 <body>

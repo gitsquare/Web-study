@@ -18,3 +18,8 @@
 	<div id="box"></div>
 </body>
 </html>
+
+<!-- 1.如果script标签设置了async属性,则浏览器会异步的下载该文件并且不会影响到后续HMTL解析
+2.async脚本会在脚本下载完毕后执行,并且不一定在DOMContentLoaded事件调用前执行
+3.如果有多个设置了async的script标签存在,并不会按着script在页面中的顺序来执行,而是谁先加载完谁执行。
+4.该属性对内部使用方法无效 -->

@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>029-隐式转换.html</title>
 	<script>
+		// 隐式转换实际上调用了Number函数,所以只要有非数字字符，就转换为NaN
 		var a = '123';
 		var b = a - 0;
 		var c = a * 1;

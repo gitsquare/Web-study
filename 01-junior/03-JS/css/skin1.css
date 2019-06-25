@@ -1,6 +1,8 @@
 body{
-	background-image: url(../images/a.jpg);
+	/*background-image: url(../images/a.jpg);
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: cover;*/
+	background: url(../images/a.jpg) no-repeat 50% 50%;
+	/*background-size: cover;*/
 
 }

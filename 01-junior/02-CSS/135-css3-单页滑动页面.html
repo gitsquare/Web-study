@@ -44,6 +44,7 @@
 			font-size: 24px;
 			text-decoration: none;
 			z-index: 1;
+			/*因为图片尺寸设置了100%，会把a覆盖掉，所以提高层级*/
 		}
 		.page>a>.fa{
 			margin-right: 5px;
@@ -62,6 +63,7 @@
 			overflow: hidden;
 		}
 		.content{
+			/*因为前面input和a都用了fixed，所以脱离了标准流，用margin-top来进行布局*/
 			margin-top: 34px;
 			height: 100%;
 			transition: all 0.5s;
