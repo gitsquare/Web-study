@@ -123,7 +123,7 @@
 		}
 		tab();
 	}
-	//3.添加下一张事件
+	//3.添加上一张事件
 	oLeftArrow.onclick = function(){
 		now--;
 		if(now < 0){
@@ -140,10 +140,13 @@
 		}
 	}
 	//5.自动播放
+	//直接写oRightArrow.onclick也是代表了函数
 	timer = setInterval(oRightArrow.onclick,5000);
 	oCarousel.onmouseover = function(){
 		clearInterval(timer);
 	}
+
+	// 定时器关掉是没办法再打开的，所以需要再调用setInterval()方法
 	oCarousel.onmouseout = function(){
 		timer = setInterval(oRightArrow.onclick,5000);
 	}

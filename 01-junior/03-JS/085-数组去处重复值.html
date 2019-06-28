@@ -8,14 +8,22 @@
 	
 </body>
 <script>
+	/*1.初始化目标数组为空数组用来存放去除重复后的值
+	2.遍历原数组
+	3.用原始数组中的每一项和目标数组中每一项比较
+		如果有相等的值存在说明在原始数组中是重复值,则不添加该值
+		如果整个目标数组都没有相等的值说明当前原数组的值不是重复值,则添加*/
+
+
 	var arr1 = [11,12,22,11,25,22];
 	function uniqueArray(arr){
 		var result = [];
 		for(var i = 0;i<arr.length;i++){
 			var isDup = false;
 			for(var j = 0;j<result.length;j++){
-				console.log(111)
 				if(arr[i] == result[j]){
+					//如果arr[i] == result[j]为真，说明有重复值，所以需要用break结束这个循环，
+					// 设置isDup=true是为了确定有重复值，走到下面！isDup为假，就不会执行result.push(arr[i]);
 					isDup = true;
 					break;
 				}

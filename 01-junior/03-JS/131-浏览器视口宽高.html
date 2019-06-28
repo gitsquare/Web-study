@@ -18,6 +18,12 @@
 	
 </body>
 <script>
+	/*client相关值通常用来确定视口的宽高,但需要注意兼容性问题
+	确定浏览器视口宽高(不包括滚动条)
+		标准模式用document.documentElement.clientWidth/clientHeight
+		混杂模式用 document.body.clientWidth/clientHeight*/
+
+
 	console.log('document.compatMode',document.compatMode)
 	console.log('document.documentElement.clientWidth',document.documentElement.clientWidth);
 	console.log('document.documentElement.clientHeight',document.documentElement.clientHeight);

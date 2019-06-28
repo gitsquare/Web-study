@@ -36,7 +36,7 @@
 	var oBox = document.getElementById('box');
 	var timer = 0;
 	oBtn.onclick = function(){
-		clearInterval(timer);
+		clearInterval(timer);//防止同时开启多个定时器,在设置定时器前需要清除定时器
 		timer = setInterval(function(){
 			console.log('timer '+timer+" is running");
 			if(oBox.offsetLeft == 400){

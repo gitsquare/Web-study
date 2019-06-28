@@ -13,7 +13,7 @@
 			height: 300px;
 			border: 1px solid #000;
 			margin: 50px auto;
-			/*position: relative;*/
+			position: relative;
 		}
 		#son{
 			position: absolute;
@@ -31,6 +31,8 @@
 	</div>
 </body>
 <script>
+	/*1.oNode.parentNode,子节点的父节点对象
+	2.oNode.offsetParent,子节点绝对定位时,获取参考的父节点对象*/
 	var oSon = document.getElementById('son');
 
 	 // var oParent = oSon.parentNode;

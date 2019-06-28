@@ -37,6 +37,9 @@
 	oDiv1.onmouseover = function(){
 		clearInterval(oDiv1.timer);
 		var iSpeed = 0;
+
+		// 多物体同时运动时需要把定时器ID保存在元素对象上避免各个物体动画之间的干扰
+		//在对象oDiv1添加timer属性，第一次clearInterval(oDiv1.timer)中oDiv1.timer的值是undefined，但是不影响
 		oDiv1.timer = setInterval(function(){
 			if(oDiv1.offsetWidth > 300){
 				iSpeed = -10;

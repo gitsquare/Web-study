@@ -8,7 +8,12 @@
 	
 </body>
 <script>
+	/*1.sort方法默认升序排序数组,该方法会修改原数组并返回原数组,返回的数组和原数组指的是同一个数组,也就是同一个引用地址
+	2.sort方法会调用数组中的每一项的toString方法将其转换为字符串后再比较
+	3.比较函数可以定义数组的排序规则*/
+
 	var arr1 = ["apple","bat","yes","no","good"];
+	// var arr1 = [1,2,3,4,3,2];
 	console.log(":::1",arr1);
 	var arr2 = arr1.sort();
 	console.log(":::2",arr1);

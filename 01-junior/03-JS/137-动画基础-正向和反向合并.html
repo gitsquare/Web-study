@@ -39,6 +39,7 @@
 		clearInterval(timer);
 		var iSpeed = 0;
 		timer = setInterval(function(){
+			//速度正负的决定由当前值和目标值的大小关系来决定,当前值小于目标值的话为正速度,当前值大于目标值的话为负速度
 			if(oBox.offsetLeft > 400){
 				iSpeed = -10;
 			}else{

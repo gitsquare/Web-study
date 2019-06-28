@@ -24,13 +24,18 @@
 	</div>
 </body>
 <script>
+	/*克隆节点 oNode.cloneNode([true])
+		1.参数true表示克隆节点的同时克隆所有后代
+		2.不带参数true只克隆节点
+		3.需要用追加或者插入方法来将克隆的元素插入到页面*/
+
 	var oBtn1 = document.getElementById('btn1');
 	var oBtn2 = document.getElementById('btn2');
 	var oBox = document.getElementById('box');
 
 	oBtn1.onclick = function(){
 		var newBox = oBox.cloneNode();
-		document.body.appendChild(newBox);
+		// document.body.appendChild(newBox);
 	}
 
 	oBtn2.onclick = function(){

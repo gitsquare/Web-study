@@ -45,6 +45,7 @@
 		var sTime = to2Str(iHour) + to2Str(iMinute) + to2Str(iSecond);
 		for(var i = 0;i<aImg.length;i++){
 			aImg[i].src = "images/"+sTime.charAt(i)+".png";
+			//使用了字符串实例的方法charAt(),参数为下标，把对应的值给返回出去;
 		}
 	}
 

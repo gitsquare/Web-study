@@ -8,11 +8,13 @@
 	
 </body>
 <script>
+	/*1.在函数内部用var声明的变量会添加到当前函数的作用域中
+	2.如果变量不用var关键字声明会被添加到全局作用域中,不推荐使用,在严格模式下定义变量不写var会报错*/
 	var a = 1;
 	function fn(){
 		console.log("fn",a);
-		//a = 2;//代表重新给a赋值；
-		 var a = 2;//写var代表重新定义了一个变量a；
+		a = 2;//代表重新给a赋值；不用关键字var，是没有变量声明的提升的
+		 // var a = 2;//写var代表重新定义了一个变量a；
 		function fn1(){
 			console.log('fn1',a);
 		}

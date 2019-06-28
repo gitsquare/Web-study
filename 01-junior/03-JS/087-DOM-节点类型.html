@@ -5,7 +5,7 @@
 	<title>087-DOM-节点类型.html</title>
 </head>
 <body>
-	<ul id="ul1">11
+	<ul id="ul1">
 		<li>1</li>
 		<li>2</li>
 		<li>3</li>
@@ -16,7 +16,8 @@
 <script>
 	var oUl = document.getElementById('ul1');
 	var aNode = oUl.childNodes;
-	console.log(aNode);
+	console.log(aNode[1].nodeName);
+	console.log(aNode[1].nodeValue);
 	for(var i = 0;i<aNode.length;i++){
 		// aNode[i].style.color = 'red';
 		// console.log(aNode[i].nodeType);

@@ -19,7 +19,8 @@
 	</ul>
 </body>
 <script>
-	ar oUl = document.getElementById('ul1');
+
+	var oUl = document.getElementById('ul1');
 	var aLi = oUl.children;
 	var originColor = '';
 	for(var i = 0;i<aLi.length;i++){
@@ -29,6 +30,7 @@
 			aLi[i].style.backgroundColor = '#f67';
 		}
 		aLi[i].onmouseover = function(){
+			// 因为事件触发后，背景颜色就改变了，所以在改变之前把原来的颜色给保存下来
 			originColor = this.style.backgroundColor;
 			this.style.backgroundColor = '#f00';
 		}

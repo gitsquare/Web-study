@@ -18,8 +18,8 @@
 	var aA = document.getElementsByTagName('a');
 	for(var i = 0;i<aA.length;i++){
 		aA[i].onclick = function(){
-			// console.log(this);
-			// console.log(this.parentNode);
+			console.log(this);
+			console.log(this.parentNode);
 			this.parentNode.style.display = 'none';
 		}
 	}

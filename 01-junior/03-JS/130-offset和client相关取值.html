@@ -32,6 +32,13 @@
 	</div>
 </body>
 <script>
+	/*注意点
+		1.offset相关值和client相关值都是只读属性
+		2.offset相关值和client相关值每次访问都会从新计算
+		3.offset相关值和client相关值都是获取计算后的值*/
+
+
+
 	var oSon = document.getElementById('son');
 	console.log("oSon.offsetLeft",oSon.offsetLeft)//元素的左外边框和参考父元素左内边框的距离
 	console.log("oSon.offsetTop",oSon.offsetTop)//元素的上外边框和参考父元素上内边框的距离

@@ -38,7 +38,10 @@
 		clearInterval(obj.timer);
 		var iSpeed = 0;
 		obj.timer = setInterval(function(){
+
+			//无论是宽高，还是透明度都可以通过	getComputedStyle(obj,false)[attr]方法获取到属性当前的值，不过因为获取的是字符串，所以需要用parseFloat转换成数字，虽然获取到的宽高的值中带有'px',但是根据parseFloat的用法，是可以把字符串中前面的数字部分转化成数字类型的。
 			var current = parseFloat(getComputedStyle(obj,false)[attr]);
+
 			if(attr == 'opacity'){
 				current = Math.round(current * 100);
 			}

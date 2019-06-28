@@ -9,6 +9,13 @@
 	<button id="btn1">前进</button><button id="btn2">后退</button>
 </body>
 <script>
+	/*history对象代表用户上网的记录,从窗口被打开的那一刻算起
+	用法
+		history.go(跳转页面数),跳转页面数是一个整数,负数表示回退,整数表示前进
+		history.back(),回退一页,等价于history.go(-1) 
+		history.forward(),前进一页,等价于history.go(1)*/
+
+
 	var oBtn1 = document.getElementById('btn1');
 	var oBtn2 = document.getElementById('btn2');
 	oBtn1.onclick = function(){

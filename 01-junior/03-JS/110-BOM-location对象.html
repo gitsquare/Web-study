@@ -8,6 +8,15 @@
 	<button id="btn">跳转</button>
 </body>
 <script>
+	/*1.document.location和window.location是同一个对象,代表当前页面的相关信息对象,可以读取和赋值
+	2.window.location.href 属性代表当前页面的完整url
+	3.window.location.assign(url),和window.open()类似，assign方法会打开url,如果把location.href或者location设置为一个url值,也会调用assign方法
+	4.location的其他属性
+		host 服务器名称和端口号
+		hostname 服务器名称
+		pathname 地址中的路径部分
+		port 端口号
+		search 查询字符串,指?后面的字符串*/
 	
 	console.log(window.location);
 	console.log(document.location);

@@ -49,6 +49,8 @@
 			iSpeed = (400 - oBox.offsetLeft)/10;
 
 			iSpeed = Math.floor(iSpeed);
+			//因为是反向运动，即iSpeed是负值，所以用向下取整取到-1
+
 
 			if(oBox.offsetLeft == 400){
 				clearInterval(timer);

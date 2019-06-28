@@ -18,6 +18,19 @@
 	
 </body>
 <script>
+	/*scrollLeft,读写属性,表示隐藏在内容区域左侧的宽度,一般指水平滚动距离
+	scrollTop,读写属性,表示隐藏在内容区域上侧的高度,一般指垂直滚动距离
+	scrollWidth,只读属性,表示元素内容的宽度,包括由于滚动而未显示在屏幕中内容
+	scrollHeight,只读属性,表示元素内容的高度,包括由于滚动而未显示在屏幕中内容
+
+	scrollLeft/scrollTop 通常用来确定页面的水平／垂直滚动距离,但需要注意兼容问题,其中scrollTop是最常用的一个属性
+
+	确定页面的水平／垂直滚动距离
+		标准模式用document.documentElement.scrollLeft/scrollTop
+		混杂模式用 document.body.scrollLeft/scrollTop
+		IE9以上和高级浏览器可以用window.pageXOffset/window.pageYOffset*/
+
+
 	console.log('document.compatMode',document.compatMode);
 	console.log("document.documentElement.scrollWidth",document.documentElement.scrollWidth);
 	console.log("document.documentElement.scrollHeight",document.documentElement.scrollHeight);

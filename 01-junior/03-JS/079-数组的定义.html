@@ -8,8 +8,26 @@
 	
 </body>
 <script>
+	/*1.方法1和方法2的作用是一样的,方法2效率上更高一些
+	2.数组中可以存放不同类型的数据
+	3.可以通过下标来访问数组中的元素
+	4.数组的下标是从0开始的
+	5.可以通过数组的length属性获取到数组的长度
+	6.数组不需要在定义时确定长度, 后续可以动态增长
+	7.可以改变数组的length属性,改变后的值是数组的实际长度,可以通过这种方法清空数组*/
+
+
+	var arr11 = new Array("a","b","null");
+	console.log(arr11.length);
+	console.log(arr11);
+	arr11.length = 5;
+	console.log(arr11);//["a", "b", "null", empty × 2]
+	console.log(arr11[3]);//undefined
+
+
+
+
 	var arr1 = new Array(1,2,3,"a","b");
-		
 	var arr2 = [1,2,3,"a","b"];
 	console.log(arr1);
 	console.log(arr2);

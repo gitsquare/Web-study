@@ -8,6 +8,15 @@
 	<button id="btn">关闭</button>
 </body>
 <script>
+	/*setInterval(函数或者代码字符串,时间) 开启循环型定时器,返回一个唯一的整型数字代表定时器的ID
+	 setTimeout(函数或者代码字符串,时间) 开启延迟型定时器,返回一个唯一的整型数字代表定时器的ID
+	clearInterval(定时器的ID) 关闭循环型定时器
+	clearTimeout(定时器的ID) 关闭延迟型定时器
+	循环型定时器在定时器关闭前会一直按照设定的间隔时间执行,延迟型定时器只执行一次
+	定时器中指定的时间指的是多久后把代码加入到任务队列中,单位是毫秒
+	HTML5规定定时器中的时间不得低于4毫秒，如果低于这个值(如0)，就会自动增加到4毫秒。*/
+
+
 	var oBtn = document.getElementById('btn');
 	// setInterval('console.log(1)',2000);
 	// window.setInterval('console.log(1)',2000);

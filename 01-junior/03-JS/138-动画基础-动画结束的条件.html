@@ -45,6 +45,9 @@
 				iSpeed = 10;
 			}
 			// if(oBox.offsetLeft == 400){
+			/*动画结束的条件
+				1.速度一般需要根据需求调整,通常不能保证运动结束时恰好到达目标值,所以不能用当前值等于目标值来做为动画结束的条件
+				2.动画结束的条件应当是当目标值和当前值的差不够一次速度的改变时,直接把元素改为目标值并且结束动画 */
 			if(Math.abs(400 - oBox.offsetLeft) < Math.abs(iSpeed)){
 				oBox.style.left = '400px';
 				clearInterval(timer);

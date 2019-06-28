@@ -9,14 +9,15 @@
 </body>
 <script>
 	function fn1(){
-		// var a = 1;
-		// console.log("fn1",a)
+		// "use strict";
 		function fn2(){
 			a=2;
 			console.log('fn2',a);
 		}
 		fn2();
-		var a = 1;
+		var a = 1;//相当于重新定义了a,并且给a赋值
+		// var a;//用var定义变量a,但是有声明的提升,然后在函数fn2中，又赋了值
+		console.log(a)
 	}
 	fn1();
 	console.log(a);

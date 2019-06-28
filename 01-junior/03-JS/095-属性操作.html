@@ -10,16 +10,18 @@
 	<textarea id="content" cols="30" rows="10"></textarea>
 </body>
 <script>
+	// oNode.getAttribute(名称),有属性获取值,没有属性返回null ,没有属性指的是没有设置这个属性
+	
 	var oTxt = document.getElementById('txt');
 	var oBtn = document.getElementById('btn');
 	var oContent = document.getElementById('content');
 
 	oBtn.onclick = function(){
 		
-		var val = oTxt.value;
+		/*var val = oTxt.value;
 		oContent.value = val;
 		
-		/*var val = oTxt["value"];
+		var val = oTxt["value"];
 		oContent["value"] = val;*/
 			
 		var val = oTxt.getAttribute('value');

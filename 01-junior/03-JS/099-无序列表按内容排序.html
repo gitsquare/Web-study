@@ -19,14 +19,19 @@
 	var oUl = document.getElementById('ul1');
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){
+		//因为需要调用数组的sort方法，所以要把获取的li组成的伪数组转为数组
+
+		//重要：这里的aLi和aEle指的是同一个对象。因为两者存的都是引用地址，指向同一个对象
 		var aLi = oUl.children;
 		var aEle = [];
 		// console.log(aLi);
 		for(var i = 0;i<aLi.length;i++){
 			aEle.push(aLi[i]);
 		}
+
+		//数组的sort方法接收的参数是数组的元素。
 		aEle.sort(function(oLi1,oLi2){
-			return oLi1.innerHTML - oLi2.innerHTML;
+			return oLi1.innerHTML - oLi2.innerHTML;//虽然oLi1.innerHTML的内容是字符串，但是因为用了减号，是隐式转换
 		});
 		
 		for(var i = 0;i<aEle.length;i++){

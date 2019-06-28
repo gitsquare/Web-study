@@ -8,28 +8,34 @@
 	
 </body>
 <script>
-	/*var a = 1;
+	var a = 1;
 	function fn1(){
 		console.log('one'+a);//
 	}
 	function fn2(){
-		// var a = 2;
-		a = 2;
+		var a = 2;//用var意思是重新定义一个变量
+		// a = 2;//不用var意思是重新赋值
 		fn1();
 	}
 	console.log('two'+a);//
 	fn2();
-	console.log('three'+a);//*/
+	console.log('three'+a);//
+
+
 
 
 	//var a=b=2;//=>b=2;var a = b;
 
-	function ab(){
-		// 'use strict'
+
+
+
+	/*function ab(){
 		var b;
 		var a = b;
 		b=2;
 		console.log(a)
+		//这里把var b和b=2分开了，但其实还是相当于先定义后初始化，和定义的时候同时初始化是一样的
+		//即var b = 2和var b;b=2;是一样的。
 	}
 	ab();
 	// console.log(a);
@@ -38,7 +44,7 @@
 
 
 	console.log(typeof a == 'undefined');
-	console.log(typeof b == 'undefined');
+	console.log(typeof b == 'undefined');*/
 
 </script>
 </html>

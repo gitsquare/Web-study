@@ -11,7 +11,12 @@
 	 for (var i = 0; i < 3; i++) {
           setTimeout(function () {
               console.log(i);
-          }, 1000);
-      }      
+          }, 5000);
+      }   
+      //当i=0，执行setTimeout方法，5000ms后把函数放到任务队列中
+      //当i=1，执行setTimeout方法，5000ms后把函数放到任务队列中  
+      //当i=2，执行setTimeout方法，5000ms后把函数放到任务队列中  
+
+      // 而for循环属于同步任务，一瞬间就结束，所以基本上可以算是同一时间把函数放到任务队列中
 </script>
 </html>

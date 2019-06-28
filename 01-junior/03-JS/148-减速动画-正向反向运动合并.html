@@ -50,6 +50,7 @@
 
 			iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
 
+			//由于减速动画最终的速度会变为0,所以可以用速度作为结束条件当iSpeed=0时，动画结束
 			if(!iSpeed){
 				clearInterval(timer);
 			}else{

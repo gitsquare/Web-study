@@ -35,8 +35,16 @@
 		clearInterval(timer);
 		var iSpeed = 0;
 		timer = setInterval(function(){
+			// 透明值的获取需要用getComputedStyle方法,透明值的设置不需单位,因此封装函数时需要分别处理。getComputedStyle方法可以获取计算后的属性的值，也就是当前的属性的值。
 			var current = parseFloat(getComputedStyle(oBox,false)['opacity']);
+			// 因为获取的属性的值是字符串，所以转换成数字类型进行计算。
+
+			//在chrome浏览器中，获取到的opacity属性的值是小数，不太好计算，所以要进行换算
+			//如果在IE浏览器中，获取到的opacity属性的值是百分制的
+
 			current = Math.round(current * 100);
+			//因为在计算机中储存的数字有的是近似值，是有小数的。所以用Math.round()方法进行四舍五入，保证取得的当前值是一个整数
+
 			console.log(current);
 			if(current > 50){
 				iSpeed = -3;

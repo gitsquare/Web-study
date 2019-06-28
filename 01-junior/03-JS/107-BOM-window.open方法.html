@@ -8,13 +8,25 @@
 	<button id="btn">打开</button>
 </body>
 <script>
+	/*window.open()
+		作用:打开一个新窗口并返回新打开的窗口对象
+		用法
+			window.open(地址,打开方式);
+			注意点
+				1.地址的取值
+					完整的url
+					本地页面
+					"about:blank",表示空白页面
+				2.打开方式取值
+					"_blank",空白页面打开,默认值
+					"_self",当前窗口打开*/
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){
 		// window.open('https://www.kuazhu.com','_blank');
 		// window.open('https://www.kuazhu.com','_self');
 		// window.open('008-换肤.html');
 		// window.open('about:blank')
-		var newWin =  window.open('about:blank','_blank');
+		var newWin =  window.open('008-换肤.html','_blank');
 		console.log(newWin);
 	}
 </script>

@@ -4,11 +4,23 @@
 	<meta charset="UTF-8">
 	<title>096-生成元素.html</title>
 </head>
+<style>
+	.box{
+		width: 100px;
+		height: 100px;
+		border: 1px solid #000;
+	}
+</style>
 <body>
 	
 </body>
 <script>
+	/*生成元素 document.createElement('标签名')
+	1.该方法会返回一个DOM节点
+	2.创建的元素并不会插入到页面
+	3.需要用追加或者插入方法来将新创建的元素插入到页面*/
 	var oDiv = document.createElement('div');
+	oDiv.className = 'box';
 	console.log(oDiv);
 
 	document.body.appendChild(oDiv);

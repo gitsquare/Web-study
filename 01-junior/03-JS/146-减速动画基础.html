@@ -35,6 +35,13 @@
 	var oBtn = document.getElementById('btn');
 	var oBox = document.getElementById('box');
 	var timer = 0;
+
+	/*核心原理
+		执行速度和目标值减去当前值的差成正比,即离目标的越远速度越快,因此执行速度可以是(目标值 - 当前值) / 系数;
+	注意点
+		由于减速动画的速度有除法,所以会产生小数,需要取整
+		由于减速动画最终的速度会变为0,所以可以用速度作为结束条件*/
+	
 	oBtn.onclick = function(){
 		clearInterval(timer);
 		var iSpeed = 0;
