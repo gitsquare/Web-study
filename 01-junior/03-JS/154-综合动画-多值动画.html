@@ -27,12 +27,11 @@
 	var oDiv2 = document.getElementById('div2');
 	var oDiv3 = document.getElementById('div3');
 	
-	/**
-	 * @param  {object} obj    [DOM节点对象]
-	 * @param  {object} options   [属性和目标值的对象]
-	 * @param  {boolean} isLinear [是否是匀速动画]
-	 * @param  {function} fnEnd [动画结束时执行的函数]
-	 */
+	/*多值动画
+		1.将属性和目标值以对象的形式传递到函数
+		2.循环遍历每一个属性执行动画
+		3.动画结束的条件是如果有在执行的动画就不结束*/
+
 	function animate(obj,options,isLinear,fnEnd){
 		//设置默认是匀速动画
 		if(isLinear == undefined){
@@ -104,6 +103,7 @@
 				}
 			}
 			//如果终止所有动画,清除定时器
+			// 需要所有的动画都结束才清除定时器，意思是只要有一个动画没有结束，就不能清除定时器
 			if(isStopAll){
 				clearInterval(obj.timer);
 				//动画执行完毕后的执行函数

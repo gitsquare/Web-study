@@ -27,11 +27,12 @@
 	oBtn.addEventListener('click',function(ev){
 		// console.log(ev);
 		oMenu.style.display = 'block';
-		ev.stopPropagation();
+		ev.stopPropagation();//需要阻止冒泡，否则点击oBtn时冒泡到document添加的事件中，display值为none
 	},false);
 	
 	oMenu.addEventListener('click',function(ev){
 		ev.stopPropagation();
+		//需要阻止冒泡，否则点击oMenu时，冒泡到document添加的事件中，display值为none
 	},false)
 
 	document.addEventListener('click',function(){
@@ -39,8 +40,7 @@
 	},false);
 
 </script>
-</html>
-
+</html> 
 
 
 

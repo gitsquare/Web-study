@@ -4,9 +4,13 @@
 	<meta charset="UTF-8">
 	<title>175-随机函数.html</title>
 	<script>
+
+		//目的：获取min和max中的随机整数
 		function getRandom(min,max){
-			// console.log(Math.random());[0,1)
+			// console.log(Math.random());//[0,1),包括0不包括1
 			//console.log(Math.round(min+(max - min)*Math.random()));
+
+			//方法：最小值 + 差值*Math.random()，然后再把计算的结果四舍五入，以便可以取得最大值，否则因为随机数不包括1，会取不到最大值的
 			return Math.round(min+(max - min)*Math.random());
 
 		}

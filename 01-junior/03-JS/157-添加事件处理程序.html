@@ -24,10 +24,15 @@
 	}
 	var oBtn = document.getElementById('btn');	
 	var oBtn1 = document.getElementById('btn1');	
-	/*
-	oBtn.onclick = show;
+	
+	/*oBtn.onclick = show;
 	oBtn.onclick = sayHi;
-	*/
+	oBtn.onmouseover = function(){
+		console.log('haha')
+	}*/
+	
+
+
 	oBtn.addEventListener('click',sayHi,false);
 	oBtn.addEventListener('click',show,false);
 	oBtn.addEventListener('click',function(){

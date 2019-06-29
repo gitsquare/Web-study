@@ -25,14 +25,23 @@
 	var oBox = document.getElementById('box');
 	var disX = 0,disY = 0;
 	oBox.onmousedown = function(ev){
+		//第一步：计算鼠标在oBox中的位置
 		disX = ev.clientX - oBox.offsetLeft;
 		disY = ev.clientY - oBox.offsetTop;
+
+		//因为如果鼠标拖动过快可能会脱离oBox,所以把onmousemove事件添加到document上面
 		document.onmousemove = function(ev){
+			//第二步：移动后根据重新计算的鼠标在可视区（浏览器）中的位置减去移动前保存的鼠标在oBox中的位置，得到oBox在浏览器中的位置。
 			oBox.style.left = ev.clientX - disX + 'px';
 			oBox.style.top = ev.clientY - disY + 'px';
 		}
 		document.onmouseup = function(){
+
+			//鼠标松开后，document.onmousemove事件仍然存在，继续移动鼠标还会触发，所以需要删除事件
+			//删除事件的方法 object.onmousemove = null;
 			document.onmousemove = null;
+
+			//因为鼠标松开以后，document.onmouseup事件就没有用了，所以也需要删除
 			document.onmouseup = null;
 		}
 	}

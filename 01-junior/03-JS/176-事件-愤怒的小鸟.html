@@ -70,6 +70,9 @@
 	var iSpeed = 0;
 	var spaceHeight = 300;
 	var isDie = false;
+
+	//第三步：生成柱子（上部柱子和下部柱子：宽度可以确定，高度需要计算），因为需要不停的生成柱子，所以得开启循环定时器setInterval(addLine,400)
+	//高度的确定：中间的间隔是给定不变的，上部柱子给个范围，随机生成高度，下部柱子通过总高度-上部柱子高度-中间间隔高度 计算得来
 	function addLine(){
 		var oTopLine = document.createElement('div');
 		var oBottomLine = document.createElement('div');
@@ -79,6 +82,7 @@
 		oTopLine.style.height = h + 'px';
 		oBottomLine.style.height = oWrap.offsetHeight - 2 - h - spaceHeight + 'px';
 
+		//因为生成上部柱子后，每根上部柱子默认的left值是100%，需要把100给存起来，
 		oTopLine.leftData = 100;
 
 		oWrap.appendChild(oTopLine);
@@ -89,18 +93,25 @@
 	addLineTimer = setInterval(addLine,400)
 
 
+	//第四步：移动柱子
 	clearInterval(moveLineTimer);
 	moveLineTimer = setInterval(function(){
+		//首先拿到所有柱子
 		var aTopLine = document.querySelectorAll('.topLine');
 		var aBottomLine = document.querySelectorAll('.bottomLine');
 		
 		for(var i = 0;i<aTopLine.length;i++){
+			//小鸟碰到上部柱子或下部柱子就会gameover
 			if(checkBump(oBird,aTopLine[i]) || checkBump(oBird,aBottomLine[i])){
 				die();
 			}
+			//上部柱子和下部柱子是同时移动的，通过改变left的值，因为left默认是100%，所以计算也按照百分比计算
+			//每次都减去1%
 			aTopLine[i].style.left = aBottomLine[i].style.left = aTopLine[i].leftData - 1 + "%";
+			//每次都基于上一次减过1%的情况下再减1%，防止每次都是以100去减
 			aTopLine[i].leftData = aTopLine[i].leftData - 1;
 
+			//生成的柱子移动位置超过了游戏盒子的左边框或者再向左移动一定距离后就没有存在的必要了，需要把这些没用的柱子清除掉
 			if(aTopLine[i].leftData < -20){
 				oWrap.removeChild(aTopLine[i]);
 				oWrap.removeChild(aBottomLine[i]);				
@@ -109,6 +120,8 @@
 
 	},30)
 
+
+	//第一步：因为小鸟需要一直往下掉，所以要开启循环定时器。小鸟需要加速往下掉，掉到最下边，或者升到最上边碰到边框后都会gameover
 	clearInterval(moveBirdTimer);
 	moveBirdTimer = setInterval(function(){
 		iSpeed += 1;
@@ -123,28 +136,21 @@
 		oBird.style.top = t + 'px';
 	},30)
 
+	//第二步：如果gameover，那么就把定时器清掉，用键盘控制改变小鸟的速度
 	function die(){
 		isDie = true;
-		clearInterval(moveBirdTimer);
-		clearInterval(addLineTimer);
-		clearInterval(moveLineTimer);
+		clearInterval(moveBirdTimer);//gameover后小鸟不再移动，需要关闭定时器
+		clearInterval(addLineTimer);//gameover后不再生成柱子，需要关闭定时器
+		clearInterval(moveLineTimer);//gameover后柱子不再移动，需要关闭定时器
 	}
 
 	document.onkeydown = function(){
 		if(isDie){
+			//gameover以后，再按键盘已经没有意义了，需要结束键盘事件
 			return false;
 		}
+		//用键盘来控制改变小鸟的速度，以此来决定小鸟到底是上升还是下落
 		iSpeed -= 15;
 	}
-
-
 </script>
-
-
-
-
-
-
-
-
 </html>

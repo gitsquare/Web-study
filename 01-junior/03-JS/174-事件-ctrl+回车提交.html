@@ -30,11 +30,21 @@
 	</div>
 </body>
 <script>
+	/*键盘属性
+		1.event.keyCode 键盘编码
+		2.event.ctrlKey Ctrl键
+		3.event.shiftKey Shift键
+		4.event.altKey Alt键
+		按对应的这些键时，会返回true,如果不是对应的会返回false
+	*/
+
 	var oTxt = document.getElementById('txt');
 	var oBtn = document.getElementById('btn');
 	var oList = document.getElementById('list');
 	oTxt.onkeydown = function(ev){
+		console.log(ev.ctrlKey);//注意：ctrlKey中的K是大写的
 		if(ev.keyCode == 13 && ev.ctrlKey){
+			//在这里可以用这种方法调用函数，因为函数赋给了oBtn.onclick，但是如果不用键盘来触发，是会报错的
 			oBtn.onclick();
 		}
 	}
@@ -44,8 +54,6 @@
 		oTxt.value = '';
 		oList.insertBefore(oLi,oList.firstChild);
 	}
-
-
 
 
 </script>

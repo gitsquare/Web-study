@@ -32,7 +32,7 @@
 		#content{
 			width: 400px;
 			height: 320px;
-			line-height: 20px;
+			line-height: 20px;/*设置行高，防止文字压住盒子的下边框*/
 			border: 1px solid #000;
 			position: relative;
 			overflow: hidden;
@@ -82,7 +82,7 @@
 	var oWrap = document.getElementById('wrap');
 	var oTxt = document.getElementById('txt');
 	var oContent = document.getElementById('content');
-	var disY = 0,t = 0;
+	var disY = 0,t = 0;//因为两个函数都使用了t变量，所以要放在最外面作为全局变量
 	oBtn.onmousedown = function(ev){
 		disY = ev.clientY - oBtn.offsetTop;
 		document.onmousemove = function(ev){

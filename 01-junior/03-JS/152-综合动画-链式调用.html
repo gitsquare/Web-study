@@ -89,6 +89,13 @@
 			if(isStopCurrent){
 				clearInterval(obj.timer);
 				//动画执行完毕后的执行函数
+
+				//执行回调函数第一种方法
+				/*if (typeof fnEnd == 'function') {
+					fnEnd();
+				}*/
+
+				//第二种方法
 				typeof fnEnd == 'function' && fnEnd();
 			//如果不终止当前动画,运动
 			}else{
@@ -101,6 +108,7 @@
 		},30)
 	}
 
+	// 链式动画：通过回调函数实现链式调用
 	oDiv1.onmouseover = function(){
 		animate(oDiv1,'width',400,true,function(){
 			animate(oDiv1,'height',400,true,function(){

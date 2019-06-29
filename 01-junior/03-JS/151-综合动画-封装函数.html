@@ -25,15 +25,11 @@
 	var oDiv1 = document.getElementById('div1');
 	var oDiv2 = document.getElementById('div2');
 	var oDiv3 = document.getElementById('div3');
-	
-	/**
-	 * @param  {object} obj    [DOM节点对象]
-	 * @param  {string} attr   [属性名称]
-	 * @param  {number} target [目标值]
-	 * @param  {boolean} isLinear [是否是匀速动画]
-	 */
+
 	function animate(obj,attr,target,isLinear){
 		//设置默认是匀速动画
+		// isLinear = isLinear || true;//这种方法不行，如果参数为false时，isLinear结果还是为true
+		//所以需要判断一下
 		if(isLinear == undefined){
 			isLinear = true;
 		}
@@ -99,8 +95,9 @@
 	}
 
 	oDiv1.onmouseover = function(){
-		animate(oDiv1,'width',400,false);
-		// animate(oDiv1,'height',400,false);	
+		// animate(oDiv1,'width',400,false);
+		animate(oDiv1,'height',400,false);
+		//因为是同步的，当执行宽度的动画时开了一个定时器，执行高度的动画时直接就通过clearInterval(obj.timer)把第一个定时器给关闭了，所以不能同时执行宽度和高度的动画，可以用回调函数改进
 	}
 	oDiv2.onmouseover = function(){
 		animate(oDiv2,'height',400);		

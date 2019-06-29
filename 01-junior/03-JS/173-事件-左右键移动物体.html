@@ -22,6 +22,17 @@
 	<div id="box"></div>
 </body>
 <script>
+	/*键盘事件
+		1.onkeydown 键盘按下 
+		2.onkeyup 键盘抬起 
+		3.onkeypress 键按下去触发,键不抬起会一直触发*/
+
+	/*键盘属性
+		1.event.keyCode 键盘编码
+		2.event.ctrlKey Ctrl键
+		3.event.shiftKey Shift键
+		4.event.altKey Alt键*/
+
 	var oBox = document.getElementById('box');
 	document.onkeydown = function(ev){
 		// console.log(ev.keyCode);

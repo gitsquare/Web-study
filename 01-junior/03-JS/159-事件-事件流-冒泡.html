@@ -16,6 +16,16 @@
 	<div id="box"></div>
 </body>
 <script>
+	/* DOM事件流:事件流指的是页面中接收事件的顺序
+	 DOM事件流模型
+		1.事件捕获
+			document最先接收到事件,然后沿DOM树依次向下传播到具体的元素
+		2.事件冒泡
+			事件由具体元素接收,然后逐级向上传播
+			阻止事件冒泡 event.stopPropagation()
+	完整DOM事件流
+		事件捕获阶段——>处于目标阶段——>事件冒泡阶段*/
+
 	var oBox = document.getElementById('box');
 	oBox.addEventListener('click',function(){
 		console.log('obox click');

@@ -42,10 +42,18 @@
 		aDiv[0].style.left = getScrollLeft() + ev.clientX + 'px';
 		aDiv[0].style.top =getScrollTop() + ev.clientY + 'px';
 
+
+		//通过循环，每一个div比上一个的offsetLeft和offsetTop多10px,从最后一个也就是aDiv.length - 1开始到着来，直到下标为1的div，因为下标为0也就是第一个div的offsetLeft和offsetTop已经是确定了的。
 		for(var i = aDiv.length - 1;i>0;i--){
 			aDiv[i].style.left = aDiv[i - 1].offsetLeft + 10 + 'px';
 			aDiv[i].style.top = aDiv[i - 1].offsetTop + 10 + 'px';
 		}
+
+		
+		/*for(var i =  1;i<aDiv.length;i++){
+			aDiv[i].style.left = aDiv[i - 1].offsetLeft + 10 + 'px';
+			aDiv[i].style.top = aDiv[i - 1].offsetTop + 10 + 'px';
+		}*/
 	}
 </script>
 </html>
