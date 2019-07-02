@@ -9,6 +9,11 @@
 	<button id="btn">检查</button>
 </body>
 <script>
+	/*
+	^  匹配字符串开始的位置,限制必须以其后面的原子开头,前面不能有任何东西
+	$  匹配字符串结尾的位置,限制必须以其前面的原子结束,后面不能有任何东西
+	*/
+
 	var oTxt = document.getElementById('txt');
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){

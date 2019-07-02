@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+	// Event对象的一些兼容写法
+	/*1.获得event对象兼容性写法 
+		event || (event = window.event);
+	2.获得target兼容型写法 
+		event.target||event.srcElement
+	3.阻止浏览器默认行为兼容性写法 
+		event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+	4.阻止冒泡写法 
+		event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);*/
+
+
+
+	/*兼容处理
+		1.事件对象,在IE9以下需要用window.event对象
+		2.添加事件,在IE9以下用attachEvent(事件处理程序名,事件处理函数)
+		3.移除事件,在IE9以下用detachEvent(事件处理程序名,事件处理函数)*/
+
+	/*1.添加事件,在IE9以下用attachEvent(事件处理程序名,事件处理函数)
+	2.移除事件,在IE9以下用detachEvent(事件处理程序名,事件处理函数)
+	3.在使用attachEvent（）方法的情况下，事件处理程序会在全局作用域中运行，因此this等于window。
+	4.用来为一个元素添加多个事件处理程序,但是事件处理程序不是以添加他们的顺序执行，而是以相反的顺序被触发。*/
+
+	/*document.body.onclick = function(ev){
+		// var oEvent = ev || window.event;
+		var oEvent = ev || event;//window是可以省略的
+		console.log(oEvent);
+	}*/
+
+	/*function handleEvent(){
+		console.log('add event');
+	}
+	document.body.attachEvent('onclick',handleEvent);
+	document.body..detachEvent('onclick',handleEvent);*/
+
+
+
+
+
+
+	function handleEvent(){
+		console.log('add event');
+	}
+	addEventHandler(document.body,'click',handleEvent);
+	// removeEventHandler(document.body,'click',handleEvent);
+	function addEventHandler(elem,type,handle){
+		if(elem.addEventListener){
+			elem.addEventListener(type,handle,false);
+		}else if(elem.attachEvent){
+			elem.attachEvent('on' + type,handle);
+		}else{
+			elem['on'+type] = handle;
+		}
+	}
+
+	function removeEventHandler(elem,type,handle){
+		if(elem.removeEventListener){
+			elem.removeEventListener(type,handle,false);
+		}else if(elem.detachEvent){
+			elem.detachEvent('on' + type,handle);
+		}else{
+			elem['on'+type] = null;
+		}
+	}
+
+
+
+
+</script>
+</html>

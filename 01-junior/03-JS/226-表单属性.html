@@ -14,6 +14,7 @@
 		</div>
 		<div>
 			性别:
+			<!-- 单选框radio想要实现互斥的效果，name属性的值必须相同 -->
 			<input type="radio" value="male" name="sex">男
 			<input type="radio" value="female" name="sex">女
 		</div>
@@ -25,8 +26,14 @@
 		<div>
 			城市:
 			<select name="city" id="city">
-				<option value="bj">北京</option>
-				<option value="sh">上海</option>
+				<optgroup label="直辖市">
+					<option value="bj">北京</option>
+					<option value="sh" selected>上海</option>
+				</optgroup>
+				<optgroup label="省会">
+					<option value="zz">郑州</option>
+					<option value="xa">西安</option>
+				</optgroup>
 			</select>
 		</div>
 		<div>
@@ -36,6 +43,18 @@
 	</form>
 </body>
 <script>
+	/*禁用表单元素
+		表单元素.disabled = true;
+			针对所有表单元素
+			值不会被提交
+		表单元素.readOnly = true;
+			只针对input(text/password)/textarea
+			值会被提交
+	复选框选中属性 checked,如设置选中 aCheckBox[0].checked = true
+	单选框选中属性 checked,如设置选中 aRadio[0].checked = true
+	下拉框选中属性 selected,如设置某个选项选中 oSelect.options[i].selected = true*/
+
+
 	var oBtn = document.getElementById('btn');
 	var oFrom = document.forms[0];
 	// oFrom.username.disabled = true;
@@ -47,7 +66,7 @@
 	aRadio[0].checked = true;
 
 	var oSelect =  oFrom.city;
-
+	console.log(oSelect.options);
 	oBtn.onclick = function(){
 		/*
 		for(var i = 0;i<aCheckBox.length;i++){
@@ -66,13 +85,5 @@
 		}
 		console.log(result)	
 	}
-
-
-
-
-
-
-
-
 </script>
 </html>

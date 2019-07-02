@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>206-原子筛选-区间.html</title>
 	<script>
+		/*
+		|   竖线两边任意匹配
+		[]  括号中任意一个原子,可以写区间(闭区间),如[a-z0-9]
+		[^] 括号中任意一个原子之外的原子
+		*/
+
 		var str = 'abc123dfdsfk23432432sfjdskfkds23abcde42%&';
 		var str2 = '你好hello世界';
 		var reg = /a|b|c|d|e/g;
@@ -13,7 +19,7 @@
 		var reg4 = /abcde/g;
 		var reg5 = /[0-9]/g;
 		var reg6 = /[0-9a-z]/g;
-		var reg7 = /[\u4e00-\u9fa5]/g;
+		var reg7 = /[\u4e00-\u9fa5]/g;// \u代表的是Unicode，也是一种转义
 		console.log(str);
 		console.log(str.replace(reg,'*'));
 		console.log(str.replace(reg1,'*'));
@@ -24,6 +30,7 @@
 		console.log(str.replace(reg6,'*'));
 		console.log(str2.replace(reg7,'*'));
 
+		//匹配汉字并且获取长度
 		function getLength(str){
 			return str.replace(/[\u4e00-\u9fa5]/g,'aa').length;
 		}

@@ -55,6 +55,22 @@
 </body>
 <script src="js/util.js"></script>
 <script>
+	window.onload = function(){
+		new Carousel({
+			id:'box1',
+			aImg:['images/b1.jpg','images/b2.jpg','images/b3.jpg'],
+			width:830,
+			height:440,
+			playDuration:1000
+		});
+		new Carousel({
+			id:'box2',
+			aImg:['images/b1.jpg','images/b2.jpg','images/b3.jpg'],
+			width:830,
+			height:440,
+			playDuration:1000
+		});	
+	}
 	function Carousel(options){
 		//1.罗列属性
 		this.oBox = document.getElementById(options.id);
@@ -71,7 +87,7 @@
 		this.init();
 		//3.绑定事件
 		this.bindEvent();
-		//自动播放
+		//自动播放,有的地方需要自动播放，有的不需要，所以需要判断，如果参数中含有playDuration就自动播放
 		if(this.playDuration){
 			this.auto();
 		}
@@ -105,6 +121,8 @@
 				oLi.style.opacity = 0.5;
 			}
 			var oImg = document.createElement('img');
+			oImg.style.width = this.width + 'px';
+			oImg.style.height = this.height + 'px';
 			oImg.src = this.aImg[i];
 			oLi.appendChild(oImg);
 
@@ -176,29 +194,19 @@
 	Carousel.prototype.auto = function(){
 		var timer = 0;
 		var _this = this;
+
+		//this.oRightArrow.onclick绑定了一个函数，在这里this又是代表创建的对象
 		timer = setInterval(this.oRightArrow.onclick,this.playDuration);
 
 		this.oBox.onmouseover = function(){
 			clearInterval(timer);
 		}
 		this.oBox.onmouseout = function(){
-			timer = setInterval(_this.oRightArrow.onclick,_this.playDuration);
-		}
+			// timer = setInterval(_this.oRightArrow.onclick,_this.playDuration);
+			timer = setInterval(this.oRightArrow.onclick,this.playDuration);
+		}.bind(this)
 	}
 
-	new Carousel({
-		id:'box1',
-		aImg:['images/ad1.jpg','images/ad2.jpg','images/ad3.jpg'],
-		width:830,
-		height:440,
-		playDuration:1000
-	});
-	new Carousel({
-		id:'box2',
-		aImg:['images/ad1.jpg','images/ad2.jpg','images/ad3.jpg'],
-		width:830,
-		height:440,
-		playDuration:1000
-	});	
+
 </script>
 </html>

@@ -4,6 +4,41 @@
 	<meta charset="UTF-8">
 	<title>字符串处理</title>
 	<script>
+		/*str.charAt(index)
+			1.根据位置返回字符
+			2.位置在0和str.length-1之间,如果不在返回空字符
+			3.一个汉字是一个字节*/
+
+		/*str.charCodeAt(index)
+			1.根据位置返回字符的编码
+			2.位置在0和str.length-1之间,如果不在返回空字符
+			3.一个汉字是一个字节 
+			4.charCodeAt返回的是字符的Unicode码
+			5.Unicode码是统一的编码,Unicode码包含了ASCII码(0-127)*/
+
+		/*str.indexOf(str1)
+			根据字符返回位置,从前向后找,找不到返回-1
+		str.lastIndexOf(str1)
+			根据字符返回位置,从后向前找,找不到返回-1*/
+
+		/*encodeURIComponent(str)
+			URI编码
+			编码除了字母、数字、(、)、.、!、~、*、'、-和_之外的所有字符
+		decodeURIComponent(str)
+			URI 解码*/
+
+		/*str1.concat(str2)：连接字符串*/
+
+		/*
+		1.str.slice(起始下标,结束下标)：截取字符串,下标可以是负数,负数表示从尾部开始计算,包括起始下标但不包括结束下标
+		2.str.substr(起始下标,长度)：截取字符串,下标可以是负数,负数表示从尾部开始计算
+		3.str.substring(起始下标,结束下标)：截取字符串,下标不可以是负数
+		*/
+
+		/*1.str.toLowerCase()把字符串转换为小写
+		2.str.toUpperCase()：把字符串转换为大写
+		3.str.trim()：去除字符串两边的空白*/
+
 		var str = '   你好abcABC 123   ';
 		console.log(str);
 		console.log(str.charAt(1)); //根据位置返回字符

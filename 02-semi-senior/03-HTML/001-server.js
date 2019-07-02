@@ -1,3 +1,15 @@
+/*
+* @Author: TomChen
+* @Date:   2019-01-03 20:43:06
+* @Last Modified by:   TomChen
+* @Last Modified time: 2019-03-07 18:55:31
+*/
+
+/*
+	可以响应并返回文件
+	处理GET请求+POST请求
+ */
+
 var http = require('http');
 var fs   = require('fs');
 var url = require('url');
@@ -7,13 +19,13 @@ var server = http.createServer(function(req,res){
 	console.log(req.method);
 	console.log('req.url:::',urlStr);
 	
-	// console.log("cookie::",req.headers.cookie);
+	console.log("cookie::",req.headers.cookie);
 	
-	/*var oDate = new Date('2019-3-7 19:51:30').toUTCString();
-	res.setHeader('Set-Cookie',["username=tom;Expires="+oDate]);*/
+	//var oDate = new Date('2019-03-07 18:53:00').toUTCString();
+	//res.setHeader('Set-Cookie',["username=tom;expires="+oDate]);
 	
-	res.setHeader('Set-Cookie',["username=tom;Max-Age=10"]);
-	
+	//res.setHeader('Set-Cookie',["username=tom;max-age=10"]);
+
 	if(urlStr == '/favicon.ico'){
 		res.end('favicon.ico');
 	}

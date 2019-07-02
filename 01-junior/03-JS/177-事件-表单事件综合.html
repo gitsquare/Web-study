@@ -25,6 +25,13 @@
 	</div>
 </body>
 <script>
+	/*1.onfocus 表单获取焦点触发
+	2.onblur 表单失去焦点触发
+	3.onchange 页面内容有改动,失去焦点执行
+	4.oninput 输入后触发,不包括功能键
+	5.onsubmit form表单提交事件
+	6.onreset form表单重置事件*/
+
 	var oFrom = document.getElementById('form1');
 	var oTxt = document.getElementById('txt');
 	var oSub = document.getElementById('sub');
@@ -32,24 +39,34 @@
 	var oMsg = document.getElementById('msg');
 	var isCheckOk = false; 
 	oTxt.onfocus = function(){
+		//表单获取焦点时的提示信息
 		oMsg.style.color = 'green';
 		oMsg.innerHTML = '请输入3-6位用户名';
 	}
 	oTxt.onblur = function(){
+		//表单失去焦点后验证是否符合规则，如果符合就通过(isCheckOk = true)，否则就不通过(isCheckOk = false)
 		var len = oTxt.value.length;
 		if(len < 3 || len > 6){
+			//不合法时的提示
 			oMsg.style.color = 'red';
 			oMsg.innerHTML = '用户名不合法';	
 			isCheckOk = false;		
 		}else{
+			//合法时的提示
 			oMsg.style.color = 'green';
 			oMsg.innerHTML = '输入正确';	
 			isCheckOk = true;		
 		}
 	}
+
+
+	//onchange事件触发的条件有两个：1.页面内容有改动。 2.失去焦点
+	//用于再次输入内容，如果有改动那么就去验证，如果没有改动就不验证
 	oTxt.onchange = function(){
 		console.log('改动了')
 	}
+
+	//只要输入内容就会触发，可以实时的验证
 	oTxt.oninput = function(){
 		var len = oTxt.value.length;
 		if(len < 3 || len > 6){
@@ -60,20 +77,33 @@
 			oMsg.innerHTML = '输入正确';			
 		}
 	}
+
+	//当点击submit按钮后触发
+	//用于提交时，验证用户输入框中的内容进行验证。
+	//做法是定义一个全局变量，默认是isCheckOK = false，在onblur或oninput事件中通过验证内容是否合法来改变isCheckOK的值，合法就是true，不合法就是false
+	//对于submit按钮,浏览器的默认行为是点击以后，会把内容提交到action属性确定的地址，阻止默认行为的方法有两种。方法一  return false;方法二  event.preventDefault();
 	oFrom.onsubmit = function(){
 		console.log(isCheckOk);
 		console.log('submit...');
+		//如果验证没有通过，就不提交，阻止默认行为(默认行为就是浏览器的自带行为)
 		if(!isCheckOk){
 			return false;
 		}
 	}
+
+	//当内容重置时触发这个事件
 	oFrom.onreset = function(){
 		console.log('reset...');
 	}
+
+	//只要submit按钮添加的是onclick事件，当点击按钮时，onsubmit和onclick事件都会被触发
+	//验证程序也可以放在onclick事件中，因为如果在onclick事件中添加return false;点击按钮时就不会触发onsubmit事件
 	oSub.onclick = function(){
 		console.log('aa');
 		return false;
 	}
+
+	//只要reset按钮添加的是onclick事件，当点击按钮时，onreset和onclick事件都会被触发
 	oRes.onclick = function(){
 		console.log('bb');
 	}

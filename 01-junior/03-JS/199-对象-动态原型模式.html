@@ -4,10 +4,14 @@
 	<meta charset="UTF-8">
 	<title>199-对象-动态原型模式.html</title>
 	<script>
+		/*1.把原型对象prototype上的定义写在构造函数中
+		2.定义之前需要唯一执行判断,否则每次用new创建实例都会重新再原型对象上定义方法或属性*/
+
 		function Person(name,age){
 			this.name = name;
 			this.age = age;
 			console.log(this.sayHi)
+			//当用new创建第一个实例的时候，会在原型对象上添加属性或方法，第一个以后的就不需要添加了。所以通过判断原型对象上是否已经存在属性或方法，来决定是否去添加
 			if(!this.sayHi){
 				console.log('Person.prototype.sayHi');
 				Person.prototype.sayHi = function(){

@@ -9,17 +9,30 @@
 	<button id="btn">检查</button>
 </body>
 <script>
+	// reg.test(str):测试字符串是否有匹配到正则的字符串,有返回true,没有返回false 
+
+
 	var oTxt = document.getElementById('txt');
 	var oBtn = document.getElementById('btn');
 	oBtn.onclick = function(){
 		//合法年份(公元1000年至公元2999年) 1000-2999
 		var reg = /[1|2]\d{3}/;
+		if(reg.test(oTxt.value)){
+			alert('true');
+		}else{
+			alert('false');
+		}
+
+
+
+
+		/*var reg = /[1|2]\d{3}/;
 		// console.log(reg.test(oTxt.value));
 		if(reg.test(oTxt.value)){
 			alert('合法')
 		}else{
 			alert('不合法')
-		}
+		}*/
 	}
 
 </script>

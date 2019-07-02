@@ -271,7 +271,7 @@
                    <input type="checkbox" name='isAgree'> 
                    <label for="isAgree">阅读并接受</label>
                    <a href="#">《百度用户协议》</a>及<a href="#">《百度隐私权保护声明》</a>  
-                   <span class="msg" id='agreeErr'>选“阅读并接受百度用户协议”</span>               
+                   <span class="msg" id='agreeErr'>选“阅读并接受百度用户协议”</span> 
                 </div>           
                 <div class="subBtn">
                     <input type="button" value="注册" id="subBtn">
@@ -283,17 +283,24 @@
 </body>
 <script>
     //公共函数
+    //获取字符串的长度，一个汉字相当于两个字符
     function getLen(str){
         return str.replace(/[\u4e00-\u9fa5]/g,'aa').length;
     }
     function setError(oMsg,sMsg,oInput){
+        //输入错误提示信息的样式
         oMsg.className = 'err';
+        //输入错误提示信息的内容
         oMsg.innerHTML = sMsg;
+        //把输入框的边框颜色变红
         oInput.className = 'input-err';          
     }
     function setOk(oMsg,oInput){
+        //成功后的提示（一个背景图片+一些自己设置的样式）
         oMsg.className = 'ok';
+        //把之前的提示清除(文字)
         oMsg.innerHTML = '';
+        //把输入框的边框颜色清掉,因为第一次失败加上了input-err也就是边框变成红色，再次去输入内容成功验证后，input-err还在，所以需要清除掉
         oInput.className = '';            
     }
     //1.获取元素
@@ -310,24 +317,28 @@
     var aMsg = document.querySelectorAll('.msg');
     var aCancel = document.querySelectorAll('.cancel');
 
-    //全局验证变量
+    //全局验证变量：是每次验证(用户名、手机号、密码、验证码)的结果
     var bUsername=false,bPhone = false,bPwd=false,bVerify=false;
 
-    init();
-    checkUsername();
-    checkPhone();
-    checkPwd();
-    checkVerify();
-    handleSubmit();
+    init();//初始化
+    checkUsername();//验证用户名
+    checkPhone();//验证手机号
+    checkPwd();//验证密码
+    checkVerify();//验证 验证码
+    handleSubmit();//验证提交
     //2.初始化
     function init(){
+        //获取第一个输入框也就是用户名输入框的焦点
         oUsername.focus();
+        //设置输入提示信息的内容和样式
         aMsg[0].className = 'tiptext';
         aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字';
 
-        //事件委托处理显示隐藏取消按钮
+        //事件委托处理显示隐藏取消按钮，利用冒泡把事件委托给oForm表单。用户在输入的时候实时验证，只要输入框中的字符大于0，取消按钮就出现
         oForm.oninput = function(ev){
+            //ev.target是源对象,事件源对象,即触发事件的对象，返回触发事件的那个节点。
             var oInput = ev.target;
+            //oNode.nextElementSibling:下一个元素节点,根据结构，选中了取消按钮
             var oCancel = oInput.nextElementSibling;
             if(oInput.value.length > 0){
                 oCancel.style.display = 'block';
@@ -338,7 +349,12 @@
         //事件委托处理点击取消按钮事件
         oForm.onclick = function(ev){
             var oCancel = ev.target;
+
+            //因为是绑定了表单元素oForm，所以点击它的任意子元素都会冒泡到它自身，会触发此事件
+             //oNode.previousElementSibling:上一个元素节点,因为oForm的所有子元素，点击后都会触发此事件，而期望的是点击取消按钮后会触发此事件。然后还需找到对应的输入框将里面的内容清空。找到对应的输入框根据两个条件：1.根据结构，判断触发事件的子元素的上一个兄弟元素是否存在，如果存在，根据兄弟元素的name属性的值来最终确定。即先用if语句判断兄弟元素是否存在，然后用switch根据兄弟元素name属性的值进行判断，符合条件才执行。这里也能用if一个一个的判断输入框的name属性的值，但是用switch更好一点
             var oInput = oCancel.previousElementSibling;
+
+            //用switch方法 
             if(oInput){
                 switch(oInput.name){
                     case 'username':
@@ -350,27 +366,43 @@
                         oInput.focus();  
                         break;                  
                 }
-            }           
+            }
+            //用if方法
+            /*if((oInput.name == 'username') || (oInput.name == 'phone') || (oInput.name == 'password') || (oInput.name == 'verify')){
+                oInput.value = '';
+                oCancel.style.display = 'none';
+                oInput.focus(); 
+            }   */ 
         }
     }
-    //4.验证用户名
+    //3.验证用户名
     function checkUsername(){
+        //当用户名输入框失去焦点时开始验证
         oUsername.onblur = function(){
             var sVal = oUsername.value;
+            //这个正则匹配全空的字符串
             var reg1 = /^\s+$/;
-            //用户名仅支持中英文、数字和下划线,且不能为纯数字
-            var reg2 = /[^a-z\u4e00-\u9fa5_\d]/i
+            //用户名仅支持中英文、数字和下划线,且不能为纯数字，写在一个正则里不太容易，需要分开
+            //根据相反的正则判断
+
+            //除了中英文、数字和下划线的字符
+            var reg2 = /[^a-z\u4e00-\u9fa5_\d]/i//在[]中到的最前面加^意思是除括号中任意一个原子之外的原子
+
+            //全是数字
             var reg3 = /^\d+$/;
 
             //什么都没有输入
             if(sVal == ''){
+                //添加Class，使oMsg隐藏
                 aMsg[0].className = 'msg';
-                //解决上一次如果验证失败后,再变为什么都没有输入,但是显示错误框的问题
+                //解决上一次如果输入全是空格，验证失败后,再变成什么都没有输入,但是显示错误框的问题
+                //把input-err这个class给去掉
                 oUsername.className = '';
                 bUsername = false;
             }
-            //全空验证
+            //全空验证，如果内容全是空格，
             else if(reg1.test(sVal)){
+                //验证失败，执行验证失败的函数
                 setError(aMsg[0],'请输入用户名',oUsername); 
                 bUsername = false;         
             }
@@ -379,26 +411,30 @@
                 setError(aMsg[0],'用户名不能超过7个汉字或14个字符',oUsername);
                 bUsername = false;               
             }
+            //字符类型的验证：用户名仅支持中英文、数字和下划线,且不能为纯数字
+            //满足reg2.test(sVal)或reg3.test(sVal)任意一个都不合法，所以用或||
             else if(reg2.test(sVal) || reg3.test(sVal)){
                 setError(aMsg[0],'用户名仅支持中英文、数字和下划线,且不能为纯数字',oUsername);
                 bUsername = false;  
             }
+            //最后成功
             else{
                 setOk(aMsg[0],oUsername);  
                 bUsername = true;           
             }
         }
+        //获取焦点时的提示信息
         oUsername.onfocus = function(){
             aMsg[0].className = 'tiptext';
             aMsg[0].innerHTML = '设置后不可更改<br>中英文均可,最长14个英文或7个汉字'; 
         }
     }
-    //5.验证手机号
+    //4.验证手机号
     function checkPhone(){
         oPhone.onblur = function(){
             var sVal = oPhone.value;
             var reg1 = /^\s+$/;
-            var reg2 = /^1[35789]\d{9}$/;
+            var reg2 = /^1[3456789]\d{9}$/;
             //什么都没有输入
             if(sVal == ''){
                 aMsg[1].className = 'msg';
@@ -427,10 +463,12 @@
         //输入限制
         oPhone.onkeydown = function(ev){
             var oEvent = ev || event;
+            //只有数字键、左右方向键以及删除键
+            //手机号最多只能输入11位
             if((
                 oEvent.keyCode < 48 
                 || oEvent.keyCode > 57 
-                || oPhone.value.length > 10
+                || oPhone.value.length > 10//刚好最多能输到11位，因为只有到11的时候才刚好满足条件
                 ) 
                 && oEvent.keyCode != 8 
                 && oEvent.keyCode != 37  
@@ -439,10 +477,12 @@
             }
         }
     }
-    //6.验证密码
+    //5.验证密码
     function checkPwd(){
+        //分别代表密码的三个验证条件成功与否
         var bPwd1 = false,bPwd2 = false,bPwd3=false;
         oPwd.onfocus = function(){
+            //获取密码输入框焦点后，将提示信息面板显示
             oPwdChecklist.style.display = 'block';
             aMsg[2].className = 'msg';
         }
@@ -453,8 +493,11 @@
             var sSuccClass = 'pwd-checklist-item pwd-checklist-item-success';
             //长度为8~14个字符
             var reg1 = /^.{8,14}$/;
+
             //支持数字,大小写字母和标点符号
+            //这里加\s是为了防止输入空格时执行aPwdLi[1].className = sSuccClass;
             var reg2 = /[^0-9a-z@#%\*\!\$\\\[\]\(\)\s]/i;
+
             //不允许有空格
             var reg3 = /\s/;
 
@@ -487,6 +530,7 @@
             aPwdLi[0].className = 'pwd-checklist-item';
             aPwdLi[1].className = 'pwd-checklist-item';
             aPwdLi[2].className = 'pwd-checklist-item';
+            //因为当验证成功后它们的值会变成true，所以当点击取消按钮后，再把它们的值变成false
             bPwd1 = false;
             bPwd2 = false;
             bPwd3 = false;
@@ -510,18 +554,21 @@
             }           
         }    
     }
+    //6.验证 验证码
     function checkVerify(){
         oSmsBtn.onclick = function(){
             //1.检查手机号是否输入
             if(oPhone.value == ''){
-                setError(aMsg[1],'请输入手机号',oPhone);  
+                setError(aMsg[1],'请输入手机号',oPhone); 
+                //如果没有输入手机号，直接中断，不往下进行 
                 return false;
             }
             //2.检查手机号是否合法
             if(!bPhone){
+                //如果是不合法的手机号，直接中断，不往下进行 
                 return false;
             }
-            //发送获取验证码....
+            //输入的手机号码合法，再发送获取验证码....
             alert('验证码请求发送...')
         }
         oVerify.onblur = function(){
@@ -556,6 +603,7 @@
             aMsg[3].className = 'msg';
         }        
     }
+    //7.验证提交
     function handleSubmit(){
         oSubBtn.onclick = function(){
             //什么都不输入时的处理
@@ -576,6 +624,7 @@
             }else{
                 aMsg[4].style.display = 'none'; 
             }
+            //如果所有的输入框都已经输入，那么验证当所有输入框的内容都合法并且还得选中协议时才提交
             if(bUsername && bPhone && bPwd && bVerify && oAgree.checked){
                 oForm.submit();
             }                                      

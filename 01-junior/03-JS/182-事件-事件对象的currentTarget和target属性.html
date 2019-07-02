@@ -28,6 +28,11 @@
 	</div>
 </body>
 <script>
+	/*共通事件属性
+		1.event.currentTarget 绑定事件的对象
+		2.event.target 事件源对象,即触发事件的对象
+		3.event.type 现在的事件类型是什么*/
+
 	var oFather = document.getElementById('father');
 	oFather.addEventListener('click',function(ev){
 		console.log(ev.currentTarget);

@@ -20,6 +20,11 @@
 	</ul>
 </body>
 <script>
+	/*事件委托：利用了事件冒泡原理,在父元素上监听事件,来处理子元素
+	事件委托的好处
+		1.减少绑定DOM事件
+		2.动态添加的DOM元素也可以有事件处理*/
+
 	var oUl = document.getElementById('ul1');
 	var oBtn = document.getElementById('btn');
 	oBtn.addEventListener('click',function(){
@@ -44,7 +49,10 @@
 	}
 	*/
 	
+	//利用冒泡原理，点击a标签时，onclick冒泡到了oUl上面，也触发了oUl的onclick事件
 	oUl.addEventListener('click',function(ev){
+		//event.target 事件源对象,即触发事件的对象
+		//只有点击a标签，才删除li元素。意思就是点击li也会冒泡到oUl上面，也会触发oUl的onclick事件，但这是不允许的，所以需要判断(通过给a标签添加类名选到a标签)是点击a标签冒泡的才能删除。
 		if(ev.target.className == 'del'){
 			oUl.removeChild(ev.target.parentNode);
 		}

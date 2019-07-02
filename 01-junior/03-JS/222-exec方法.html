@@ -4,29 +4,40 @@
 	<meta charset="UTF-8">
 	<title>exec方法</title>
 	<script>
+		/*exec方法对字符串执行搜索,并更新正则对象上的lastIndex属性,如果没有匹配的返回null,有的话返回一个数组。
+			1.数组的第0个元素是匹配的内容,如果有分组,从下标是1开始是对应分组的内容
+			2.index 是匹配内容第一个字符的位置
+			3.input 是被搜索的字符串
+			4.groups 存放着每个命名分组的名称以及它们匹配到的值,如果没有命名分组则为undefined,命名捕获分组自身的语法是 (?<name>...)，比普通的分组多了一个 ?<name>，这样方便正则的阅读*/
+
+		/*1.全局匹配
+			每一次匹配后正则对象上的lastIndex属性会更改,改为匹配内容的最后一个字符的下一个位置
+		  2.非全局匹配
+			lastIndex始终是0,也就是说始终从第0个元素开始查找*/
+
 		var str = 'a2018-12-20b2018-12-21';
 		var reg = /\d{4}-\d{2}-\d{2}/g;
 		var reg2 = /(\d{4})-(\d{2})-(\d{2})/g;
 		var reg3 = /(?<years>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
 		console.log(str);
-		/*
-		console.log(reg.lastIndex);
+		
+		/*console.log(reg.lastIndex);
 		console.log(reg.exec(str));
 		console.log(reg.lastIndex);
 		console.log(reg.exec(str));
-		console.log(reg.lastIndex);
+		console.log(reg.lastIndex);*/
 		
 		console.log(reg2.lastIndex);
 		console.log(reg2.exec(str));
 		console.log(reg2.lastIndex);
 		console.log(reg2.exec(str));
 		console.log(reg2.lastIndex);
-		*/	
-		console.log(reg3.lastIndex);
+		
+		/*console.log(reg3.lastIndex);
 		console.log(reg3.exec(str));
 		console.log(reg3.lastIndex);
 		console.log(reg3.exec(str));
-		console.log(reg3.lastIndex);	
+		console.log(reg3.lastIndex);*/
 	</script>
 </head>
 <body>

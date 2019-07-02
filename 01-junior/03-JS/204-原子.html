@@ -4,7 +4,9 @@
 	<meta charset="UTF-8">
 	<title>创建正则对象</title>
 	<script>
-		var str = '$120RM 	B'; //￥
+	/*str.replace(reg,str2):把字符串str中匹配到正则的子串用str2进行替换*/
+
+		var str = '$120RM 	B'; //中间是一个空格键和一个Tab键
 		console.log(str);
 		console.log(str.replace(/\$/,'￥'));
 		console.log(str.replace(/RMB/,'USD'))

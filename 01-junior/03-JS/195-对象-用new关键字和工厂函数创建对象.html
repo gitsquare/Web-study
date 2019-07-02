@@ -4,6 +4,12 @@
 	<meta charset="UTF-8">
 	<title>195-对象-用new关键字和工厂函数创建对象.html</title>
 	<script>
+		/*注意点
+			1.工厂模式函数中创建对象和返回对象省略,用this代替
+			2.用new后,把工厂模式函数可以看做是类,类名一般首字母大写
+		缺点
+			方法不能被实例共享*/
+
 		function Person(name,age){
 			this.name = name;
 			this.age = age;
@@ -24,7 +30,7 @@
 		person2.sayHi();
 		person2.sayAge();
 
-		console.log(person.sayHi == person2.sayHi);
+		console.log(person.sayHi == person2.sayHi);//false
 	</script>
 </head>
 <body>

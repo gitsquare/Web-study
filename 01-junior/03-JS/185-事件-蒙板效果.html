@@ -48,9 +48,11 @@
 	oBtn.onclick = function(ev){
 		oMask.style.display = 'block';
 		oLoginBox.style.display = 'block';
+		//阻止冒泡，防止冒泡到document上面
 		ev.stopPropagation();
 	}
 	oLoginBox.onclick = function(ev){
+		//阻止冒泡，防止冒泡到document上面
 		ev.stopPropagation();
 	}
 	document.onclick = function(){

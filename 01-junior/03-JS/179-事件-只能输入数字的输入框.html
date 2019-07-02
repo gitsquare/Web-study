@@ -10,9 +10,12 @@
 </body>
 <script>
 	var oTxt = document.getElementById('txt');
+	//input输入框默认是可以输入内容的，可以通过阻止默认行为来选择输入内容
 	oTxt.onkeydown = function(ev){
 		console.log(ev.keyCode);
+		// 除了能输入数字0-9，还需要左右方向键以及删除键来修改内容
 		if((ev.keyCode < 48 || ev.keyCode > 57) && ev.keyCode != 8 && ev.keyCode != 37 && ev.keyCode != 39){
+			//如果不符合规则，就阻止input输入框的默认行为(可以在输入框中输入数据)
 			return false;
 		}
 	}

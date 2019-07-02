@@ -65,21 +65,7 @@
 	</ul>	 
 </body>
 <script>
-	/*
-	var aBtn = document.querySelectorAll('#tab-list li');
-	var aContent = document.querySelectorAll('#tab-container li');
-	for(var i = 0;i<aBtn.length;i++){
-		aBtn[i].index = i;
-		aBtn[i].onclick = function(){
-			for(var j = 0;j<aBtn.length;j++){
-				aBtn[j].className = '';
-				aContent[j].style.display = 'none';
-			}
-			this.className = 'active';
-			aContent[this.index].style.display = 'block';
-		}
-	}
-	*/
+
 	function Tab(listSelector,containerSelector){
 		//1.罗列需要的属性
 		this.aBtn = document.querySelectorAll(listSelector);
@@ -89,29 +75,18 @@
 	}
 	
 	Tab.prototype.bindEvent = function(){
-		var _this = this;
 		for(var i = 0;i<this.aBtn.length;i++){
 			this.aBtn[i].index = i;
-
-			//this.aBtn[i].onclick后面也是一个函数，
-			this.aBtn[i].onclick = function(){
-				//如果写成this.aBtn[i].onclick = this.fnClick;那么在点击执行Tab.prototype.fnClick时，烦恼Click函数里面的this就不是创建出的对象，而是this.aBtn[i].onclick也就是某一个具体的li,因为函数调用时属于谁，this就指向谁。
-				//所以需要用创建的对象去调用fnClick函数，这样fnClick函数里面的this就指向创建的对象。
-
-				// console.log(this);
-				//是谁触发的这个函数，就把谁作为参数传递出去，把它的className设成'active'
-				//因为在对象中，函数都是写到原型对象上，所以把嵌套的函数都单独拿出来放到原型对象上
-				_this.fnClick(this);
-			}
+			this.aBtn[i].onclick = this.fnClick.bind(this,this.aBtn[i]);
 		}
 	}
 
 	Tab.prototype.fnClick = function(oBtn){
-		console.log(this);
 		for(var i = 0;i<this.aBtn.length;i++){
 			this.aBtn[i].className = '';
 			this.aContent[i].style.display = 'none';
 		}
+		// this.aBtn[oBtn.index].className = 'active';
 		oBtn.className = 'active';
 		this.aContent[oBtn.index].style.display  = 'block';
 	}

@@ -14,13 +14,44 @@
 	<form action="" id="form2"></form>
 </body>
 <script>
+	// JS中判断对象是不是数组的方法
+	/*var arr = document.forms;
+	console.log(arr instanceof Array);//有缺陷
+
+	console.log(arr.constructor === Array);//有缺陷
+
+	console.log(Array.isArray(arr)); //IE8以及之前的版本是不支持此方法的
+
+	function isArrayFn (obj) {
+		return Object.prototype.toString.call(obj) === '[object Array]';
+	}
+	console.log(isArrayFn(arr));*/
+
+
+	//获取表单：document.forms 代表页面所有的表单集合,document.forms[0]页面中的第一个表单
+	/*获取表单元素
+		表单.elements代表了表单中的所有表单元素集合
+		获取一个表单中的元素的方法
+			表单元素集合[下标]
+			表单元素集合["元素名称"]
+			表单元素集合.元素名称
+			表单.元素名称
+			元素名称指的是name属性的值
+		注意点
+			同名的表单元素返回一个节点集合
+			表单元素.form 代表表单元素所在的form*/
+
+
 	console.log(document.forms);
 	console.log(document.forms[0]);
 	console.log(document.forms[0].elements);
 	console.log(document.forms[0].elements[0]);
 	console.log(document.forms[0].elements['username']);
 	console.log(document.forms[0].elements.username);
-	console.log(document.forms[0].username)
-	console.log(document.forms[0].sex)
+	console.log(document.forms[0].username);
+	console.log(document.forms[0].elements.sex);
+	console.log(document.forms[0].elements['sex']);
+	console.log(document.forms[0].sex);
+	console.log(document.forms[0].sex[1]);
 </script>
 </html>

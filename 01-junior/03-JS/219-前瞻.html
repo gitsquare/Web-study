@@ -4,6 +4,16 @@
 	<meta charset="UTF-8">
 	<title>前瞻</title>
 	<script>
+		/*什么是前瞻?
+			正则从文本头部向文本尾部解析,文本尾部成为"前",前瞻就是向前(文本尾部)检查是否符合断言
+		正向前瞻 exp(?=assert)
+			匹配到exp的内容后再看前面的内容符合不符合assert,符合的话就匹配exp的内容
+			举例:字母后面是数字的字母,'a1b2c*d&'.replace(/[a-z](?=\d)/g,'$'),结果为:"$1$2c*d&"
+		负向前瞻 exp(?!assert)
+			匹配到exp的内容后再看前面的内容符合不符合assert,不符合的话就匹配exp的内容
+			举例:字母后面不是数字的字母,'a1b2c*d&'.replace(/[a-z](?!\d)/g,'$'),结果为:"a1b2$*$&"*/
+
+
 		var str = 'a&b2c3d%e&';
 		var reg1 = /[a-z](?=\d)/g;
 		var reg2 = /[a-z](?!\d)/g;

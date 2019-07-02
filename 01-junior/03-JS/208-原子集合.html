@@ -4,6 +4,13 @@
 	<meta charset="UTF-8">
 	<title>208-原子集合</title>
 	<script>
+		/*
+		. 除了回车和换行外的任意字符 等价[^\r\n]
+        \d 任意数字,等价[0-9], \D 任意非数字 等价[^0-9]
+		\w 任意数字,字母,下划线 等价[0-9a-zA-Z_],\W 任意非数字,字母,下划线 等价[^0-9a-zA-Z_]
+		\s 空白符 等价于[\t\n\f\r],\S 非空白符 等价于[^\t\n\f\r]
+		*/
+
 		var str = 'aksjd23490skjff	jds3249	320sjsl_&%$#';
 		var reg1 = /[0-9]/g;
 		var reg2 = /\d/g;

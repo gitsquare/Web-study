@@ -23,6 +23,7 @@
 	<div id="menu"></div>
 </body>
 <script>
+	//鼠标事件： oncontextmenu 右键菜单
 	var oMenu = document.getElementById('menu');
 	document.oncontextmenu = function(ev){
 		oMenu.style.display = 'block';
@@ -32,6 +33,7 @@
 		// return false;
 	}
 	oMenu.onclick = function(ev){
+		//阻止冒泡，否则点击菜单时，冒泡到document上的onclick事件，会执行oMenu.style.display = 'none';
 		ev.stopPropagation();
 	}
 	document.onclick = function(){

@@ -4,7 +4,35 @@
 	<meta charset="UTF-8">
 	<title>正则test方法</title>
 	<script>
-		var str = '12121';
+	/*reg.test(str)此方法较常用
+		1.test方法测试字符串是否有匹配到正则的字符串,有返回true,没有返回false 
+		2.全局匹配
+			每一次匹配后正则对象上的lastIndex属性会更改,改为匹配内容的最后一个字符的下一个位置,所以结果会不可靠,一般使用test方法时建议不要全局匹配
+		3.非全局匹配
+			lastIndex始终是0,也就是说始终从第0个元素开始查找
+*/
+
+		//全局匹配
+		/*var str = 'a1b2c3';
+		var reg = /[a-z]/g;
+		console.log(reg.lastIndex);//0
+		console.log(reg.test(str));//true
+		console.log(reg.lastIndex);//1
+		console.log(reg.test(str));//true
+		console.log(reg.lastIndex);//3
+		console.log(reg.test(str));//true
+		console.log(reg.lastIndex);//5
+
+		console.log(reg.test(str));//false,匹配结束,lastIndex重置为0	
+		console.log(reg.lastIndex);//0
+
+		console.log(reg.test(str));//true
+		console.log(reg.lastIndex);//1
+		console.log(reg.test(str));//true*/
+
+
+		//非全局匹配
+		var str = 'a1b2c3';
 		var reg = /[a-z]/;
 		console.log(reg.lastIndex);
 		console.log(reg.test(str));

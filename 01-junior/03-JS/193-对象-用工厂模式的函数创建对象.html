@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>193-对象-用工厂模式的函数创建对象.html</title>
 	<script>
+		/*缺点
+			1.不能用new来创建对象
+			2.方法不能被实例共享,即每个对象实例都生成一个相同的方法*/
+
 		function createPerson(name,age){
 			var obj = new Object();
 

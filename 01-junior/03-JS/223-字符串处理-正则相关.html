@@ -4,14 +4,37 @@
 	<meta charset="UTF-8">
 	<title>223-字符串处理-正则相关.html</title>
 	<script>
+		/*str.search(reg)
+			1.从字符中检索与正则相匹配的字符串,返回第一个匹配结果的第一个字符的index,查不到返回-1
+			2.search方法不执行全局匹配,它会忽略g,并且总是从字符串开始检索*/
+
+		/*str.match(reg)
+		全局匹配：找到字符串中的所有匹配的字符串,如果没有匹配的话返回null,有的话返回一个数组
+			1.数组中的每一项就是一个匹配结果,数组中没有index,input和groups等属性
+			2.全局匹配不需要分组
+		非全局匹配：和reg.exec(str)非全局匹配的结果一样
+			1.非全局匹配可以分组*/
+
+		/*str.split(reg)
+			根据正则匹配的内容把字符串分隔成数组
+			举例
+				判断是否回文字符串:str === str.split('').reverse().join('')
+				以空白符分隔字符串为数组,'ab c 	d ef      fgh'.split(/\s+/)的结果是["ab", "c", "d", "ef", "fgh"]*/
+
+		/*
+		1.str.replace(reg,str2)：把字符串str中匹配到正则的子串用str2进行替换
+		2.str.replace(reg,function(匹配结果,index,原值))：把字符串中匹配到正则的子串传递到回调函数进一步处理,用函数的返回值来替换匹配项
+		*/
+
 		var str1 = "this is a cat";
-		var reg1 = /f/;
+		// var reg1 = /f/;
+		var reg1 = /is/g;
 		console.log(str1.search(reg1));
 		console.log(str1.search('a'));
 
 		var str2 = 'a2018-12-20bbb2019-12-23ccc';
 		var reg2 = /(\d{4})-(\d{2})-(\d{2})/g;
-		var reg3 = /(\d{4})-(\d{2})-(\d{2})/;
+		var reg3 = /(?<years>\d{4})-(?<month>\d{2})-(?<day>\d{2})/;
 		console.log(str2.match(reg2));
 		console.log(str2.match(reg3));
 		console.log(reg3.exec(str2));
@@ -23,7 +46,7 @@
 		//判断是否回文 aabaa cbbc
 		var str4 = 'aabbaa';
 		function isH(str){
-			return str == str.split('').reverse().join('');
+			return str === str.split('').reverse().join('');
 		}
 		console.log(isH(str4));
 
