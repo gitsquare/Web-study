@@ -9,6 +9,14 @@
 	<input type="text" id="txt">
 </body>
 <script>
+	/*try{
+	    ...//有可能出现异常的代码
+	}catch(e){
+	    ...//异常处理
+	}finally{
+	    ...//不管有没有异常都会处理,例如清理工作
+	}*/
+
 	var oBtn = document.getElementById('btn');
 	var oTxt = document.getElementById('txt');
 
@@ -16,7 +24,8 @@
 		var val = oTxt.value;
 		try{
 			if(isNaN(parseInt(val))){
-				throw new Error('not a number number');
+				// throw new TypeError('not a number');
+				throw new Error('not a number');
 			}
 			var total = parseInt(val);
 			handleNum(total);
@@ -26,20 +35,22 @@
 			console.log('finally...');
 		}
 	}
+
 	function handleNum(num){
 		console.log(num*10);
 	}
 
+
 	/*function sum(sum){
 		var result = 0;
-		for(var i = 0;i<sum;i++){
+		for(var i = 0;i<=sum;i++){
 			result += i;
 		}
 		return result;
 	}
-	debugger;
-	console.log(sum(4));
-*/
-	
+	// debugger;
+	// console.log(sum(3));
+	var total = sum(3);
+	handleNum(total)*/
 </script>
 </html>

@@ -23,6 +23,7 @@
 
 
 	function Student(name,age,major){
+		//属性的继承
 		Person.call(this,name,age);
 		this.major = major;
 	}
@@ -36,7 +37,11 @@
 	console.log(Student2);*/
 	var Student1 = new Student('Tom',20,'computer');
 	Student1.showWeight();
+
+	//缺点:由于方法的继承是引用赋值,所以父类也会有子类的方法
 	Student.prototype = Person.prototype;
+
+	
 	console.log(Student1);
 	Student.prototype.LEGS = 3;
 	console.log(Student1);
@@ -50,6 +55,8 @@
 
 	console.log(Person.prototype);
 
-	Student1.weights();//因为Student的prototype原型指向了Person的原型，所以在Student.prototype = Person.prototype之前的方法不能够访问到了
+	Student1.weights();
+	//缺点:由于方法的继承是引用赋值,所以父类也会有子类的方法
+	//因为Student的prototype原型指向了Person的原型，所以在Student.prototype = Person.prototype之前的方法不能够访问到了
 </script>
 </html>

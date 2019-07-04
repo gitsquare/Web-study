@@ -18,6 +18,7 @@
 		name:'first'
 	},2,3);
 	Person.call(null,2,3);
+	Person.call(undefined,2,3);
 
 	Person.apply(1,[2,3]);
 	Person.apply({
@@ -33,7 +34,6 @@
 		name:'third'
 	})(4,5);
 	Person.bind(null)(4,5);
-	
-
+	Person.bind(null,7,8)();
 </script>
 </html>

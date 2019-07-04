@@ -22,9 +22,9 @@
 		value:function(){
 			console.log('I am'+ this.age);
 		},
-		/*enumerable:true,
+		enumerable:true,
 		writable:true,
-		configurable:true*/
+		configurable:true
 	})
 	Person.prototype.EYES = 2;
 
@@ -34,9 +34,13 @@
 		Person.call(this,name,age);
 		this.major = major;
 	}
+
+	// 缺点:如果父类的方法是不可枚举的,子类就继承不到
 	for(var attr in Person.prototype){
 		Student.prototype[attr] = Person.prototype[attr];
 	}
+
+
 	Student.prototype.showMajor = function(){
 		console.log('I am from'+this.major);
 	}

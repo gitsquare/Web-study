@@ -8,19 +8,26 @@
 	
 </body>
 <script>
+	// 注意点：控制台中的错误提示中一个token就是指JS中的一个符号,例如分号,var关键字等
+
 	//中文输入指令
+	//Uncaught SyntaxError: Invalid or unexpected token
 	// var a = 1；
 
 	//少打，漏打，多打
+	//Uncaught SyntaxError: Unexpected token ;
 	// var b = ;
+	// Uncaught SyntaxError: Unexpected end of input
 	// if(true){{};
 
 	//变量名不合法
+	//Uncaught SyntaxError: Unexpected token =
 	// var class = 1;
 
 	//语句写错
-	functionn test(){
+	//Uncaught SyntaxError: Unexpected identifier
+	/*functionn test(){
 		
-	}
+	}*/
 </script>
 </html>

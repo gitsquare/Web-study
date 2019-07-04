@@ -14,24 +14,34 @@ var server = http.createServer(function(req,res){
 	if(urlStr == '/favicon.ico'){
 		res.end('favicon.ico');
 	}
+
 	if(req.method == 'POST'){
 		// res.end('post data...');
+
+		//接收数据，通过data事件一块一块的读取数据，不能直接全部读取数据
 		var body = '';
 		req.on('data',function(chunk){
 			body += chunk;
-		});//接收数据，一块一块的读取数据，读完数据以后，
+		});
+		//整个数据读取完以后会触发end事件，根据读取的数据做处理
 		req.on('end',function(){
 			console.log('get post data::',body);
 			//根据数据做处理....
 			res.end(body);
 		})
 	}else if(req.method == 'GET'){
+		//在浏览器中输入地址，相当于用的'GET'方法
+
+
 		if(urlStr.search(/\?/) != -1){//字符串的方法search，如果找不到就返回-1
 			var parm = url.parse(urlStr,true).query;
 			//根据数据做处理....
+			//只能返回字符串，所以把对象转换成json
 			var json = JSON.stringify(parm);
-			res.end(json);//只能返回字符串，所以把对象转换成json
+			res.end(json);
 		}
+
+
 		var filePath = './'+urlStr;
 		fs.readFile(filePath,function(err,data){
 			if(!err){

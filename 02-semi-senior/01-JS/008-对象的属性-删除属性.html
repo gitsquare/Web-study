@@ -8,6 +8,11 @@
 	
 </body>
 <script>
+	/*属性的删除
+		1.通过delete 删除属性
+		2.删除实质是判断有没有该属性，如果有删除返回真，若没有，直接返回真
+		3.如果删除了原型上的属性，所有实例都访问不到该属性*/
+
 	function friend(name,age){
 		this.name = name;
 		this.age = age;

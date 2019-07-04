@@ -14,10 +14,13 @@
 	
 </body>
 <script>
+	// 函数防抖（debounce）：指定时间间隔内只会执行一次任务。当高频率调用某个函数时，在停止后执行。
+
 	var i = 0;
 	function debounce(fn,delay){
 		var timer = 0;
 		return function(){
+			//频繁拖动滚动条时，会一直执行这个函数，先把上一次的定时器关掉，所以上一次的fn就不会被放到任务队列中去，直到停止拖动滚动条，清除上一次定时器后，再执行setTimeout(fn,delay）就会把fn放到任务队列中
 			clearTimeout(timer);
 			timer = setTimeout(fn,delay);
 		}

@@ -55,6 +55,9 @@
 				}
 			}
 		}
+		/*如果Origin指定的源不在许可范围内
+			1.回应的头信息不包含Access-Control-Allow-Origin字段
+			2.从而抛出一个错误，被XMLHttpRequest的onerror回调函数捕获*/
 		oAjax.onerror = function(){
 			console.log('error....');
 		}

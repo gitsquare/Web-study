@@ -11,6 +11,7 @@ var server = http.createServer(function(req,res){
 	if(urlStr == '/favicon.ico'){
 		res.end('favicon.ico');//一碰到end整个程序就结束了
 	}
+	//首先判断是否带有? 如果有说明带有参数，需要把参数拿出来
 	if(urlStr.search(/\?/) != -1){
 		var parm = url.parse(urlStr,true).query;
 		//根据数据做处理....

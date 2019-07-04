@@ -8,33 +8,32 @@
 	
 </body>
 <script>
-	function friend(name,age){
+	function Friend(name,age){
 		this.name = name;
 		this.age = age;
 	}
-	friend.prototype.showName = function(){
+	Friend.prototype.showName = function(){
 		console.log(this.name);
 	}
-	friend.prototype.showAge = function(){
+	Friend.prototype.showAge = function(){
 		console.log(this.age);
 	}
-
-	console.log(friend.prototype);
-	console.log(friend.prototype.constructor);
-	console.log(friend.prototype.constructor === friend);
-	console.log(friend.prototype.__proto__);
+	console.log(Friend.prototype);
+	console.log(Friend.prototype.constructor);
+	console.log(Friend.prototype.constructor === Friend);
+	console.log(Friend.prototype.__proto__);
 
 	console.log(Object.prototype.constructor);
 	console.log(Object.prototype.constructor === Object);
 	console.log(Object.prototype.__proto__);
 
-	console.log(friend.prototype.__proto__ === Object.prototype);
+	console.log(Friend.prototype.__proto__ === Object.prototype);
 
 
-	var friend1 = new friend('tom','20');
+	var friend1 = new Friend('tom','20');
 	console.log(friend1);
 	console.log(friend1.__proto__);
-	console.log(friend1.__proto__ === friend.prototype);
+	console.log(friend1.__proto__ === Friend.prototype);
 
 	friend1.showName();
 	friend1.showAge();

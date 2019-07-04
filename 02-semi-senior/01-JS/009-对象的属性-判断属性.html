@@ -8,6 +8,10 @@
 	
 </body>
 <script>
+	/*1.判断对象实例上是否有自己实例上指定的属性,如obj1.hasOwnProperty('name')
+	2.判断对象实例的原型链上是否有指定的属性,如"LEGS" in obj1;
+	3.判断属性只在原型对象上有:return !obj.hasOwnProperty(name) && (name in obj);*/
+
 	function friend(name,age){
 		this.name = name;
 		this.age = age;
@@ -44,12 +48,12 @@
 		console.log('nothing');
 	}
 
-	if(panduan(friend1,'toString')){
+	if(judge(friend1,'toString')){
 		console.log('原型');
 	}else{
 		console.log('nothing');
 	}
-	function panduan(obj,attr){
+	function judge(obj,attr){
 		return !obj.hasOwnProperty(attr) && (attr in obj);
 	}
 </script>

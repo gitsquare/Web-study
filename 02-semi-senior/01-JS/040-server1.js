@@ -14,7 +14,7 @@ server.listen(port, hostname, () => {
   //模版字符 `字符 ${javascript表达式}`             
 });*/
 
-var http = require('http');//引入http模块，
+var http = require('http');//引入http模块，返回一个http对象
 
 var hostname = '127.0.0.1';
 var port = 3000;

@@ -17,9 +17,10 @@
 		var oAjax = new XMLHttpRequest();//内置的对象
 		console.log('after new::',oAjax.readyState);//0 没有初始化,还没有调用open方法
 		//2.建立连接(拨号)
-		oAjax.open('GET','http://127.0.0.1:3000/042-data.json?name=jack',true);
-		//第一个参数是请求方法，第二个是请求地址，第三个是否异步。一般ajax都是异步请求
+
 		//GET请求发送数据放在地址的问号后面
+		oAjax.open('GET','http://127.0.0.1:3000/getDate?name=jack',true);
+		//第一个参数是请求方法，第二个是请求地址，第三个是否异步。一般ajax都是异步请求
 
 		console.log('after open::',oAjax.readyState);//1 启动,已调用open方法但是还没有调用send方法
 		
@@ -38,12 +39,13 @@
 			//4 完成,数据完全返回
 			if(oAjax.readyState == 4){//数据完全返回
 				if(oAjax.status == 200){//请求成功
-					//如果json解析失败，就把错误
+					//因为是从网络中获取数据(json),数据的格式不一定正确，所以用try catch把可能出现异常的代码放到try中
 					try{
-						//返回的数据在ajax对象.responseText中
+						//返回的数据在ajax对象.responseText中，拿回的数据是字符串，需要转换成j对象
 						var obj = JSON.parse(oAjax.responseText);
 						console.log(obj.name);
 					}catch(e){
+						//获取的数据json，解析错误后的处理
 						console.log(e);
 					}
 				}else{

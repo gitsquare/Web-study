@@ -8,9 +8,13 @@
 	
 </body>
 <script>
+	// 什么是封闭空间：匿名函数自我调用形成封闭空间,也叫小闭包
+	// 封闭空间的格式(function(参数){//这里相当于块级作用域})(传参值);
+
 	(function(){
 		console.log(1);
 	})();
+	
 
 	;(function(){
 		console.log(1);
@@ -27,5 +31,6 @@
 	!(function(){
 		console.log(1);
 	})()
+	// 上述写法主要是为了和其他的封闭空间隔开
 </script>
 </html>

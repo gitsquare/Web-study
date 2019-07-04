@@ -8,14 +8,20 @@
 	
 </body>
 <script>
+	//运行时发生的错误
+
 	//ReferenceError变量引用异常
+	//Uncaught ReferenceError: a is not defined
 	// console.log(a);
 
 	//TypeError 类型使用时错误
+	//Uncaught TypeError: a is not a function
 	// var a = 1;
 	// a();
 
 	//RangeError: Maximum call stack size exceeded
+	// Uncaught RangeError: Maximum call stack size exceeded
+	// 递归函数必须有退出条件
 	function fn(){
 		fn();
 	}

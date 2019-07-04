@@ -24,7 +24,6 @@
 	Person.prototype.EYES = 2;
 
 
-
 	function Student(name,age,major){
 		Person.call(this,name,age);
 		this.major = major;
@@ -38,10 +37,16 @@
 	for(var attr in Person.prototype){
 		Student.prototype[attr] = Person.prototype[attr];
 	}*/
-	//第三种方法
 	console.log(Student.prototype);
+
+	//第三种方法
+	/*1.调用两次父类的构造函数
+	2.在子类的原型上产生了不必要的父类的属性*/
 	Student.prototype = new Person();
+	//因为把子类的原型对象指向了父类的一个实例，而实例是没有constructor的，所以需要重新赋值
 	Student.prototype.constructor = Student;
+
+
 	console.log(Student.prototype);
 
 	Student.prototype.showMajor = function(){

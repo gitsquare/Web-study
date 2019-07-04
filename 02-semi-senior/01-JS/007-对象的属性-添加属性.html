@@ -8,6 +8,10 @@
 	
 </body>
 <script>
+	/*属性的添加
+		1.在实例上添加一个实例上的同名属性会覆盖原来的
+		2.如果在实例对象上添加了一个构造函数原型对象上的同名属性，访问时会找到实例对象上的该属性 */
+
 	function friend(name,age){
 		this.name = name;
 		this.age = age;

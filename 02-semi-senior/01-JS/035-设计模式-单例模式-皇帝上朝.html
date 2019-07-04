@@ -9,6 +9,8 @@
 	
 </body>
 <script>
+	// 原理:保证一个类仅有一个实例,并且提供一个访问它的全局访问点
+
 	(function(w){
 		var king = null;
 		function King(name){
@@ -17,6 +19,7 @@
 				this.random = Math.random();
 				king = this;
 			}
+			//虽然使用new关键字创建的对象，但是如果使用return，那返回结果就是return后面的对象
 			return king;
 		}
 		King.prototype = {
@@ -31,6 +34,5 @@
 	for(var i = 1;i<=5;i++){
 		new King('皇帝').work();
 	}
-	
 </script>
 </html>

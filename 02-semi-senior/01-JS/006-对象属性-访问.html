@@ -8,6 +8,8 @@
 	
 </body>
 <script>
+	// 当用对象的实例去访问一个属性时,首先去查找对象自身是否有该属性,如果没有去对象的原型链上查找,如果整个原型链上都没有该属性值则该属性是undefined
+
 	function friend(name,age){
 		// this.name = name;
 		this.age = age;
@@ -29,7 +31,7 @@
 	var friend1 = new friend('tom','20');
 	var friend2 = new friend('gff','210');
 	friend1.info.name = 'h111';
-	// friend2.info.name = 'h222';
+	friend2.info.name = 'h222';
 	console.log(friend1.info.name);
 	console.log(friend2.info.name);
 	/*console.log(friend1.showName);

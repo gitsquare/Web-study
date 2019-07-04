@@ -8,6 +8,8 @@
 	
 </body>
 <script>
+	// 查看属性的权限：Object.getOwnPropertyDescriptor(对象,属性名)
+
 	function friend(name,age){
 		this.name = name;
 		this.age = age;
@@ -42,6 +44,10 @@
 
 	console.log(Object.getOwnPropertyDescriptor(friend1,'LEGS'));
 	console.log(Object.getOwnPropertyDescriptor(friend1,'name'));
-	console.log(Object.getOwnPropertyDescriptor(friend1,'showName'));//在原型上，所以是undefined
+
+	//在原型上，所以是undefined
+	console.log(Object.getOwnPropertyDescriptor(friend1,'showName'));
+	
+	console.log(Object.getOwnPropertyDescriptor(friend.prototype,'showName'));
 </script>
 </html>

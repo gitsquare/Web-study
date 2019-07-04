@@ -40,5 +40,11 @@
 
 	console.log(friend1.__proto__ === friend.prototype);
 	console.log(friend.prototype.__proto__ === Object.prototype);
+
+	console.log(friend1.__proto__);
+	console.log(Object.prototype.__proto__ === null);
+
+	// 对象调用toString()方法会返回字符串"[object Object]"
+	console.log("[object Object]" === friend1.toString());// true
 </script>
 </html>

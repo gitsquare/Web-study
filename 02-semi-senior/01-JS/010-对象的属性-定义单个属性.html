@@ -8,6 +8,14 @@
 	
 </body>
 <script>
+	/*定义单个属性：
+	Object.defineProperty(对象,属性名,
+		{value:属性值,
+		enumerable:true,//是否可以枚举,默认是false
+		writable:true,//是否可写(赋值),默认是false
+		configurable:true//是否可删除,是否可以修改属性的权限，默认是false
+	});*/
+
 	function friend(name,age){
 		this.name = name;
 		this.age = age;
@@ -46,8 +54,9 @@
 	Object.defineProperty(friend1,'ARMS',{
 		value:6,
 		enumerable:true,
-		writable:false,
-		configurable:true
+		writable:true,
+		//是否可删除,默认是false。是否可以修改属性的权限的功能是在下一次重新定义属性时起作用
+		configurable:true;
 	});
 	Object.defineProperty(friend1,'ARMS',{
 		value:6,
@@ -57,8 +66,9 @@
 	for(var attr in friend1){
 		console.log(attr,friend1[attr]);
 	}
+	console.log(friend1.ARMS);
 	friend1.ARMS = 1;
 	console.log(friend1.ARMS);
-	//还可以在原型上自定义属性
+	//还可以在原型对象上自定义属性
 </script>
 </html>

@@ -24,6 +24,7 @@
 			//3.发送信息(说话)
 			oAjax.send(data);
 		}else if(method.toUpperCase()  == 'GET'){
+			//用GET方法传递参数，在地址后面添加? 再把参数放在?后面
 			if(data){
 				url = url + '?'+data;
 			}
