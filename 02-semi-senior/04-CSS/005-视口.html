@@ -2,20 +2,55 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>005-视口.html</title>
+	<!--
+	把1080个物理像素转换为400个CSS像素 1080/400=2.7
+	-->
+	<!-- <meta name="viewport" content="width=400"> -->
+	<!--
+	把1080个物理像素转换为375个CSS像素 1080/375=2.88
+	-->	
 	<!-- <meta name="viewport" content="width=375"> -->
-	<meta name="viewport" content="width=device-width" initial-scale=1.0,minimum-scale=1.0,maximum-scale=3,user-scalable="no">
+	<!-- <meta name="viewport" content="width=320"> -->
+
+	<!-- 意义就是把物理像素合成合适的css像素，而这个合适的值是由设备自身决定的 -->
+	<!-- 做移动端这句代码是必不可少的 -->
+	<!-- <meta name="viewport" content="width=device-width"> -->
+
+
+
+	<!-- 利用meta标签对viewport进行控制
+		1.width,设置视口的宽度,表示把移动设备的宽缩放为多少个CSS像素,为一个正整数,或字符串"device-width",device-width表示缩放到设备合成后的CSS像素
+		2.initial-scale 设置页面的初始缩放值,为一个数字,可以带小数，一般值为1
+		3.minimum-scale 允许用户的最小缩放值,为一个数字,可以带小数
+		4.maximum-scale 允许用户的最大缩放值,为一个数字,可以带小数
+		5.height,设置视口的高度,用的比较少，一般只关注宽度
+		6.user-scalable,是否允许用户进行缩放,值为"no"或"yes", no 代表不允许,yes代表允许
+		7.这些属性可以同时使用，也可以单独使用或混合使用，多个属性同时使用时用逗号隔开 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	
 	<style>
 		*{
 			margin: 0;
 			padding: 0;
 		}
-		p{
+		/*
+			iphone6 : 1920*1080 5.5英寸;
+			mac: 1366*768 11.6 ;
+
+		 */
+		h1{
 			font-size: 24px;
+		}
+		p{
+			font-size: 18px;
+			width: 200px;
+			border: 1px solid #000;x
 		}
 	</style>
 </head>
 <body>
-	<p>我是p标签</p>
+	<h1>我是大标题</h1>
+	<p>我是一段文字。。。</p>
 </body>
 </html>

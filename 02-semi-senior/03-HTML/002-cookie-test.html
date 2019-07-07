@@ -8,6 +8,11 @@
 	<h1>cookie test</h1>
 </body>
 <script>
+	/*Cookie的特点
+		1.Cookie的大小限制是4k
+		2.Cookie会存在于请求头中
+		3.主域名中的Cookie会在子域名中存在*/
+
 	/*
 	document.cookie = 'username=tom';
 	document.cookie = 'age=18';
@@ -30,10 +35,12 @@
 
 	function getCookie(key){
 		var str = document.cookie;
+		//把获取到的cookie内容(字符串user=bbb;expires=某个时间)，用;当做分隔符把字符串转为数组
 		var arr1 = str.split(';');
 		var res = '';
 		for(var i = 0;i<arr1.length;i++){
 			var arr2 = arr1[i].split('=');
+			//str.trim()：去除字符串两边的空白
 			if(key.trim() == arr2[0].trim()){
 				res = arr2[1];
 				break;
@@ -44,6 +51,7 @@
 
 	console.log(getCookie('user'));
 
+	//删除cookie，把时间向前调整
 	function removeCookie(key){
 		setCookie(key,false,-1);
 	}

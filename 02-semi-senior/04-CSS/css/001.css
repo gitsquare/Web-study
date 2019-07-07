@@ -60,6 +60,10 @@
   float: right;
   text-decoration: none;
 }
+.list li a:hover {
+  background: #333;
+  color: #ff6700;
+}
 .list li:hover {
   background: yellow;
 }

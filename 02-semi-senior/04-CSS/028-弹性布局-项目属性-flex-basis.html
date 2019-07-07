@@ -4,12 +4,15 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		/*1.flex-basis 定义了在分配多余空间之前,项目占据的大小,意思是会把项目设置的宽度覆盖掉，必须设置flex-grow才会起作用。浏览器根据这个属性,计算是否有多余空间,它的默认值为auto,即项目的本来大小
+		2.flex 是flex-grow,flex-shrink,flex-basis的简写,默认值为0 1 auto,后两个属性可选*/
+
 		*{
 			margin: 0;
 			padding: 0;
 		}
 		.father{
-			width: 1000px;
+			width: 600px;
 			height: 600px;
 			border: 1px solid #000;
 			margin: 50px auto;
@@ -21,18 +24,21 @@
 		.s1{
 			width: 100px;
 			background-color: red;
-			flex-basis: 1;
+			flex-grow: 1;
+			flex-basis: 200px;
 		}
 		.s2{
-			width: 200px;
+			width: 100px;
 			background-color: purple;
-			flex-basis: 0;
+			flex-grow: 1;
+			flex-basis: 200px;
 		}
 		.s3{
 			width: 300px;
 			background-color: skyblue;
-			flex-basis: 1;
-			flex: 0;
+			flex-grow: 1;
+			flex-basis: 100px;
+			/*flex: 0;*/
 			/*
 			默认是0 1 auto
 			但是一般只写0就可以了，后面两个属性可选

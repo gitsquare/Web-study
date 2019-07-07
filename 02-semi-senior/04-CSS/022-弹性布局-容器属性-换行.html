@@ -4,6 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		/*flex-wrap 决定项目一行排不下，如何换行
+			1.nowrap(默认值):不换行,元素的宽度按照指定宽度的比例从新计算
+			2.wrap:换行,第一行在上方,换行后项目的垂直对齐方式由align-items/align-content来决定 。实现换行，子元素的宽度之和得大于容器的宽度
+			3.wrap-reverse:换行,第一行在下方*/
+	
+		/*flex-flow：flex-direction属性和flex-wrap属性的简写形式,默认值为row nowrap*/
+
 		*{
 			margin: 0;
 			padding: 0;
@@ -17,8 +24,8 @@
 			/*flex-wrap: nowrap;*/
 			/*flex-wrap: wrap;*/
 			flex-wrap: wrap-reverse;
-			/*flex-flow: row nowrap;*/  /*默认状态*/
 
+			/*flex-flow: row nowrap;*/  /*默认状态*/
 		}
 		.son{
 			height: 50px;

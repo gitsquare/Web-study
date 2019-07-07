@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		/*align-self 允许单个项目有与其他项目不一样的对齐方式,可覆盖align-items属性*/
+
 		*{
 			margin: 0;
 			padding: 0;
@@ -15,7 +17,7 @@
 			margin: 50px auto;
 			display: flex;
 			flex-direction: row-reverse;
-			align-items: flex-end;
+			align-content: flex-start;
 			justify-content: space-between;
 		}
 		.son{
@@ -27,7 +29,7 @@
 			
 		}
 		.son1,.son2,.son3{
-			align-self: flex-start;
+			/*align-self: flex-start;*/
 		}
 		.son4,.son5,.son6{
 			align-self: center;

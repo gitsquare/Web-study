@@ -1,15 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-01-03 20:43:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-07 18:55:31
-*/
-
-/*
-	可以响应并返回文件
-	处理GET请求+POST请求
- */
-
 var http = require('http');
 var fs   = require('fs');
 var url = require('url');
@@ -21,6 +9,12 @@ var server = http.createServer(function(req,res){
 	
 	console.log("cookie::",req.headers.cookie);
 	
+	/*Cookie 的属性
+	1.Expires
+		Expires属性指定一个具体的到期时间(可以用Date对象的toUTCString()方法),到了指定时间以后,浏览器就不再保留这个 Cookie
+		如果不设置该属性,或者设为null,Cookie 只在当前会话有效,浏览器窗口一旦关闭,该 Cookie 就会被删除
+	2.Max-Age
+		Max-Age属性指定从现在开始 Cookie 存在的秒数,过了这个时间以后,浏览器就不再保留这个 Cookie*/
 	//var oDate = new Date('2019-03-07 18:53:00').toUTCString();
 	//res.setHeader('Set-Cookie',["username=tom;expires="+oDate]);
 	

@@ -4,12 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		/*flex-shrink 项目的缩小比例,默认为1,即如果空间不足,该项目将缩小
+			如果所有项目的flex-shrink属性都为1,当空间不足时,都将等比例缩小
+			如果一个项目的flex-shrink属性为0,其他项目都为1,则空间不足时,前者不缩小*/
+
 		*{
 			margin: 0;
 			padding: 0;
 		}
 		.father{
-			width: 1000px;
+			width: 400px;
 			height: 600px;
 			border: 1px solid #000;
 			margin: 50px auto;
@@ -18,10 +22,11 @@
 		.son{
 			height: 50px;
 		}
+		/*因为子元素中有文字部分，所以宽度最小应当为文字撑起的宽度*/
 		.s1{
 			width: 100px;
 			background-color: red;
-			flex-shrink: 1;
+			/*flex-shrink: 1;*/
 		}
 		.s2{
 			width: 200px;
@@ -31,7 +36,7 @@
 		.s3{
 			width: 300px;
 			background-color: skyblue;
-			flex-shrink: 1;
+			/*flex-shrink: 1;*/
 		}
 	</style>
 </head>

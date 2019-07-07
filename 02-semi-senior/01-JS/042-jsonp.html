@@ -20,8 +20,16 @@
 		var script = document.createElement('script');
 		script.src = "https://suggest.taobao.com/sug?code=utf-8&q="+oTxt.value+"&_ksTS=1546679450096_1039&callback=HandleCallback&k=1&area=c2c&bucketid=1";
 		document.body.appendChild(script);
-
 	}
+
+	/*oBtn.onclick = function(){
+		var script = document.createElement('script');
+
+		// callback参数则告诉服务器，我的本地回调函数叫做HandleCallback，所以请把查询结果传入这个函数中进行调用。 即服务器传回来的结果是函数的调用，把数据作为参数，即是HandleCallback(数据)
+		script.src = "http://127.0.0.1:3001/getDate?callback=HandleCallback";
+
+		document.getElementsByTagName('head')[0].appendChild(script); 
+	}*/
 </script>
 
 </html>

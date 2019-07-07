@@ -1,5 +1,7 @@
-//我是注释一 编译被删除
+//1.我是注释一 编译被删除
 /*我是注释二 编译被保留*/
+
+// 2.变量@变量名:值
 @color:#00f;
 @width:200px;
 @height:100px;
@@ -10,6 +12,12 @@
 	height: @height;
 	background: skyblue;
 }
+
+
+// 3.混合(Mixin)
+// 	基本混合,直接把选择器写在另外一个选择中
+// 	带参数
+// 	带参数有默认值 
 .box2{
 	/* color: @color;
 	width:@width;
@@ -31,7 +39,13 @@
 }
 .box3{
 	.box1;
+
+	// 相当于调用函数一样
+
+	// 带参数
 	// .border-radius(50px);
+
+	// 带参数有默认值 
 	.border-radius-def(50px);
 }
 /* .triangle{
@@ -43,7 +57,9 @@
 	border-color: transparent red transparent transparent;
 } */
 
-.triangle(top,@w,@c){//top是匹配模式不是参数
+// 4.匹配模式：选择符合条件的混合模式,根据传入的参数来决定使用哪个混合
+//top是匹配模式不是参数
+.triangle(top,@w,@c){
 	/* width: 0;
 	height: 0;
 	overflow: hidden;
@@ -75,6 +91,8 @@
 	border-width: @w;
 	border-color: transparent @c transparent transparent;
 }
+// @_代表所有的，无论.triangle(参数1,参数2,参数3)中参数1是什么都能匹配到
+// @w,@c这两个参数也得写上，不然调用的时候无法匹配上
 .triangle(@_,@w,@c){
 	width: 0;
 	height: 0;
@@ -85,6 +103,9 @@
 	.triangle(top,20px,purple);
 }
 
+
+// 5.嵌套：在选择器中嵌套选择器，生成后代选择器。
+// 注意点：&这个符号代表当前的标签
 .list{
 	width: 500px;
 	li{
@@ -98,12 +119,19 @@
 		a{
 			float: right;
 			text-decoration: none;
+			&:hover{
+				background: #333;
+				color: #ff6700;
+			}
 		}
 		&:hover{
 			background: yellow;
 		}
 	}
 }
+
+// 6.运算+-*/
+// 运算符号两边必须的是空格
 .fs(@val){
 	// font-size: @val;
 	// font-size: @val + 10px;
@@ -115,9 +143,12 @@
 	.fs(20px);
 }
 
+// 7.避免编译:属性:~'css的值'
 .box6{
 	font-size: ~'calc(30px - 10px)';
 }
+
+// 8.!important关键字:在混合模式后添加!important关键字,会为混合模式中的所有样式添加!important
 .box7{
 	.box1 !important;
 }
@@ -129,7 +160,16 @@
 	color: #00f;
 	.set(width,10px);
 } */
+
+
+// 9.混合参数做为属性和设置计算后的属性值
+// 	.set(@attr,@val){
+//     @{attr}:unit(@val/10,px);
+// }
 .set(@attr,@val){
+	// @{attr}:@val;
+
+	// unit方法：在less中，用unit来重置单位，有时候是非常实用的。第二个参数不能带引号
 	@{attr}:unit(@val*5,px);
 }
 .box8{

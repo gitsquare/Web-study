@@ -4,13 +4,26 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<style>
+		/*1.把容器指定为弹性布局
+			块状元素 display: flex;
+			行内元素 display: inline-flex;
+		2.指定了弹性布局的元素称为Flex容器(flex container),它的所有子元素自动成为容器成员,称为 Flex项目(flex item)*/
+
+		/*flex-direction 决定项目的排列方向
+			row(默认值):水平方向,起点在左端
+		flex-wrap 决定项目一行排不下，如何换行
+			nowrap(默认值):不换行,元素的宽度按照指定款的的比例从新计算
+		justify-content 决定项目的水平对齐方式
+			flex-start(默认值):左对齐
+		align-items/align-content 决定项目的垂直对齐方式
+			stretch(默认值):换行后,如果项目未设置高度或设为auto,将占满整个容器的高度*/
+
 		*{
 			margin: 0;
 			padding: 0;
 		}
 		.father{
-			width: 500px;
-			height: 600px;
+			width: 600px;
 			border: 1px solid #000;
 			margin: 50px auto;
 			display: flex;
@@ -19,15 +32,15 @@
 			height: 50px;
 		}
 		.s1{
-			width: 100px;
+			width: 200px;
 			background-color: red;
 		}
 		.s2{
-			width: 200px;
+			width: 400px;
 			background-color: purple;
 		}
 		.s3{
-			width: 400px;
+			width: 600px;
 			background-color: skyblue;
 		}
 	</style>
