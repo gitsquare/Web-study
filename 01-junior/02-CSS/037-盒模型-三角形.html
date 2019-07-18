@@ -4,18 +4,38 @@
 	<meta charset="UTF-8">
 	<title>037-盒模型-三角形.html</title>
 	<style>
-		div{
+		.box1{
 			width: 0px;
 			height: 0px;
 			/*background: gray;*/
 			border-top: 50px solid transparent;
 			border-right: 50px solid red;
 			border-bottom: 50px solid transparent;
-			border-left: 50px solid transparent;
+			border-left: 0px solid transparent;
+		}
+		.box2{
+			width: 0;
+			height: 0;
+			border-width: 0 10px 10px;
+			border-style: solid;
+			border-color: transparent transparent #333;
+		}
+		.box3{
+			/*position: absolute;*/
+			display: inline-block;
+			width: 0;
+			height: 0;
+			border-width: 10px 10px 0px;
+			border-style: solid;
+			border-color: #333 transparent transparent;
 		}
 	</style>
 </head>
 <body>
-	<div></div>
+	<div class="box1"></div>
+	<br>
+	<div class="box2"></div>
+	<br>
+	<em class="box3"></em>
 </body>
 </html>

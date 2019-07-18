@@ -8,21 +8,25 @@
 	
 </body>
 <script>
+	// 去除字符串里面的重复字符。
+	// console.log([...new Set('ababbc')].join(''));
+
 	//Set类似于数组,但值唯一的数据结构
 	let s1 = new Set();
 	s1.add(1);
 	s1.add(2);
+	// add添加某个值,返回 Set 结构本身
 	console.log(s1.add(3));
 	s1.add(4);
 	console.log(s1);
 	console.log(s1.size);
-
+	// delete删除某个值，返回一个布尔值，表示删除是否成功。
 	console.log(s1.delete(3));
 	console.log(s1);
-
+	// 返回一个布尔值，表示该值是否为Set的成员。
 	console.log(s1.has(5));
 	console.log(s1.has(2));
-
+	// clear清除所有成员，没有返回值。
 	console.log(s1.clear());
 	console.log(s1);
 
@@ -34,6 +38,33 @@
 	let arr = [...s2];
 	console.log(arr);
 	console.log(s2);	
+
+	let s3 = new Set();
+	let a = NaN;
+	let b = NaN;
+	s3.add(a);
+	s3.add(b);
+	console.log(s3); // Set {NaN}
+	// 上面代码向 Set 实例添加了两个NaN，但是只能加入一个。这表明，在 Set 内部，两个NaN是相等
+
+
+	// 另外，两个对象总是不相等的。
+	let s4 = new Set();
+	s4.add({});
+	console.log(s4.size); // 1
+	s4.add({});
+	console.log(s4.size); // 2
+	// 上面代码表示，由于两个空对象不相等，所以它们被视为两个值。
+
+	// Array.from方法可以将 Set 结构转为数组。
+	const items = new Set([1, 2, 3, 4, 5]);
+	const array = Array.from(items);
+	// 这就提供了去除数组重复成员的另一种方法。
+	function dedupe(array) {
+	  // return [...new Set(array)];
+	  return Array.from(new Set(array));
+	}
+	console.log(dedupe([1, 1, 2, 3])); // [1, 2, 3]
 
 </script>
 </html>

@@ -13,8 +13,20 @@
 		c = 3;
 	console.log(a,b,c);*/
 
-	/*let [a,b,c] = [1,2,3];
-	console.log(a,b,c);	*/
+	// 本质上，这种写法属于“模式匹配”，只要等号两边的模式相同，左边的变量就会被赋予对应的值。
+	// let [a, b, c] = [1, 2, 3];
+
+	/*let [a,b,c] = [1,{a:'a'},3];
+	console.log(a,b,c);*/	
+
+	/*let [a, , c] = [1, 2, 3];
+	console.log(a,c);*/
+
+	// 如果解构不成功，变量的值就等于undefined。
+	/*let [foo] = [];
+	console.log(foo);*/
+	/*let [bar, foo] = [1];
+	console.log(bar,foo);*/
 
 	/*let [a,[b,c],d] = [1,[2,3],4];
 	console.log(a,b,c,d);*/	
@@ -25,10 +37,19 @@
 	/*let [a,b,c] = [1,2,undefined];
 	console.log(a,b,c);*/
 
+	/*let [a,b,c] = [1,2,null];
+	console.log(a,b,c);*/
+
 	/*let [a,b,c] = [1,2,NaN];
 	console.log(a,b,c);*/
 
 	/*let [a,b,c=11] = [1,2,undefined];
+	console.log(a,b,c);*/
+
+	/*let [a,b,c=11] = [1,2,null];
+	console.log(a,b,c);*/
+
+	/*let [a,b,c=11] = [1,2,NaN];
 	console.log(a,b,c);*/
 
 	/*let [a,b,c=11] = [1,2];
@@ -37,8 +58,42 @@
 	/*let [a,b,c=11] = [1,2,3];
 	console.log(a,b,c);*/
 
-	let [a,b,c] = 123;
-	console.log(a,b,c);
+	/*let [a,b,c] = 123;
+	console.log(a,b,c);*/
+
+	// 如果等号的右边不是数组,或者严格地说，不是可遍历的结构，那么将会报错。
+	// 报错
+	// let [foo] = 1;
+	// let [foo] = false;
+	// let [foo] = NaN;
+	// let [foo] = undefined;
+	// let [foo] = null;
+	// let [foo] = {};
+
+
+	// 对于 Set 结构，也可以使用数组的解构赋值。
+	/*let [x, y, z] = new Set(['a', 'b', 'c']);
+	console.log(x,y,z);*/
+
+
+	// 默认值可以引用解构赋值的其他变量，但该变量必须已经声明。
+	// let [x = 1, y = x] = [];     // x=1; y=1
+	// let [x = 1, y = x] = [2];    // x=2; y=2
+	// let [x = 1, y = x] = [1, 2]; // x=1; y=2
+	// let [x = y, y = 1] = [];     // ReferenceError: y is not defined
+
+
+	// 如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。
+	function f() {
+	  console.log('aaa');
+	}
+	// let [x = f()] = [1];
+	// 因为x能取到值，所以函数f根本不会执行。
+	// console.log(x);//1
+
+	// 因为x不能取到值，所以函数f会执行。
+	let [x = f()] = [undefined];
+	console.log(x);//undefined,因为函数的返回值是undefined
 
 </script>
 </html>

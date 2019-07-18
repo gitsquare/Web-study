@@ -8,7 +8,8 @@
 	
 </body>
 <script>
-	//不管Promise对象最后状态如何,都会执行的操作,finally方法的回调函数不接受任何参数 
+	// 如果异步操作抛出错误,状态就会变为rejected,当then中没有指定rejected状态的回调时就会调用catch方法指定的回调函数
+	// 如果运行中抛出错误,也会被catch方法捕获
 	let p1 = new Promise((resolve,reject)=>{
 		// resolve('成功');
 		reject('失败');

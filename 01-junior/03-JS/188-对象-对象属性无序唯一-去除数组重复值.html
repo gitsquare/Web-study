@@ -9,13 +9,21 @@
 		function uniqueArray(arr){
 			var result = [];
 			var obj = {};
-			for(var i = 0;i<arr.length;i++){
+			// 方法一
+			/*for(var i = 0;i<arr.length;i++){
 				obj[arr[i]] = '';
 			}
-			// console.log(obj);
 			for(var attr in obj){
 				result.push(attr);
-			}
+			}*/
+
+			//方法二
+			for (var i = 0; i < arr.length; i++) {
+                if (!obj[arr[i]]) {
+                    obj[arr[i]] = 1;
+                    result.push(arr[i])
+                }   
+            }
 
 			return result;
 		}

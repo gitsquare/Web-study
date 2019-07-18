@@ -14,7 +14,23 @@
 	过滤filter:遍历数组,把函数的每一次返回值为真的原数组中的值组成新的数组并返回
 	全真every:判断遍历数组,函数所有返回值为真的情况下返回真,否则返回假
 	有真some:判断遍历数组,函数所有返回值有一个值为真的情况下返回真,否则返回假*/
+	/*function unique7(arr) {
+        var newArr = []
+        arr.forEach(item => {
+            return newArr.includes(item) ? '' : newArr.push(item)
+        });
+        return newArr
+    }
+    console.log(unique7([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));*/
 
+   /* function unique7(arr) {
+        var newArr = []
+        newArr = arr.filter(item => {
+            return newArr.includes(item) ? '' : newArr.push(item)
+        });
+        return newArr
+    }
+    console.log(unique7([1, 1, 2, 3, 5, 3, 1, 5, 6, 7, 4]));*/
 
 	var arr = [10,20,30,40,50,60,70];
 

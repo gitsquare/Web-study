@@ -8,6 +8,7 @@
 	
 </body>
 <script>
+	// yield表达式只能用在 Generator 函数里面，用在其他地方都会报错。
 	function * gen(){
 		console.log('p');
 		yield 'get data1';//遇到yield表达式，就暂停执行后面的操作，并将紧跟在yield后面的那个表达式的值，作为返回的对象的value属性值
@@ -15,12 +16,13 @@
 		yield 'get data2';
 		console.log('do something after get data2');
 		yield 'get data3';
-		return 'data3';//碰见return就不往下走了，直接结束了,并将return语句后面的表达式的值，作为返回的对象的value属性值
+		console.log('do something after get data3');
+		return 'data4';//碰见return就不往下走了，直接结束了,并将return语句后面的表达式的值，作为返回的对象的value属性值
 		// console.log('data4');
 	}
-	// console.log(typeof gen,gen);
+	console.log(typeof gen);
 	let g = gen();
-	// console.log(g);//调用 Generator 函数后，该函数并不执行,返回一个遍历器对象
+	console.log(g);//调用 Generator 函数后，该函数并不执行,返回一个遍历器对象
 	console.log(g.next());//value:'get data1'
 	console.log(g.next());//value:'get data2'
 	console.log(g.next());//value:'get data3'

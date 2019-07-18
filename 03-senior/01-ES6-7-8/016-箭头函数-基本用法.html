@@ -8,6 +8,14 @@
 	
 </body>
 <script>
+	/*箭头函数有几个使用注意点。
+	（1）函数体内的this对象，就是定义时所在的对象，而不是使用时所在的对象。
+	（2）不可以当作构造函数，也就是说，不可以使用new命令，否则会抛出一个错误。
+	（3）不可以使用arguments对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+	（4）不可以使用yield命令，因此箭头函数不能用作 Generator 函数。
+	（5）如果定义有名称的箭头函数,需要把箭头函数赋值给变量,所以箭头函数不存在声明的提升
+	其中第一点尤其值得注意。this对象的指向是可变的，但是在箭头函数中，它是固定的。*/
+
 	var fn = function(x,y){
 		console.log(x,y);
 		return x+y;
@@ -25,5 +33,15 @@
 		return x;
 	}
 	console.log(fn3(9));
+
+	let fn4 = x => x;
+	console.log(fn4(1));
+
+	// 由于大括号被解释为代码块，所以如果箭头函数直接返回一个对象，必须在对象外面加上括号，否则会报错。
+	// 报错
+	let getTempItem = id => { id: id, name: "Temp" };
+	// 不报错
+	let getTempItem = id => ({ id: id, name: "Temp" });
+
 </script>
 </html>

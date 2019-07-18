@@ -23,13 +23,14 @@
 	/*const a = 1;
 	a=2;*/
 	//4.对于复杂数据来说常量指向数据保存的地址,const保证的是这个地址不变,但地址指向的数据是可以修改的
-	/*const CONFIG = {
+	/*const config = {
 		name:'xxx',
 		age:11
 	}
-	CONFIG.name = 'yyy';
-	CONFIG.age = 22;
-	console.log(CONFIG);*/
+	config.name = 'yyy';
+	config.age = 22;
+	console.log(config);
+	config = {};*/
 
 	//5.const定义的常量在const命令所在的代码块内有效
 	/*if(true){
@@ -39,7 +40,19 @@
 	console.log(a);*/
 
 	//6.const定义的常量不会声明提升
-	console.log(a);
-	const a = 1;
+	// console.log(a);
+	// const a = 1;
+
+
+
+	// 为了保持兼容性，var命令和function命令声明的全局变量，依旧是顶层对象的属性；另一方面规定，let命令、const命令、class命令声明的全局变量，不属于顶层对象的属性。也就是说，从 ES6 开始，全局变量将逐步与顶层对象的属性脱钩。
+
+	/*var a = 1;
+	console.log(window.a) // 1
+
+	let b = 1;
+	console.log(window.b); // undefined*/
+	// 上面代码中，全局变量a由var命令声明，所以它是顶层对象的属性；全局变量b由let命令声明，所以它不是顶层对象的属性，返回undefined。
+
 </script>
 </html>

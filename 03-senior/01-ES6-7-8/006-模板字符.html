@@ -6,18 +6,77 @@
 </head>
 <body>
 	<button>点击</button>
-	
 </body>
 <script>
-	var oBtn = document.getElementsByTagName('button')[0];
-	var name = 'tom';
-	oBtn.onclick = function(){
-		var html = `<ul>
-						<li>${name}</li>
-						<li>${name}</li>
-						<li>${name}</li>
-					</ul>`;
-		document.body.innerHTML = html;
+	// 普通字符串
+	console.log(`In JavaScript '\n' is a line-feed.`); 
+
+	// 多行字符串
+	console.log(`In JavaScript this is
+	 not legal.`);
+
+	console.log(`string text line 1
+	string text line 2`);
+
+	// 字符串中嵌入变量
+	let title = "Bob", time = "today";
+	console.log(`Hello ${title}, how are you ${time}?`);
+
+	// 如果在模板字符串中需要使用反引号，则前面要用反斜杠转义。
+	let greeting = `\`Yo\` World!`;
+	console.log(greeting);
+
+	// 大括号内部可以放入任意的 JavaScript 表达式，可以进行运算，以及引用对象属性。
+	let x = 1;
+	let y = 2;
+	console.log(`${x} + ${y} = ${x + y}`);
+	// "1 + 2 = 3"
+	console.log(`${x} + ${y * 2} = ${x + y * 2}`);
+	// "1 + 4 = 5"
+	let obj = {x: 1, y: 2};
+	console.log(`${obj.x + obj.y}`);
+	// "3"
+
+	// 模板字符串之中还能调用函数。
+	function fn() {
+	  return "Hello World";
+	}
+	console.log(`foo ${fn()} bar`);// foo Hello World bar
+
+	// 如果大括号中的值不是字符串，将按照一般的规则转为字符串。比如，大括号中是一个对象，将默认调用对象的toString方法。
+	var object = {name:'jack'};
+	console.log(object);
+	console.log(`${object}`);
+
+	// 如果模板字符串中的变量没有声明，将报错。
+	// 变量place没有声明
+	// let msg = `Hello, ${place}`;// 报错
+
+	// 由于模板字符串的大括号内部，就是执行 JavaScript 代码，因此如果大括号内部是一个字符串，将会原样输出。
+	console.log(`Hello ${'World'}`);// "Hello World"
+
+	// 如果需要引用模板字符串本身，在需要时执行，可以写成函数。
+	let func = (name) => `Hello ${name}!`;
+	console.log(func('Jack')); // "Hello Jack!"
+	// 上面代码中，模板字符串写成了一个函数的返回值。执行这个函数，就相当于执行这个模板字符串了。
+
+
+	// 模板字符串的功能，不仅仅是上面这些。它可以紧跟在一个函数名后面，该函数将被调用来处理这个模板字符串。这被称为“标签模板”功能（tagged template）。
+	console.log`123`
+	// 等同于
+	console.log(123);
+
+
+		var oBtn = document.getElementsByTagName('button')[0];
+		var name = 'tom';
+		oBtn.onclick = function(){
+			// 如果使用模板字符串表示多行字符串，所有的空格和缩进都会被保留在输出之中。如果你不想要这个换行，可以使用trim方法消除它。
+			var html = `<ul>
+							<li>${name}</li>
+							<li>${name}</li>
+							<li>${name}</li>
+						</ul>`;
+			document.body.innerHTML = html;
 	}
 </script>
 </html>

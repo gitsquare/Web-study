@@ -26,24 +26,24 @@
 		console.log('loadImg is failed '+url);
 	})*/
 
-	/*let promise = new Promise((resolve,reject)=>{
+	let promise = new Promise((resolve,reject)=>{
 		var img = new Image();
 		img.onload = ()=>{
 			resolve('images/a.jpg');
 		}
 		img.onerror = ()=>{
-			reject('images/a.jpg');
+			reject('出错了');
 		}
-		img.src = 'images/a.jpg';
+		img.src = 'images/a2.jpg';
 	})
 	promise
 	.then((url)=>{
 		console.log(url+' is successed');
 	},(err)=>{
 		console.log(err+' is failed');
-	})*/
+	})
 
-	let getLoadImgPromise = (url)=>{
+	/*let getLoadImgPromise = (url)=>{
 		return new Promise((resolve,reject)=>{
 			var img = new Image();
 			img.onload = ()=>{
@@ -61,7 +61,7 @@
 		console.log(url+' is successed');
 	},(err)=>{
 		console.log(err+' is failed');
-	})
+	})*/
 
 	/*function loadImg(url,success,error){
 		var img = new Image();
@@ -74,6 +74,5 @@
 		img.src = url;
 	}
 	loadImg('images/bs.jpg');*/
-	
 </script>
 </html>

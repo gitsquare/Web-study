@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script>
+// JS中变量的赋值（连续赋值）
+// 连等赋值的运算规则是 B = C; A = B; 即连续赋值是 从右至左永远只取等号右边的表达式结果赋值到等号左侧 
+
+/*var a={n:1}
+var b=a;
+a={n:2}
+a.x=a
+console.log(a); 
+console.log(b);*/
+
+var a={n:1}
+var b=a;
+a.x=a={n:2}
+console.log(a.x); //undefined
+console.log(b.x);//{n:2}
+/*执行逻辑： 
+1、在执行前，会先将a和a.x中的a的引用地址都取出来，此时他们都指向{n:1}
+2、在内存中创建一个新对象{n:2}
+3、执行a={n:2}，将a的引用从指向{n:1} 改为 指向新的{n:2}
+4、执行a.x=a，此时a已经指向了新对象，而a.x因为在执行前保留了原引用，所以a.x的a依然指向原先的{n:1}对象，所以给原对象新增一个属性x，内容为{n:2}也就是现在a
+5、语句执行结束，原对象由{n:1}变成{n:1,x:{n:2}}，而原对象被变量b引用*/
+</script>
+</html>

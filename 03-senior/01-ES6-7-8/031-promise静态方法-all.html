@@ -20,7 +20,7 @@
 			img.src = url;
 		})	
 	}
-	let aPromises = ['images/aa.jpg','images/bb.jpg','images/c.jpg','images/d.jpg']
+	let aPromises = ['images/a.jpg','images/b.jpg','images/c.jpg','images/d.jpg']
 	.map((url)=>{
 		return getLoadImgPromise(url);//return和大括号可以省略。
 	})
@@ -37,7 +37,36 @@
 	.catch(err=>{
 		console.log(err);
 	})
-
+	.finally(()=>{
+		console.log('finally...');
+	})
+	// 当数组中的所有Promise实例的状态都变成fulfilled时,Promise实例的状态才会变成fulfilled,此时,返回值组成一个数组传递给新Promise实例的回调函数
 	//当数组中有一个Promise实例被rejected,新Promise实例的状态就变成rejected,此时第一个被reject的实例的返回值会传递给新Promise实例的回调函数
+
+
+	// 生成一个Promise对象的数组
+	const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
+	  return Promise.resolve(id);
+	});
+	Promise.all(promises)
+	.then(posts => console.log(posts))
+	.catch(reason => console.log(reason));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 </html>

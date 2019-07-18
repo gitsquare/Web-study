@@ -8,7 +8,7 @@
 	
 </body>
 <script>
-
+	//不管Promise对象最后状态如何,都会执行的操作,finally方法的回调函数不接受任何参数 
 	let p1 = new Promise((resolve,reject)=>{
 		// resolve('成功');
 		reject('失败');
@@ -24,5 +24,19 @@
 	.finally(()=>{
 		console.log('finally');
 	})
+
+	// finally方法总是会返回原来的值。
+	// resolve 的值是 undefined
+	Promise.resolve(2).then(() => {}, () => {})
+
+	// resolve 的值是 2
+	Promise.resolve(2).finally(() => {})
+
+	// reject 的值是 undefined
+	Promise.reject(3).then(() => {}, () => {})
+
+	// reject 的值是 3
+	Promise.reject(3).finally(() => {})
+	
 </script>
 </html>

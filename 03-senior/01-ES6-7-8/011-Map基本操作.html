@@ -22,29 +22,44 @@
 	}
 	console.log(obj);*/
 
+
+	/*set(key,value):设置键名key对应的键值为value，然后返回整个 Map 结构,如果key已经有值，则键值会被更新，否则就新生成该键。
+	get(key):读取key对应的键值，如果找不到key，返回undefined。
+	delete(key):delete方法删除某个键，返回true。如果删除失败，返回false。
+	has(key):has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。
+	clear():清除所有键值,没有返回值*/
+
 	let map = new Map();
 	/*map.name = 'jack';
 	map.age= 11;
 	map[{id:200}] = 'Teacher';
 	map[{id:201}] = 'Student';*/
 
-	let obj1 = {id:100};
-	let obj2 = {id:101};
+	let obj1 = {id:101};
+	let obj2 = {id:102};
+	let obj3 = {id:103};
 
 	map.set('name','jack');
 	map.set('age',11);
 	map.set(obj1,'Teacher');
-	map.set(obj2,'Student');
+	// set方法返回的是当前的Map对象，因此可以采用链式写法。
+	map
+	.set(obj2,'Student')
+	.set(obj3,'Classroom');
 
 	console.log(map);
-	map.set('age',20);
+	console.log(map.set('age',20));
 
 	console.log(map.get('age'));
 	console.log(map.get(obj2));
+	// get方法读取key对应的键值，如果找不到key，返回undefined。
+	console.log(map.get('sex'));
 
+	// delete方法删除某个键，返回true。如果删除失败，返回false。
 	console.log(map.delete('age'));
 	console.log(map.delete(obj1));
 
+	// has方法返回一个布尔值，表示某个键是否在当前 Map 对象之中。
 	console.log(map.has('name'));
 	console.log(map.has(obj2));
 
@@ -52,8 +67,38 @@
 
 	console.log(map);
 	console.log(map.size);
-	/*for(let key in map){
-		console.log(key,typeof key);
-	}*/
+
+
+
+	/*const map = new Map();
+	const k1 = ['a'];
+	const k2 = ['a'];
+	map
+	.set(k1, 111)
+	.set(k2, 222);
+
+	map.get(k1) // 111
+	map.get(k2) // 222*/
+	// 上面代码中，变量k1和k2的值是一样的，但是它们在 Map 结构中被视为两个键。
+	// 由上可知，Map 的键实际上是跟内存地址绑定的，只要内存地址不一样，就视为两个键。这就解决了同名属性碰撞（clash）的问题，我们扩展别人的库的时候，如果使用对象作为键名，就不用担心自己的属性与原作者的属性同名。
+	// 如果 Map 的键是一个简单类型的值（数字、字符串、布尔值），则只要两个值严格相等，Map 将其视为一个键，比如0和-0就是一个键，布尔值true和字符串true则是两个不同的键。另外，undefined和null也是两个不同的键。虽然NaN不严格相等于自身，但 Map 将其视为同一个键。
+	/*let map = new Map();
+	map.set(-0, 123);
+	map.get(+0) // 123
+	map.set(true, 1);
+	map.set('true', 2);
+	map.get(true) // 1
+	map.set(undefined, 3);
+	map.set(null, 4);
+	map.get(undefined) // 3
+	map.set(NaN, 123);
+	map.get(NaN) // 123*/
+
+
+
+
+
+
+
 </script>
 </html>

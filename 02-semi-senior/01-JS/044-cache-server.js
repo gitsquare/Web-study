@@ -1,11 +1,4 @@
 /*
-* @Author: TomChen
-* @Date:   2019-01-03 20:43:06
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-01-05 17:49:34
-*/
-
-/*
 	可以响应并返回文件
 	处理GET请求+POST请求
  */

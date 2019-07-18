@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		/*一、水平和垂直居中*/
+
+		/*已知高度和宽度的元素解决方案*/
+		.item{
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    margin-top: -75px;  /* 设置margin-left / margin-top 为自身高度的一半 */
+		    margin-left: -75px;
+		}
+
+		/*未知高度和宽度元素解决方案*/
+		.item{
+		    position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    transform: translate(-50%, -50%);  /* 使用css3的transform来实现 */
+		}
+
+		/*使用flex布局实现*/
+		.parent{
+		    display: flex;
+		    justify-content:center;
+		    align-items: center;
+		    /* 注意这里需要设置高度来查看垂直居中效果 */
+		    background: #AAA;
+		    height: 300px;
+		}
+
+
+
+
+
+		/*二、水平居中*/
+
+		/*1）行内元素解决方案
+		只需要把行内元素包裹在一个属性display为block的父层元素中，并且把父层元素添加如下属性即可：*/
+		.parent {
+		    text-align:center;
+		}
+		/*（2）块状元素解决方案*/
+		.item {
+		    margin: 10px auto;
+		}
+		/*（3）多个块状元素解决方案
+		将元素的display属性设置为inline-block，并且把父元素的text-align属性设置为center即可:*/
+		.parent {
+		    text-align:center;
+		}
+		/*（4）多个块状元素解决方案 (使用flexbox布局实现)
+		使用flexbox布局，只需要把待处理的块状元素的父元素添加属性display:flex及justify-content:center即可:*/
+		.parent {
+		    display:flex;
+		    justify-content:center;
+		}
+
+
+
+
+
+		/*三、垂直居中*/
+
+		/*1）单行的行内元素解决方案*/
+		.parent {
+		    background: #222;
+		    height: 200px;
+		}
+		/* 以下代码中，将a元素的height和line-height设置的和父元素一样高度即可实现垂直居中 */
+		a {
+		    height: 200px;
+		    line-height:200px; 
+		    color: #FFF;
+		}
+
+
+		/*2）已知高度的块状元素解决方案*/
+		.item{
+		    top: 50%;
+		    margin-top: -50px;  /* margin-top值为自身高度的一半 */
+		    position: absolute;
+		    padding:0;
+		}
+
+
+
+	</style>
+</head>
+<body>
+	
+
+
+</body>
+</html>

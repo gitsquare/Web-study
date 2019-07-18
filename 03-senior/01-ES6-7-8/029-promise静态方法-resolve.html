@@ -8,6 +8,14 @@
 	
 </body>
 <script>
+	// 如果参数是Promise实例,那么Promise.resolve将不做任何修改、原封不动地返回这个实例 
+	// 如果参数是一个具有then方法的对象,resolve方法会将这个对象转为 Promise 对象然后就立即执行该对象的then方法
+	// 如果参数不是具有then方法的对象,或根本就不是对象,返回一个新的 Promise 对象,状态为resolved
+	// 不带有任何参数,直接返回一个resolved状态的 Promise 对象
+
+
+
+
 	//不带有任何参数,直接返回一个resolved状态的 Promise 对象
 	let p1 = Promise.resolve();
 	console.log(p1);
@@ -19,11 +27,17 @@
 	//如果参数是一个具有then方法的对象,resolve方法会将这个对象转为 Promise 对象然后就立即执行该对象的then方法
 	let obj1 = {
 		length:1,
-		then:function(){
+		/*then:function(){
 			console.log('then of p3...');
+		}*/
+		then:function(resolve,reject){
+			resolve('obj1');
 		}
 	}
 	let p3 = Promise.resolve(obj1);
+	p3.then(function(value){
+		console.log(value);
+	})
 	console.log(p3);
 
 	let obj2 = {
@@ -33,6 +47,10 @@
 		}//方法名不是then，不会立即执行
 	}
 	let p4 = Promise.resolve(obj2);
+	p4.then(function(value){
+		console.log(value);
+		value.otherThen();
+	})
 	console.log(p4);
 </script>
 </html>

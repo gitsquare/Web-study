@@ -16,18 +16,18 @@
 		//2.执行异步请求
 
 		//模拟异步请求成功
-		// resolve('成功');
+		resolve('成功');
 
 		//模拟异步请求失败
-		reject('失败');
+		// reject('失败');
 	});
 	// console.log(promise);
 
 	//3.通过promise实例对异步请求结果进行处理
 	promise.then((data)=>{
-		console.log('go',data)
+		console.log('go',data);
 	},(err)=>{
-		console.log('failed',data)
+		console.log('failed',err);
 	})
 
 </script>

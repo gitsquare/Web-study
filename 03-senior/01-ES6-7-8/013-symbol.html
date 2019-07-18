@@ -28,15 +28,19 @@
 		[s1]:'Tom',
 		age:22
 	};
-
-	obj[s2] = 'jack';//用中括号把s2包括起来，代表用的是变量的值，如果用点的话，会被当做一个属性名
+	// 注意，Symbol 值作为对象属性名时，不能用点运算符。
+	obj[s2] = 'jack';
+	// 上面代码中，因为点运算符后面总是字符串，所以不会读取mySymbol作为标识名所指代的那个值，导致a的属性名实际上是一个字符串，而不是一个 Symbol 值。
+	// 同理，在对象的内部，使用 Symbol 值定义属性时，Symbol 值必须放在方括号之中。
+	console.log(s1.description);
+	console.log(s2.description);
 	console.log(obj[s2]);
 
 	/*console.log(Object.getOwnPropertyDescriptors(obj));
 	for(let key in obj){
 		console.log(key,obj[key]);
 	}*/
-
+	console.log(Object.getOwnPropertySymbols(obj));
 	console.log(Reflect.ownKeys(obj));
 	let keys = Reflect.ownKeys(obj);
 	for(let key of keys){

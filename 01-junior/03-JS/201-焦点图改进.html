@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.contener{
+			position:relative;
+			width: 800px;
+			height: 450px;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.contener .box{
+			position: relative;
+			width: 100%;
+			height: 100%;
+		}
+		.contener .box img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			transition:all 0.5s;
+		}
+		.contener span{
+			position: absolute;
+			top:190px;
+			width: 30px;
+			height: 70px;
+			background:rgba(7,7,7,0.4);
+			cursor: pointer;
+			line-height: 70px;
+			text-align: center;
+			color:#fff;
+			font-size: 25px;
+			z-index: 999;
+		}
+		.contener .left{
+			left:0;
+		}
+		.contener .right{
+			right:0;
+		}
+		.contener .ul{
+			position: absolute;
+			right:0;
+			bottom:20px;
+			width: 150px;
+			list-style: none;
+			display: flex;
+			justify-content: center;
+		}
+		.contener .ul li{
+			width: 15px;
+			height: 15px;
+			background: #fff;
+			border:3px solid #888;
+			border-radius: 50%;
+			box-sizing: border-box;
+			margin-right: 20px;
+			transition:all 0.3s;
+			cursor: pointer;
+			z-index: 999
+		}
+		.contener .ul li:hover{
+			border:2px solid #ff6700;
+		}
+		.contener .ul .active{
+			border:2px solid #ff6700;
+		}
+	</style>
+</head>
+<body>
+	<div class="contener">
+		<div class="box">
+			<img src="image/11.png" alt="" style="z-index: 99,opacity:1">
+			<img src="image/22.jpg" alt="" style="opacity: 0">
+			<img src="image/33.jpg" alt="" style="opacity: 0">
+		</div>	 
+		<span class="left">&lt;</span>
+		<span class="right">&gt;</span>
+		<ul class="ul">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+<script>
+	var oContener = document.querySelector('.contener')
+	var oBox = document.querySelector('.box')
+	var aImg = oBox.children
+	var leftBtn = document.querySelector('.left')
+	var rightBtn = document.querySelector('.right')
+	var oUl = document.querySelector('.ul')
+	var aLi = oUl.children;
+	var now = 0;
+	var Timer = null;
+	// var arr = ''
+
+	//封装切换事件函数
+	function tab(){
+		for(let i = 0;i<aImg.length;i++){
+			aImg[i].style.zIndex = '0';
+			aImg[i].style.opacity = '0';
+			aLi[i].className = ''
+		}
+		aImg[now].style.zIndex = '99';
+		aImg[now].style.opacity = '1';
+		aLi[now].className = 'active';
+	}
+
+	//左边按钮
+	leftBtn.onclick = function(){
+		now--;
+		if(now<0){
+			now=aImg.length-1;
+		}
+		tab();
+	}
+
+	//右边按钮
+	rightBtn.onclick = function(){
+		now++;
+		if(now>=aImg.length){
+			now=0;
+		}
+		tab()
+	}
+
+	//底部按钮
+	for(let k = 0;k<aLi.length;k++){
+		aLi[k].onclick = function(){
+			now = k ;
+			/*
+			for(let i = 0;i<aImg.length;i++){
+				aImg[i].style.zIndex = '0';
+				aImg[i].style.opacity = '0';
+				aLi[i].className = ''
+			}
+			aImg[k].style.zIndex = '99';
+			aImg[k].style.opacity = '1';
+			aLi[k].className = 'active'
+			*/
+			tab()
+		}
+	}
+
+	//自动播放
+	Timer = setInterval(rightBtn.onclick,2000);
+	oContener.onmouseenter = function(){
+		clearInterval(Timer)
+	}
+	oContener.onmouseleave = function(){
+		Timer = setInterval(rightBtn.onclick,2000);
+	}
+</script>
+</html>

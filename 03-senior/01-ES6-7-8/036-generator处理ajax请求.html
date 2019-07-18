@@ -28,7 +28,7 @@
 		return g.next(data.followers_url).value//传的参数作为上一次yield表达式的返回值		
 	})
 	.then(data=>{
-		return g.next(data[0].followers_url).value
+		return g.next(data[4].followers_url).value
 	})
 	.then(data=>{
 		// console.log(data);
@@ -37,7 +37,7 @@
 
 
 
-	
+
 
 </script>
 </html>

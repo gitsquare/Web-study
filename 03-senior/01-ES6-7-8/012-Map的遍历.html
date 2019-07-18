@@ -17,19 +17,30 @@
 	map.set(obj2,'Student');
 	console.log(map);
 
+	/*Map.prototype.keys()：返回键名的遍历器。
+	Map.prototype.values()：返回键值的遍历器。
+	Map.prototype.entries()：返回所有成员的遍历器。
+	Map.prototype.forEach()：遍历 Map 的所有成员。*/
+
+
+
+	// Map 的遍历顺序就是插入顺序。
 	for(let key of map.keys()){
 		console.log(key);
 	}
-
 	for(let value of map.values()){
 		console.log(value);
 	}
+	// Map 结构的默认遍历器接口（Symbol.iterator属性），就是entries方法。这意味着，可以省略entries方法，直接用for...of循环遍历 Map。
 	for(let entry of map){
 		console.log(entry);
 	}
-
 	for(let entry of map.entries()){
 		console.log(entry);
+	}
+
+	for(let [key,value] of map.entries()){
+		console.log(key,value);
 	}
 
 	map.forEach(function(value,key){
@@ -41,5 +52,35 @@
 		console.log(entry);
 	}
 	console.log(map.size);
+
+
+	// Map 结构转为数组结构，比较快速的方法是使用扩展运算符（...）。
+	const map2 = new Map([
+	  [1, 'one'],
+	  [2, 'two'],
+	  [3, 'three'],
+	]);
+	console.log([...map2.keys()]);// [1, 2, 3]
+	console.log([...map2.values()]);// ['one', 'two', 'three']
+	console.log([...map2.entries()]);// [[1,'one'], [2, 'two'], [3, 'three']]
+	console.log([...map2]);// [[1,'one'], [2, 'two'], [3, 'three']]
+
+	// 结合数组的map方法、filter方法，可以实现 Map 的遍历和过滤（Map 本身没有map和filter方法）。
+	const map0 = new Map()
+	  .set(1, 'a')
+	  .set(2, 'b')
+	  .set(3, 'c');
+	const map1 = new Map(
+	  [...map0].filter(([k, v]) => k < 3)
+	);
+	// 产生 Map 结构 {1 => 'a', 2 => 'b'}
+	const map2 = new Map(
+	  [...map0].map(([k, v]) => [k * 2, '_' + v])
+	    );
+	// 产生 Map 结构 {2 => '_a', 4 => '_b', 6 => '_c'}
+
+
+
+
 </script>
 </html>

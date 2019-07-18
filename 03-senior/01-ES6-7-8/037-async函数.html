@@ -21,5 +21,34 @@
 	})
 
 
+
+	// async 函数有多种使用形式。
+	// 1.函数声明
+	async function foo() {}
+
+	// 2.函数表达式
+	const foo = async function () {};
+
+	// 3.对象的方法
+	let obj = { async foo() {} };
+	obj.foo().then(...)
+
+	// 4.Class 的方法
+	class Storage {
+	  constructor() {
+	    this.cachePromise = caches.open('avatars');
+	  }
+
+	  async getAvatar(name) {
+	    const cache = await this.cachePromise;
+	    return cache.match(`/avatars/${name}.jpg`);
+	  }
+	}
+
+	const storage = new Storage();
+	storage.getAvatar('jake').then(…);
+
+	// 5.箭头函数
+	const foo = async () => {};
 </script>
 </html>

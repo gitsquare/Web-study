@@ -15,7 +15,7 @@
 			},delay);
 		})
 	}
-	let aPromises = [100,300,500].map(delay=>getDataPromise(delay));//return和大括号省略。
+	let aPromises = [500,600,700].map(delay=>getDataPromise(delay));//return和大括号省略。
 	
 	let pa = new Promise((resolve,reject)=>{
 		setTimeout(()=>{
@@ -23,6 +23,7 @@
 		},400);
 	});
 	aPromises.push(pa);
+	// 接受一个Promise实例数组作为参数,返回执行最快的那个promise对象 
 	let p = Promise.race(aPromises);//不管是成功还是失败，哪个Promise状态先改变就返回谁
 	console.log(p);
 
