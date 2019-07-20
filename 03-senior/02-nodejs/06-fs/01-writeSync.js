@@ -11,8 +11,6 @@ fs.writeSync(fd,'hello');
 //3.保存退出(关闭)
 fs.closeSync(fd);*/
 
-
-
 fs.writeFileSync('./01.txt','hello',{flag:'a'});
 
 

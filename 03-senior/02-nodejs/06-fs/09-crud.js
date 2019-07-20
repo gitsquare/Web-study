@@ -33,14 +33,14 @@ const writeFile = util.promisify(fs.writeFile);//返回一个promise
 		}
 	})
 }
-
+//添加数据后把所有json数据返回，所以用回调函数
 add('Tom',(err,data)=>{
 	if(err){
 		console.log(err);
 	}else{
 		console.log(data);
 	}
-});//添加数据后把所有json数据返回，所以用回调函数*/
+});*/
 
 //create
 async function add(name){
@@ -52,12 +52,12 @@ async function add(name){
 		id:Date.now().toString()+parseInt(Math.random()*10000).toString().padStart(4,'0'),
 		name:name
 	});
-	let strArr = JSON.stringify(arr);//转换成字符串
+	//转换成JSON
+	let strArr = JSON.stringify(arr);
 	//3.保存
 	await writeFile(filePath,strArr);
 	return arr;
 }
-
 //read
 async function get(id){
 	//1.获取原有的数据

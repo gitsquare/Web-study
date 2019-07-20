@@ -1,27 +1,22 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-22 19:15:42
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-22 20:17:04
-*/
 const http = require('http');
 const url = require('url');
-const querystring = require('querystring');
+const querystring = require('querystring');//解析字符串
 
 const server = http.createServer((req,res)=>{
+	// /?username=xx&age=34 获取到字符串一般要转为对象再做处理，需要引入核心模块url
+	// console.log('url=>',req.url,'method=>',req.method);
 	
-	console.log('url=>',req.url,'method=>',req.method);// /?username=xx&age=34
-
-	//解析url
-	/*
-	const myUrl1 = url.parse(req.url);//解析URL字符串，并返回URL对象
-	console.log(myUrl1.query);//'username=xx&age=34'//需要解析成为对象
+	/*//解析URL字符串，并返回URL对象
+	const myUrl1 = url.parse(req.url);
+	//url对象有个query属性，这个属性的值就是?后面的参数
+	console.log(myUrl1.query);//'username=xx&age=34'
+	//把?后面的参数(字符串)即url.query解析成对象，需要引入核心模块querystring
 	const obj1 = querystring.parse(myUrl1.query);//{ username: 'xx', age: '34' }
-	console.log(obj1);
-	*/
-	const myUrl2 = url.parse(req.url,true);//如果第二个参数为true，默认是false，它相当于
-	//自动执行querystring.parse(myUrl1.query)
-	console.log(myUrl2);
+	// 根据拿到的对象进行下一步操作
+	console.log(obj1);*/
+	
+	//如果第二个参数为true，默认是false，它相当于自动执行querystring.parse(myUrl1.query)
+	const myUrl2 = url.parse(req.url,true);
 	const obj2 = myUrl2.query;
 	console.log(obj2);
 

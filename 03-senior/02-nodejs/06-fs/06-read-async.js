@@ -3,6 +3,7 @@ const util = require('util');
 
 const readFile = util.promisify(fs.readFile);
 async function callReadFile(){
+	//await后面期待的是一个promise
 	let data = await readFile('./01.txt',{flag:'r'});
 	// console.log(data);
 	return data;

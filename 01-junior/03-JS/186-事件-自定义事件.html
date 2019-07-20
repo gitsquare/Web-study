@@ -32,8 +32,9 @@
 	var testEvent = new Event('test');
 
 	// console.log(testEvent);
-	oBox.addEventListener('test',function(){
+	oBox.addEventListener('test',function(arg1){
 		this.style.backgroundColor = 'purple';
+		console.log(arg1);
 	},false);
 
 	oBtn.onclick = function(){

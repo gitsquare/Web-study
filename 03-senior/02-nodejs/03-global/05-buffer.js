@@ -1,7 +1,5 @@
 //Buffer是用来存放二进制数据的容器，类似一个数组
 
-
-
 //const buf1 = Buffer.from('hello');
 //console.log(buf1);//<Buffer 68 65 6c 6c 6f>
 
@@ -10,9 +8,9 @@ console.log(buf2);//<Buffer e6 88 91 e5 be 88 e5 a5 bd>
 
 const buf3 = Buffer.alloc(10);//size <integer> 新建的 Buffer 的长度。
 console.log(buf3);//<Buffer 00 00 00 00 00 00 00 00 00 00>
-buf3[0] = 10;
+buf3[0] = 10;//把10当做十进制转成十六进制
 console.log(buf3);//<Buffer 0a 00 00 00 00 00 00 00 00 00>
-buf3[1] = 0x10;
+buf3[1] = 0x10;//前面加0x意思是把10当做十六进制中的10，就不用转换了
 console.log(buf3);//<Buffer 0a 10 00 00 00 00 00 00 00 00>
 buf3[10] = 9;
 console.log(buf3);//<Buffer 0a 10 00 00 00 00 00 00 00 00>因为只有10位，所以添加不上
@@ -26,7 +24,7 @@ console.log(buf3);//<Buffer 0a 10 00 00 00 00 00 00 00 00>因为只有10位，�
 
 
 const buf4 = Buffer.alloc(9);
-buf4[0] = 0xe4;
-buf4[1] = 0xbd;
-buf4[2] = 0xa0;
+buf4[0] = 0xe5;
+buf4[1] = 0xa5;
+buf4[2] = 0xbd;
 console.log(buf4.toString());

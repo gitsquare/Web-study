@@ -22,19 +22,19 @@ module.exports.fn = fn;
 module.exports.obj = obj;
 exports.obj2 = {major:'computer'};*/
 
-/*exports.str = str;
+exports.str = str;
 exports.fn = fn;
-exports.obj = obj;*/
-
-/*module.exports = {
-	str,
-	fn,
-	obj
-}*///如果要导出一个对象,只能使用module.exports对象,此时exports对象的值就不会被导出;而且这样使用exports和module.exports就不再相同
-
+exports.obj = obj;
+module.exports = {
+	major:'computer',
+	fn:function(){
+		console.log('fn');
+	}
+};
+//如果要导出一个对象,只能使用module.exports对象,此时exports对象的值就不会被导出;而且这样使用exports和module.exports就不再相同
 /*console.log(exports);
-console.log(module.exports);*/
-console.log(exports === module.exports);
+console.log(module.exports);
+console.log(exports === module.exports);*/
 //module.exports对象可以赋值一个对象来导出值,如果module.exports被赋值一个对象,则exports对象的值就不会被导出
 
 

@@ -13,6 +13,7 @@
 // console.log(process.pid);//返回进程的PID
 
 
+// process.nextTick(callback) 
 //将 callback 添加到下一个时间点的队列。 
 //一旦当轮的事件循环全部完成，则调用下一个时间点的队列中的所有回调。
 for(let i = 0;i<=3;++i){

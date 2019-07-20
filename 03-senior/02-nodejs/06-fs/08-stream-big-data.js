@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const ws = fs.createWriteStream('././ws01.mp4');
+const ws = fs.createWriteStream('./ws01.mp4');
 const rs = fs.createReadStream('./01.mp4');
 
 /*rs.on('open',()=>{

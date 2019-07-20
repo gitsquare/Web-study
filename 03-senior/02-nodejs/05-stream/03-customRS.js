@@ -16,29 +16,30 @@ class MyReader extends Readable{
 	_read(){
 		this.index++;//分段读取数据，所以每次读取的数据不一样
 		if(this.index>5){
+			// 会推送数据到读取队列
 			this.push(null);
 		}else{
 			let str = this.index+'';
-			this.push(str);//每push一次，就执行一次_read方法,直到this.push()返回false才结束。
+			//每push一次，就执行一次_read方法,直到this.push()返回false才结束。
+			this.push(str);
 		}
 	}
 }
 const reader = new MyReader();
 
 /*let body = '';
-
+//每_read一次就会触发一次data事件
 reader.on('data',(chunk)=>{
-	// console.log(chunk);
-	console.log(chunk.toString());
-	body += chunk;//因为分段拿到的数据需要拼接在一起成为完整的一段数据。
-})
-reader.on('end',()=>{
+	// console.log(chunk.toString());
+	//因为分段拿到的数据需要拼接在一起成为完整的一段数据。
+	body += chunk;
+})*/
+//表明这次读数据结束。但是直到this.push()返回false，才会触发这个事件。
+//如果this.push()没有返回false，就不会触发end事件
+/*reader.on('end',()=>{
 	console.log(body);
 	console.log('end...');
-})
-//表明这次读数据结束。但是直到this.push()返回false，才会触发这个事件。
-//如果this.push()没有返回false，就不会触发end事件*/
-
+})*/
 
 //readable.pipe(writable) 将可读流的数据传递给可写流
 reader.pipe(process.stdout);//把reader里面的数据通过管道写到可写流当中

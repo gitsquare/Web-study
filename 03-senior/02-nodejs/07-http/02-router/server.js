@@ -1,13 +1,14 @@
 //路由处理
-
 const http = require('http');
 const fs = require('fs');
 const server = http.createServer((req,res)=>{
 	console.log(req.url);
 	const filePath = req.url;
+	//需要加斜杠 /
 	if(filePath == '/index.html'){
 		fs.readFile('./index.html',(err,data)=>{
 			if(err){
+				//读文件出错，一般是服务器端错误
 				res.setHeader('Content-Type',"text/html;charset=utf-8");
 				res.statusCode = 500;
 				res.end("<h1>出错了</h1>");
