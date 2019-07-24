@@ -43,29 +43,62 @@ import './App.css';
 //在jsx语法中使用组件分为html组件和自定义组件,自定义组件必须大写字母开头
 //自定义组件就相当于一个构造函数
 class App extends Component{
-	//必须有一个render方法
-	//在render方法里面的this指的是App
+	//进行初始化
 	constructor(props){
-		//this.state 存放组件内部数据
-		//初始化
-		super(props),
+		super(props);
+		// 初始化this.state，用来存放组件内部数据
 		this.state={
 			list:[
 				"运动",
 				"学习",
 				"读书"
 			],
-			val:''//初始化定义state的属性val
+			val:''//初始化定义state的属性val，用来存放输入框中的值
 		}
+		this.handleChange = this.handleChange.bind(this)
+		this.handleAdd = this.handleAdd.bind(this)
+	}
+	getItems(){
+		return this.state.list.map((item,index)=>{
+			return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
+		})			
 	}
 	handleAdd(){
-		//this.state.list.push(this.state.val);
-		this.setState({
-			list:[...this.state.list,this.state.val],//点击后把输入框的值放在数组里面
-			val:''//把val变为空，就是把输入框里的值给消除掉
+		// 在事件函数中this指的是被bind方法传进来的当前的组件对象
+		//this.state.list.push(this.state.val);//这种方法行不通
+
+		//数据驱动界面，this.setState方法会改变数据继而引起页面的变化
+		//this.setState第一种使用方法：参数是一个对象，对象的值是什么，this.state的值就是什么
+		/*this.setState({
+			// 当点击button后，把输入框的值放在数组里面，
+			list:[...this.state.list,this.state.val],
+			// 并且把输入框中的内容清空
+			val:''
+		})*/
+		/*this.setState第二种使用方法：参数是一个函数，函数的返回值是一个对象，
+		返回的这个对象会和之前的this.state进行合并*/
+		/*this.setState(()=>{
+			return {
+				list:[...this.state.list,this.state.val],
+				val:''
+			}
+		})*/
+		// 函数中还可以带一个参数preState代表之前未改变的this.state，即原始的this.state，和上面的写法是等价的
+		/*this.setState((preState)=>{
+			return {
+				list:[...preState.list,preState.val],
+				val:''
+			}
+		})*/
+		// 箭头函数简写
+		this.setState(preState => ({
+			list:[...preState.list,preState.val],
+			val:''
+		}),()=>{
+			console.log(this.ul.querySelectorAll('li'))	
 		})
-		//this.setState方法里面的参数是一个对象时，对象的值是什么，this.state的值就是什么
-		//this.setState方法改变数据会引起页面数据的变化
+		/*由于setState是一个异步方法,如果需要获取最新的DOM,可以在setState方法的第二个参数(回调函数)中获取,
+		当state改变完成，重新渲染以后，才会执行回调函数*/
 	}
 
 	//获取输入框的数据
@@ -73,57 +106,98 @@ class App extends Component{
 	//2.在onChange的事件函数中通过event.target.value获取值,当input框里面的值改变时，将获取到的值赋值给this.state.val
 	handleChange(ev){
 		// console.log(ev.target.value)//这里的target其实就是input
-		this.
-		setState({
-			val:ev.target.value,//获取输入框的值，存在state.val
-		})
+		/*this.setState({
+			//获取输入框的值，存放在this.state.val
+			val:ev.target.value,
+		})*/
 
-		// console.log(this)
+		/*方法1.通过拿到的DOM节点获取value值,此方法是通过在当前的DOM节点添加ref属性拿到此节点,
+		动态的在App组件上添加属性，属性名为此DOM节点的名字，值为此DOM节点*/
+		const val = this.input.value
+		//方法2.通过事件对象ev获取value值
+		// const val = ev.target.value;
+		this.setState(()=>({
+			// val:val
+			//简写
+			val
+		}))
 	}
 	handleDel(index){
 		const list = [...this.state.list];//首先把数组复制一份
 		list.splice(index,1);//通过索引，把当前的<li></li>给删除
-		// const list = this.state.list.splice(index,1)//不能这么写，splice方法返回的是删除项
+		// const list = this.state.list.splice(index,1)//不能这么写，splice方法返回的是由删除项组成的数组
 		//改变this.state里面的数据必须通过this.setState方法
-		this.setState({
-			list:list
-		})
+		/*this.setState({
+			// list:list
+			list//es6语法
+		})*/
+
+		this.setState(()=>({
+			list
+		}))
 	}
+
+	//必须有一个render方法，方法里面必须有return，根据面向对象的思想，在render方法里面的this指的是当前组件对象
 	render(){
 		console.log('app01-base render...')
 		//render方法的return语句后面不能是空白行,可以用()来格式化代码 
 		return(
-			//只能返回一个标签例如<div><input/><button></button></div>,标签必须得有闭合。如果不用div标签包裹，
-			//就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签，如果不想用div，
-			//就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中
+			/*jsx语法中只能返回一个标签。例如<div><input/><button></button></div>,标签必须得有闭合。如果不用div标签包裹，
+			就会报错，加了以后，就只返回div这一个标签，但这个div里面包括其他标签。如果不想用div，
+			就把React.Fragment引入进来,并且Fragment标签不会被渲染到页面当中*/
 			<Fragment>
-				<input onChange={this.handleChange.bind(this)} value={this.state.val} />
 				{/*添加事件注意事项：1.on后面的字母大写。2. =号后面的{}中的是javascript代码。 
-				3.事件函数中通常需要用当前的组件对象,所以需要在绑定事件时bind(this)*/}
-				<button onClick={this.handleAdd.bind(this)}>添加</button>
+				3.事件函数中通常需要用当前的组件对象,因为在render方法里面的this就是指当前组件对象,
+				所以可以在绑定事件时bind(this),或者在constructor初始化时就bind(this),
+				例如this.handleChange = this.handleChange.bind(this)*/}
+				
+				{/*
+				获取DOM节点：添加ref属性,值为一个函数，函数的参数是当前的DOM节点，
+				给App对象上动态添加属性input,值就是当前的DOM节点，即this.input = input
+				*/}
+				<input 
+					onChange={this.handleChange} 
+					value={this.state.val} 
+					ref={(input)=>{
+						this.input = input
+					}}
+				/>
+				<button onClick={this.handleAdd}>添加</button>
 				{/*添加样式一最外面的花括号代表里面是js代码，里面的花括号代表是一个对象*/}
 				{/*添加样式一：行内: style = {{color:'#333'}}。二：添加className*/}
 				{/*在react当中class是关键字所以类名用className*/}
-				<ul className="App">
+				<ul className="App" ref={(ul)=>{this.ul = ul}}>
 					{/*<li style={{backgroundColor:'#333',color:'#999'}}>看书</li>
 					<li>运动</li>
 					<li>学习</li>*/}
-					{
-						this.state.list.map((item,index)=>{
-							/*return (
-								<li 
-									key={index}
-									onClick={this.handleDel.bind(this)}
-								>
-								{item}
-								</li>
-							)*/
-							return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
-							//调用子组件时，传递的数据都会传到props对象上面
 
-							//父组件给子组件传递参数,父组件定义属性并赋值
-							//子组件想修改父组件中的数据，需要父组件传递方法给子组件，然后由子组件调用
+
+					
+					{/*
+						this.state.list.map((item,index)=>{
+							//在react中，一个重要的思想就是组件化，可以把return中的代码做成一个组件
+							//return (
+							//	<li 
+							//		key={index} key必须有，用来校验
+							//		onClick={this.handleDel.bind(this,index)}
+							//	>
+							//	{item}
+							//	</li>
+							//)
+							
+
+							//1.调用子组件时，传递的数据都会传到props对象上面
+							//2.父组件给子组件传递参数,父组件定义属性并赋值,在这里定义的属性是content
+							//3.子组件给父组件传递参数,子组件调用父组件传递过来的方法,将要传递的参数传给该方法。
+							// 在这里定义的方法是handleDel。注意点：子组件不能改变父组件中的数据
+							return <Item key={index}  content={item} handleDel={this.handleDel.bind(this,index)} />
 						})
+					*/}
+					{/*可以把上面这部分组件化的js代码封装成一个函数来处理*/}
+					{/*调用getItems函数*/}
+					{ 
+						this.getItems() 
+						//有几条数据就执行几次
 					}
 				</ul>
 				{

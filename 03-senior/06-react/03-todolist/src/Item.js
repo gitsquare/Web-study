@@ -8,9 +8,9 @@ class Item extends Component{
 	constructor(props){
 		super(props)
 	}
-	//reder方法负责渲染
+	//render方法负责渲染
 	render(){
-		console.log('item render..')
+		// this.props存放组件的外部数据
 		const {handleDel,content} = this.props;//通过解构赋值，写起来更方便
 		return (
 			<li onClick={handleDel}>
@@ -19,16 +19,28 @@ class Item extends Component{
 		)
 	}
 }
+
+
 Item.propTypes = {
 	handleDel:PropTypes.func,
 	content:PropTypes.string.isRequired//代表必须得传这个参数
-
 }
-
 //定义子组件中的默认值,如果此参数没有传，就用这个默认值
 Item.defaultProps = {
-	content:'上天'
+	content:'休息'
 }
 export default Item;
+
+
+
+
+
+
+
+
+
+
+
+
 
 

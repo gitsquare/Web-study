@@ -1,43 +1,8 @@
-//定义和导出模块
-//写法一
-/*export const a = 1;
-export const b = 2;*/
-
-//写法二
-/*const a = 1;
-const b = 2;
-export{
-	a,
-	b
-};*/
-
-//写法三
-//export时as关键字重命名变量a的名字为b,所以在引入时用b
-/*const a = 1;
-const b = 2;
-export{
-	a as a1,
-	b
-};*/
-
-//写法五（比较常见）
-// export default 1//第一种写法
-//或者第二种写法
-/*const a=1
-export default a*/
-/*一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，
-import命令后面才不用加大括号，因为只可能唯一对应export default命令。
-
-正是因为export default命令其实只是输出一个叫做default的变量，
-所以它后面不能跟变量声明语句。
-
-export default导出的模块,import时变量名可以用随意合法的名称*/
-
-
+//react模块default的值用React接受，其它export的值用大括号中对应的名字去接受
 import React,{ Component,Fragment } from 'react';
 import Item from './Item.js';//Item组件是App组件的子组件
 import './App.css';
-//定义组件
+//自定义组件
 //必须继承React.Component
 class App extends Component{
 	//必须有一个render方法
@@ -55,7 +20,6 @@ class App extends Component{
 			],
 			val:'',//初始化定义state的属性val
 		}
-
 		//写在这里，当生成对象的时候，就要执行这个函数
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
@@ -126,8 +90,7 @@ class App extends Component{
 
 		//第二种写法
 		//因为this.setState方法的参数是函数时，在这个函数里拿不到ev对象，所以要在外面保存
-		// const val = ev.target.value;
-
+		// const val = ev.target.value;//通过事件对象获取value值
 		const val = this.input.value;//通过拿到的DOM节点获取value值
 		this.setState(()=>({
 			// val:val
@@ -161,11 +124,11 @@ class App extends Component{
 				<input 
 					onChange={this.handleChange} 
 					value={this.state.val}
-					//获取DOM节点
+					{/*获取DOM节点：添加ref属性,值为一个函数，函数的参数是当前的DOM节点，
+					给App对象上动态添加属性input,值就是当前的DOM节点，即this.input = input*/}
 					ref={(input)=>{
-						// console.log(input)
 						this.input = input
-						//给App对象上动态添加属性input，把DOM节点input付给它
+						
 					}}
 				/>
 				{/*添加事件注意事项：1.on后面的字母大写。2. =号后面的{}中的是javascript代码。 
