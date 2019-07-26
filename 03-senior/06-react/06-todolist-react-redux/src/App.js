@@ -7,6 +7,7 @@ import './App.css'
 
 //这一部分是UI部分
 class App extends Component{
+	//初始化数据从服务器端获取
 	componentDidMount(){
 		this.props.handleInit()
 	}
@@ -35,8 +36,7 @@ class App extends Component{
 	}
 }
 
-
-//这一部分是业务逻辑
+//业务逻辑部分都在App组件外面，App组件就只用来展示页面
 const mapStateToProps = (state)=>{
 	//把state中的数据映射到props中
 	return {
@@ -44,7 +44,6 @@ const mapStateToProps = (state)=>{
 		list:state.list
 	}
 }
-
 const mapDispatchToProps = (dispatch)=>{
 	return {
 		handleChange:(ev)=>{

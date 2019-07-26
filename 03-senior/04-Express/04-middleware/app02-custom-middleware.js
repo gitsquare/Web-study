@@ -29,10 +29,9 @@ const express = ()=>{
 const app = express();
 const server = http.createServer(app)
 */
+// 中间件执行的原理
 const express = ()=>{
-	
 	const fns = [];
-
 	const app = (req,res)=>{
 		let i = 0;
 		function next(){
@@ -42,16 +41,12 @@ const express = ()=>{
 		}
 		next();
 	}
-
 	app.use = (fn)=>{
 		fns.push(fn);
 	}
-
 	return app;	
 }
-
 const app = express();
-
 app.use((req,res,next)=>{
 	console.log("A1")
 	next()
@@ -67,10 +62,7 @@ app.use((req,res,next)=>{
 	next()
 	console.log('C2')
 })
-
 const server = http.createServer(app)
-
-
 server.listen(3000,'127.0.0.1',()=>{
 	console.log('server is running....')
 })

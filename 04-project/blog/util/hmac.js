@@ -1,6 +1,5 @@
 const crypto = require('crypto')
 //1.根据算法生成hash对象
-//'md5'  'sha256'  'sha512'三种算法
 // const hash = crypto.createHash('md5')
 // const hash = crypto.createHash('sha256')
 // const hash = crypto.createHash('sha512')
@@ -17,7 +16,9 @@ const crypto = require('crypto')
 //3.生成密文
 //console.log(hmac.digest('hex'))
 
+
 module.exports = (str)=>{
+	// 这种方法更加保险
 	const hmac = crypto.createHmac('sha512', 'asdfddf');
 	hmac.update(str)
 	return hmac.digest('hex')

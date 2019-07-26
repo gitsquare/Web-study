@@ -4,7 +4,7 @@
 //constructor(props) 
 //static getDerivedStateFromProps(nextProps, prevState)多用于如果props有变化,需要更新state的场景,该方法返回state的更新
 //render()
-//componentDidMount()挂载完毕
+//componentDidMount()组件挂载完毕执行,多用于发送ajax获取数据
 
 import React,{ Component,Fragment } from 'react';
 import Item from './Item.js';
@@ -23,7 +23,6 @@ class App extends Component{
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)
 	}
-
 	//多用于如果props有变化,需要更新state的场景,该方法返回state的更新
 	static getDerivedStateFromProps(nextProps, prevState){
 		//App相当于根组件，这里的nextProps为空
@@ -47,8 +46,8 @@ class App extends Component{
 	}
 	handleAdd(){
 		this.setState(preState=>({
-			list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
-			val:''//把val变为空，就是把输入框里的值给消除掉
+			list:[...preState.list,preState.val],
+			val:''
 		}))
 	}
 	handleChange(ev){

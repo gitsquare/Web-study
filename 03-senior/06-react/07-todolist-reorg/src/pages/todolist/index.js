@@ -1,6 +1,5 @@
 import React,{ Component,Fragment } from 'react'
 import { Input,Button,Row, Col,List  } from 'antd';
-
 import { connect } from 'react-redux'
 import { actionCreator } from './store'
 import './index.css'

@@ -21,7 +21,6 @@ db.on('error',(err)=>{
 	console.log('connection err');
 	throw err;//throw的用法？
 })
-
 //连接成功
 db.once('open',()=>{
 	console.log('connection successful');
@@ -32,7 +31,7 @@ db.once('open',()=>{
 		major:String
 	})
 	//3.生成模型model
-	//3.1 mongoose.model第一个参数是指定集合的名称,mongoose会自动变成负数
+	//3.1 mongoose.model第一个参数是指定集合的名称,mongoose会自动变成复数
 	//3.2mongoose.model第二个参数是指定Schema
 	const UserModel = mongoose.model('user',UserSchema);
 
@@ -74,7 +73,8 @@ db.once('open',()=>{
 			{name:getName(),age:getRandom(10,100),major:getMajor()},
 			{name:getName(),age:getRandom(10,100),major:getMajor()}
 		]
-	);//返回的是一个promise，所以不需要回调函数
+	);
+	//返回的是一个promise，所以不需要回调函数
 	promise.then(docs=>{
 		console.log('successful',docs);
 	})
@@ -83,15 +83,14 @@ db.once('open',()=>{
 	})*/
 
 	//insertMany和create方法一样，并且insertMany方法更加高效
-	UserModel.create({name:getName(),age:getRandom(10,100),major:getMajor()},(err,doc)=>{
+	/*UserModel.create({name:getName(),age:getRandom(10,100),major:getMajor()},(err,doc)=>{
 		if(err){
 			console.log('create err',err);
 		}else{
 			console.log('successful',doc);
 		}
-	})
+	})*/
 });
-
 
 
 

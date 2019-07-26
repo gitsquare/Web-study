@@ -11,12 +11,9 @@ import reducer from './reducer.js'
 
 // console.log(process.env.NODE_ENV)
 const middleware = [thunk]
-
 if(process.env.NODE_ENV != 'production'){
 	const logger = createLogger({});
 	middleware.push(logger)
 }
-
 const store = createStore(reducer,applyMiddleware(...middleware))
-
 export default store

@@ -28,7 +28,7 @@ import './App.css'
 	}
 }*/
 
-//UI组件也叫做无状态组件
+//UI组件也叫做无状态组件,这种组件效率更高，以函数的形式，参数为props
 const AppUI = (props)=>{
 	const {handleChange,val,handleAdd,list,handleDel} = props;
 	return( 

@@ -12,11 +12,16 @@ db.on('error',(err)=>{
 
 db.once('open',()=>{
 	console.log('connection successful');
-	BlogModel.insertMany({
+	BlogModel.insertMany([{
+		title:"title1",
+		content:"content1",
+		author:"5d34fd04889a0812e8258767"
+	},
+	{
 		title:"title2",
 		content:"content2",
-		author:"5ca301021bb3f214403c3cd0"
-	},(err,doc)=>{
+		author:"5d34fd04889a0812e8258767"
+	}],(err,doc)=>{
 		if(err){
 			console.log('insertMany error',err);
 		}else{

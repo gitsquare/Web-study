@@ -1,8 +1,10 @@
 import React,{ Component,Fragment } from 'react';
-import { DatePicker,Button } from 'antd';//使用按需加载
+import { DatePicker,Button } from 'antd';//使用按需加载,不用单独引用样式
 import Item from './Item.js';
 import './App.css';
-// import 'antd/dist/antd.css';//引入样式
+
+//引入样式,这种方法会把所有组件的样式都引入进来，耗费资源，不推荐使用，可以使用按需加载
+// import 'antd/dist/antd.css';
 
 class App extends Component{
 
@@ -56,7 +58,7 @@ class App extends Component{
 							this.getItems() 
 						}
 					</ul>
-					 <Button type="primary">按钮</Button>
+					<Button type="primary">按钮</Button>
 					<DatePicker />
 				</div>
 			</Fragment>

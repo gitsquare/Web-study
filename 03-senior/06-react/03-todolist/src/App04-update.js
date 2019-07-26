@@ -8,10 +8,9 @@
 //componentDidUpdate(prevProps, prevState,snapshot)组件更新完成后执行
 
 import React,{ Component,Fragment } from 'react';
-import Item from './Item.js';//Item组件是App组件的子组件
+import Item from './Item.js';
 import './App.css';
-//定义组件
-//必须继承React.Component
+
 class App extends Component{
 	//必须有一个render方法
 	//在render方法里面的this指的是App
@@ -49,7 +48,7 @@ class App extends Component{
 	}
 
 	//该方法返回一个值,这个值会随后被传入到 componentDidUpdate 中使用
-	//意思是在update之前获取一些数据片段，获取后在componentDidUpdate方法中拿到
+	//意思是在update之前获取一些数据片段，获取后在componentDidUpdate方法中拿到,此方法必须配合componentDidUpdate方法使用，否则会报错
 	getSnapshotBeforeUpdate(prevProps, prevState){
 		console.log('App getSnapshotBeforeUpdate(prevProps, prevState)',prevProps, prevState)
 		return 'lalala'
@@ -64,8 +63,8 @@ class App extends Component{
 
 	handleAdd(){
 		this.setState(preState=>({
-			list:[...preState.list,preState.val],//点击后把输入框的值放在数组里面
-			val:''//把val变为空，就是把输入框里的值给消除掉
+			list:[...preState.list,preState.val],
+			val:''
 		}))
 	}
 	handleChange(ev){

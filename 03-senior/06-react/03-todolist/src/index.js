@@ -18,13 +18,11 @@ console.log(a1,b1);*/
 console.log(def);*/
 
 
-import React from 'react';
-import ReactDOM from 'react-DOM';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App05-antd.js'
+ReactDOM.render(<App />,document.getElementById('root'))
 
-import App from './App01-base.js';//App是默认输出default，而{ Person }是其它的输出值
-// import App from './App01-base.js';
-ReactDOM.render(<App />,document.getElementById('root'));
-//<App />，相当于调用组件里的render方法
 
 
 

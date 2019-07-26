@@ -20,7 +20,7 @@ module.exports = {
 		//出口文件名称
 		filename: '[name].[hash].bundle.js',
 		//输出路径
-		publicPath:publicPath,
+		publicPath:publicPath,//设置输出路径是什么意思
 		//出口的文件所在的目录
 		path: path.resolve(__dirname, 'dist')
 	},
@@ -53,7 +53,7 @@ module.exports = {
 			    use: {
 			        loader: 'babel-loader',
 			        options: {
-			            presets: ['env','es2015','react','stage-3'],
+			            presets: ['env','es2015','react','stage-3'],//扩展es6
 			            plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]]
 			        }
 			    }               

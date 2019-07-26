@@ -13,25 +13,7 @@ const defaultState = fromJS({
 //3. reducer的主要作用是负责业务逻辑处理,生成新的state,由store来最终改变
 
 export default (state=defaultState,action)=>{
-
 	if(action.type == types.CHANGE_ITEM){
-		/*
-		不推荐使用
-		state.val = action.payload
-		return state
-		*/
-		
-		//1.copy上一次的state
-		//const newState = JSON.parse(JSON.stringify(state))
-		//2.修改新的state再返回
-		/*
-			 不是纯函数的例子
-			 newState.val = action.payload + Date.now
-			 newState.val = action.payload + Math.random()
-		 */
-		//newState.val = action.payload
-		//return newState;
-
 		//通过immutable上面的方法处理数据
 		return state.set('val',action.payload)
 	}	
@@ -43,7 +25,7 @@ export default (state=defaultState,action)=>{
 		newState.val = ''
 		return newState
 		*/
-		const list = [...state.get('list')]
+		const list = [...state.get('list')]//需要复制数组，否则无法更改state
 		list.push(state.get('val'))
 		return state.merge({
 			list,

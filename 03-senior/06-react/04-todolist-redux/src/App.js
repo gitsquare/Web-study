@@ -1,12 +1,10 @@
 import React,{ Component,Fragment } from 'react';
-import { Input,Button,Row,Col,List } from 'antd';
+// import { Input,Button,Row,Col,List } from 'antd';
 import store from './store/index.js'
 import {getAddItemAction,getChangeItemAction,getDelItemAction} from './store/actionCreator.js' 
 import AppUI from './AppUI.js'
 
-
 class App extends Component{
-
 	constructor(props){
 		super(props);
 		/*this.state={

@@ -1,6 +1,6 @@
 import React,{ Component,Fragment } from 'react';
 import { Input,Button,Row,Col,List } from 'antd';
-
+// import axios from 'axios'
 import store from './store/index.js'
 import {getAddItemAction,getChangeItemAction,getDelItemAction,loadInitDataAction,getInitDataAction} from './store/actionCreator.js' 
 import AppUI from './AppUI.js'
@@ -12,13 +12,15 @@ class App extends Component{
 		this.state = store.getState()
 		store.subscribe(()=>{
 			this.setState(()=>store.getState())
-			console.log(this.state)
 		})
 		this.handleChange = this.handleChange.bind(this)
 		this.handleAdd = this.handleAdd.bind(this)	
 		this.handleDel = this.handleDel.bind(this)
 	}
 	componentDidMount(){
+		/*使用axios发送ajax请求，拿到数据后走一遍redux流程：把从服务器端获取到的数据传给store，再从store通过派发action
+		传给reducer，reducer对数据进行处理，再把更新后的传给store，在App.js文件中通过
+		store.subscribe(()=>{this.setState(()=>store.getState())})获取到更新后的store*/
 		/*axios
 		.get('http://127.0.0.1:3000')//返回一个promise
 		.then(result=>{

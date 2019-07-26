@@ -37,7 +37,7 @@ db.once('open',()=>{
 	const UserModel = mongoose.model('user',UserSchema);
 
 	//4.1插入数据
-	/*const arr = [];
+	const arr = [];
 	for(let i = 0;i<10;i++){
 		arr.push({
 			name:getName(),
@@ -51,7 +51,7 @@ db.once('open',()=>{
 	})
 	.catch(err=>{
 		console.log('insertMany err:',err);
-	})*/
+	})
 
 	//4.2查询数据
 	/*UserModel.find({},(err,doc)=>{
@@ -80,7 +80,7 @@ db.once('open',()=>{
 	})*/
 
 	/*UserModel.find({age:{$gte:40}},null,{skip:1,limit:3},(err,doc)=>{//skip,limit等方法可以同时使用
-		//因为参数时按顺序的，所以如果没有projection，就用null代替。
+		//因为参数是按顺序的，所以如果没有projection，就用null代替。
 		//id默认会显示，如果不让id显示，就设置 -_id;
 		if(err){
 			console.log('find user error',err);
@@ -106,14 +106,15 @@ db.once('open',()=>{
 		}
 	})*/
 
-	UserModel.findOne({age:{$gte:41}},"-_id",{skip:1},(err,doc)=>{
+	/*UserModel.findOne({age:{$gte:41}},"-_id",{skip:1},(err,doc)=>{
 		if(err){
 			console.log('find user error',err);
 		}else{
 			console.log(doc);
 		}
-	})
+	})*/
 });
+
 
 
 

@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-27 18:39:54
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-28 19:35:43
-*/
 const mongoose = require('mongoose');
 const UserModel = require('./models/user.js')
 const BlogModel = require('./models/blog.js')
@@ -27,8 +21,9 @@ db.once('open', ()=>{
 			// console.log(blog);
 			//定义一个对象
 			const result = {
+				//添加blog信息
 				blog:blog
-			};//添加blog信息
+			};
 			UserModel.findById(blog.author,(err,user)=>{
 				if(err){
 					console.log('find user err::',err)
@@ -42,16 +37,16 @@ db.once('open', ()=>{
 	
 	
 	/*BlogModel.findOne({title:"title1"})//返回的是一个Query对象
-	.populate('author','name age -_id')//返回一个相当于promise
 	//如果用populate关联查询，必须添加ref属性，值为表的名称。
-
 	//第一个参数是关联的字段，第二个参数是需要显示的字段，
 	//但是_id会默认存在，如果不要_id,则前面加-号
+	.populate('author','name age -_id')//返回一个相当于promise
 	.then(result=>{
 		console.log(result);
 	})*/
 	
-	BlogModel.findBlog({title:"title1"})
+	// 参数是查询条件
+	BlogModel.findBlog({title:"title1"})//返回的是一个promise
 	.then(result=>{
 		console.log(result);
 	})

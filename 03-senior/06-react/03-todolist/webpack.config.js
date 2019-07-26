@@ -36,6 +36,8 @@ module.exports = {
 			      	loader: 'babel-loader',
 			      	options: {
 			        	presets: ['env','react'],
+			        	/*安装babel-plugin-import：npm install --save-dev babel-plugin-import
+			        	再通过下面这行代码可以实现antd的样式按需加载,使用时只需从 antd 引入模块即可，无需单独引入样式。*/
 			        	plugins: [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]]
 			      	}
 			    }

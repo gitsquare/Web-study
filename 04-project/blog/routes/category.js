@@ -1,4 +1,3 @@
-
 const express = require('express')
 const CategoryModel = require('../models/category.js')
 const pagination = require('../util/pagination.js')

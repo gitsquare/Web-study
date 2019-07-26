@@ -1,8 +1,7 @@
-import React,{ Component,Fragment } from 'react'
+import React,{ Component } from 'react'
 import TodoList from './pages/todolist'
-
+import './App.css'
 class App extends Component{
-
 	render(){
 		return( 
 			<div className="App">
@@ -11,6 +10,4 @@ class App extends Component{
 		)
 	}
 }
-
-
 export default App;

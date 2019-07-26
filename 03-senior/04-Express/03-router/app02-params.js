@@ -6,12 +6,15 @@ const port = 3000
 
 app.use(express.static('public'))
 
-/*
-app.get('/users/:userId/books/:bookId', (req, res) => {
+// get/delete的参数接收是一样的
+//方法1:Route parameters，PATH： /users/:userId/books/:bookId
+/*app.get('/users/:userId/books/:bookId', (req, res) => {
+	// req.params是一个对象，会接收到参数
 	console.log(req.params);//{ userId: '123', bookId: '888' }
 	res.send('get response data...')
-})
-*/
+})*/
+
+// 方法2:req.query，PATH： /
 app.get('/',(req,res)=>{
 	console.log(req.query);//{ userId: '123', bookId: '888' }
 	res.send('get response data...')

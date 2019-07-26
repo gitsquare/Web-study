@@ -4,12 +4,10 @@ const UserModel = require('./models/user.js');
 //1.连接数据库
 mongoose.connect('mongodb://localhost/kuazhu', {useNewUrlParser: true});//默认端口是27017
 const db = mongoose.connection;
-
 db.on('error',(err)=>{
 	console.log('connection err');
 	throw err;
 })
-
 db.once('open',()=>{
 	console.log('connection successful');
 	UserModel.insertMany({

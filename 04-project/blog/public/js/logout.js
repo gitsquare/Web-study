@@ -1,4 +1,3 @@
-
 ;(function($){
 	//用户退出
 	$('#logout').on('click',function(){
@@ -8,7 +7,7 @@
 		.done(function(result){
 			if(result.status == 0){//成功
 				// window.location.reload()
-				window.location.href = "/"
+				window.location.href = "/" //退出登录后，回到首页
 			}else{//失败
 				$err.html(result.message);
 			}			

@@ -15,12 +15,10 @@ import reducer from './reducer.js'
 // const store = createStore(reducer)
 
 // console.log(process.env.NODE_ENV)
-//因为是nodejs环境，process.env.NODE_ENV代表当前环境有production和development
-
-
+//因为是nodejs环境，process.env.NODE_ENV代表当前环境：production或development
 const middleware = [thunk]
+//开发环境需要引入logger，生产环境不需要
 if(process.env.NODE_ENV != 'production'){
-	//开发环境需要引入logger
 	const logger = createLogger({});
 	middleware.push(logger)
 }

@@ -34,15 +34,14 @@ db.once('open',()=>{
 		}
 	})*/
 
-	UserModel.distinct('name',{age:{$gt:50}},(err,doc)=>{
+	UserModel.distinct('name',{age:{$gt:90}},(err,doc)=>{
 		if(err){
 			console.log('updateOne user error',err);
 		}else{
 			console.log(doc);
 		}
 	})
-	//去重是做什么用的？获取的是哪一条，哪几条会被去除，只是获取数据，不会删除重复的数据
-
+	//只是获取去重后的数据，不会删除重复的数据
 });
 
 
