@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- v-show
+		根据表达式之真假值，切换元素的 display CSS 属性。
+		v-show 的元素始终会被渲染并保留在 DOM 中
+		v-show 只是简单地切换元素的 CSS 属性 display -->
+	<div id="app">
+		<input type="text" v-model="score" />
+		<p>您的分数是:{{score}}</p>
+		<p v-show="score >= 60">及格</p>
+		<p v-show="score < 60">不及格</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			score:50,
+		}
+	});
+</script>
+</html>

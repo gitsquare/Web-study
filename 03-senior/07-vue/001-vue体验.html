@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let data = {
+		message:'hello world'
+	}
+	let vm = new Vue({
+		el:'#app',
+		data:data
+	})
+	console.log(vm)
+	// console.log(vm.message === data.message);//true
+	vm.message = 'lalala';
+	console.log(vm.message ,data.message);//lalala lalala
+	data.message = 'lueluelue';
+	console.log(vm.message ,data.message);//lueluelue lueluelue
+</script>
+</html>

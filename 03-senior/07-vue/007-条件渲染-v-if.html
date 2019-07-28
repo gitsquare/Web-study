@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- v-if
+		根据表达式的值的真假条件渲染元素
+	v-else
+		表示 v-if 的“else 块”
+	v-else-if
+		表示 v-if 的“else-if 块” -->
+
+	<div id="app">
+		<input type="text" v-model="score" />
+		<p>您的分数是:{{score}}</p>
+		<p v-if="score >= 60">及格</p>
+		<p v-if="score < 60">不及格</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			score:70,
+		}
+	});
+</script>
+</html>

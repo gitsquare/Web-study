@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.active{
+			background: skyblue;
+		}
+		.error{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<p v-bind:class={active:isActive}>我是p标签</p>
+		<p class="error" :class={active:isActive}>我是p标签</p>
+		<p :class={active:isActive,error:hasError}>我是p标签</p>
+		<p :class=classObj>我是p标签</p>
+		<p :class=[activeClass,errorClass]>我是p标签</p>
+		<p :class="[isActive ? activeClass : '',errorClass]">我是p标签</p>
+		<p :class="[{active:isActive},errorClass]">我是p标签</p>
+	</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+	let vm = new Vue({
+		el:'#app',
+		data:{
+			isActive:true,
+			hasError:true,
+			classObj:{
+				active:true,
+				error:true
+			},
+			activeClass: 'active',
+  			errorClass: 'error'
+		}
+	})
+
+
+</script>
+</html>
