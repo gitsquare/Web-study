@@ -50,7 +50,10 @@
 	// 2. 定义路由
 	const routes = [
 		{path:'/home',component:Home},
+
+		//命名路由
 		{path:'/article/:id',component:Article,name:'article'},
+
 		{path:'/about',component:About},
 		{path: '/', redirect: '/home'}
 	]

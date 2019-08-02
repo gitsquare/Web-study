@@ -1,9 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-25 18:19:13
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-25 19:26:49
-*/
 const querystring = require('querystring');
 const swig = require('swig');
 

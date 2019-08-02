@@ -50,18 +50,22 @@
 		{path:'/home',component:Home},
 		{path:'/article',component:Article},
 		{path:'/about',component:About},
+
+		// 重定向，页面来到根，会重定向到/home路由
 		{path: '/', redirect: '/home'}
 	]
 
 	// 3. 创建 router 实例
 	const router = new VueRouter({
+		// routes:routes
 		routes
 	})
 
 	// 4. 创建和挂载根实例。	
 	let vm = new Vue({
 		el:'#app',
-		router,
+		// router,
+		router:router,
 		data:{
 
 		},

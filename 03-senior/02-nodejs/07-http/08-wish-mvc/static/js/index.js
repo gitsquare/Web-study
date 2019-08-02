@@ -1,10 +1,3 @@
-/*
-* @Author: Tom
-* @Date:   2018-07-25 14:33:24
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-25 19:25:30
-*/
-
 (function($){
 
 	function getRandom(min,max) {	

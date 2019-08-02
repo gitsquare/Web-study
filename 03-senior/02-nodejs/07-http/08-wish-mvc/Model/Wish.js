@@ -1,11 +1,3 @@
-/*
-* @Author: TomChen
-* @Date:   2019-03-22 18:04:20
-* @Last Modified by:   TomChen
-* @Last Modified time: 2019-03-25 18:59:59
-*/
-//crud (create read update delete)
-
 const fs = require('fs');
 const util = require('util');
 const path = require('path');

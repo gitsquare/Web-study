@@ -16,12 +16,17 @@
 		<button-counter></button-counter>
 		<button-counter></button-counter>
 	</div>
-	<script type="text/template" id="button-counter">
+	<script type="text/x-template" id="button-counter">
 		<button @click="count++">我被点击了 {{ count }} 次</button>
 	</script>
 </body>
 <script src="js/vue.js"></script>
 <script>
+	/*script标签创建(X-Template)模版
+		1.<script> 元素中，并为其带上 text/x-template 的类型，并且添加一个 
+		  id,在组件注册时通过id选择器引用
+		2.x-template 需要定义在 Vue 所属的 DOM 元素外。*/
+
 	Vue.component('button-counter',{
 		data(){
 			return {
