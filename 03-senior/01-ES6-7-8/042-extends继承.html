@@ -29,11 +29,22 @@
 	p.sayAge(22);
 	Person.sayHi();
 
+	class Stu extends Person{
+		sayHello(){
+			this.major = 'hello'
+			console.log(this)
+		}
+	}
+	let stu = new Stu('gege',44);
+	stu.sayHello()
+	console.log(stu)
+	Stu.sayHi();
+
 	//通过extends关键字实现继承
 	class Student extends Person{
 		constructor(name,age,major){
 			// super这个关键字，既可以当作函数使用，也可以当作对象使用。在这两种情况下，它的用法完全不同。
-			// 第一种情况，super作为函数调用时，代表父类的构造函数。ES6 要求，子类的构造函数必须执行一次super函数。
+			// 第一种情况，super作为函数调用时，代表父类的构造函数。ES6要求，子类的构造函数必须执行一次super函数。
 
 			// 作为函数时，super()只能用在子类的构造函数之中，用在其他地方就会报错。
 			super(name,age);
@@ -53,3 +64,4 @@
 	console.log(Student.prototype.constructor);
 </script>
 </html>
+

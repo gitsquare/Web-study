@@ -113,9 +113,9 @@ class App extends Component{
 
 		/*方法1.通过拿到的DOM节点获取value值,此方法是通过在当前的DOM节点添加ref属性拿到此节点,
 		动态的在App组件上添加属性，属性名为此DOM节点的名字，值为此DOM节点*/
-		const val = this.input.value
+		// const val = this.input.value
 		//方法2.通过事件对象ev获取value值
-		// const val = ev.target.value;
+		const val = ev.target.value;
 		this.setState(()=>({
 			// val:val
 			//简写

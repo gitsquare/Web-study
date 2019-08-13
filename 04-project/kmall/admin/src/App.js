@@ -40,7 +40,7 @@ class App extends Component{
 			//Router组件是最外层组件,意思是整个组件都需要用前端路由
 			<Router>
 				<div className="App">
-					<Switch>{/*为什么加Switch*/}
+					<Switch>
 						<ProtectRoute exact path="/" component={Home} />
 						<ProtectRoute path="/user" component={User} />
 						<ProtectRoute path="/category" component={Category} />

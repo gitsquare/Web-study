@@ -20,7 +20,7 @@ console.log(def);*/
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App05-antd.js'
+import App from './App01-base.js'
 ReactDOM.render(<App />,document.getElementById('root'))
 
 

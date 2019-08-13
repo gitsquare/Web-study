@@ -45,7 +45,10 @@
 	console.log("getOwnPropertyDescriptors(obj)",getOwnPropertyDescriptors(obj));
 
 
-	//assign方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+	//Object.assign（target，source1，source2，...）方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+	// 注意：
+	// 1.如果目标对象与源对象有同名属性，或多个源对象有同名属性，则后面的属性会覆盖前面的属性。
+	// 2.如果只有一个参数即只有目标对象：Object.assign会直接返回该参数。如果该参数不是对象，则会先转成对象，然后返回。由于undefined和null无法转成对象，所以如果它们作为参数，就会报错。
 	let DEFAULTS = {
 		js:true,
 		interval:200

@@ -114,7 +114,7 @@
 	}
 	func() // 报错*/
 
-	function func(arg) {
+	/*function func(arg) {
 		//参数arg作用域是局部的
 		function a(){
 			console.log(arg);
@@ -124,6 +124,16 @@
 	    	let arg;
 	  	}
 	}
-	func() // 不报错
+	func() // 不报错*/
+	function Person(){
+
+	}
+	var obj = new Object()
+	console.log(obj)
+	var obj2 = Object.create(Person.prototype)
+	console.log(obj2.__proto__)
+console.log(window)
+console.log(window.Object)
+console.log(window.String)
 </script>
 </html>
