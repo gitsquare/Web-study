@@ -28,17 +28,17 @@
 <script>
 	$(function(){
 		function fn(){
-			alert('hi');
+			console.log('hi');
 		}
 		$('div').click(function(){
-		 	alert('hi1')
+		 	console.log('hi1')
 		});
 		$('div').click(fn);
 		$('div').on('click',function(){
-			alert('hi2')
+			console.log('hi2')
 		});
 		$('div').on('mouseover',function(){
-			alert('mouseover')
+			console.log('mouseover')
 		});
 
 		$('button').on('click',function(){

@@ -174,7 +174,7 @@
 	$focusCarousel.carousel({});
 
 
-	//今日热销域轮播图	
+	//今日热销与轮播图	
 	var $todaysCarousel = $('.todays .carousel-wrap');
 	$todaysCarousel.on('carousel-load',function(ev,index,elem,success){
 		var $imgs = $(elem).find('.carousel-img');

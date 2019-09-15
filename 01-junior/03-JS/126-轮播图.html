@@ -26,15 +26,15 @@
 		}
 		.carousel .arrow{
 			position: absolute;
-			top:50%;
+			bottom: -50px;
 			z-index: 888;
-			width: 40px;
-			height: 80px;
-			line-height: 80px;
-			margin-top: -40px;
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
 			font-size: 30px;
 			font-weight: bold;
-			color: #eee;
+			color: #999;
+			background: rgba(0,0,0,0.1);
 			text-align: center;
 			cursor: pointer;
 			user-select: none;
@@ -43,10 +43,10 @@
 			background: rgba(0,0,0,0.4);
 		}
 		.carousel .left-arrow{
-				left:0px;
+				left:400px;
 		}
 		.carousel .right-arrow{
-				right:0;
+				right:600px;
 		}
 		.carousel .carousel-imgs-item img{
 			width: 100%;
@@ -54,24 +54,27 @@
 		}
 		.carousel .carousel-btn{
 			position: absolute;
-			bottom: 24px;
-			right: 35px;
+			bottom: 20px;
+			left: 50%;
+			margin-left: -40px;
+			padding: 3px 10px 3px 2px;
+			background: #333;
+			opacity: 0.2;
+			border-radius: 10px 10px;
 			z-index: 888;
 		}
 		.carousel .carousel-btn li{
 			float: left;
-			width: 5px;
-			height: 5px;
-			border: 4px solid #b5b3ad;
+			width: 0px;
+			height: 0px;
+			border: 5px solid #fff;
 			margin-left: 10px;
-			background: #96938a;
 			border-radius: 50%;
 			cursor: pointer;
 		}
 		.carousel .carousel-btn li:hover,
 		.carousel .carousel-btn li.active{
-			border-color: #979590;
-			background: #fcf9f0;
+			border-color: orange;
 		}		
 	</style>
 </head>
@@ -79,8 +82,12 @@
 	<div class="carousel">
 		<ul class="carousel-imgs">
 			<li class="carousel-imgs-item" style="z-index: 99;"><img src="images/b1.jpg" alt=""></li>
-			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
-			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b2.jpg" alt=""></a></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b3.jpg" alt=""></a></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b1.jpg" alt=""></a></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b2.jpg" alt=""></a></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b3.jpg" alt=""></a></li>
+			<li class="carousel-imgs-item"><a href="#"><img src="images/b1.jpg" alt=""></a></li>
 		</ul>
 		<span class="arrow left-arrow">&lt;</span>
 		<span class="arrow right-arrow">&gt;</span>
@@ -88,68 +95,66 @@
 			<li class="active"></li>
 			<li></li>
 			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
 		</ul>
 	</div>	
 </body>
 <script>
-	//1.获取元素
-	var aImg = document.querySelectorAll('.carousel-imgs-item');
-	var oLeftArrow = document.querySelector('.left-arrow');
-	var oRightArrow = document.querySelector('.right-arrow');
-	var aBtn = document.querySelector('.carousel-btn').children;
-	var oCarousel = document.querySelector('.carousel');
-	var timer = 0;
-	//当前图片
-	var now = 0;
-	
-	/*
-		切换函数
-	*/
-	function tab(){
-		for(var i = 0;i<aImg.length;i++){
-			aImg[i].style.zIndex = '0';
-			aBtn[i].className = '';
-			aImg[i].style.opacity = '0';
+	function carousel(){
+		var aImg = document.querySelectorAll('.carousel-imgs-item');
+		var oLeftArrow = document.querySelector('.left-arrow');
+		var oRightArrow = document.querySelector('.right-arrow');
+		var aBtn = document.querySelector('.carousel-btn').children;
+		var oCarousel = document.querySelector('.carousel');
+		var timer = 0;
+		var now = 0;
+		function tab(){
+			for(var i = 0;i<aImg.length;i++){
+				aImg[i].style.zIndex = '0';
+				aBtn[i].className = '';
+				aImg[i].style.opacity = '0';
+			}
+			aImg[now].style.zIndex = '99';
+			aImg[now].style.opacity = '1';
+			aBtn[now].className = 'active';
 		}
-		aImg[now].style.zIndex = '99';
-		aImg[now].style.opacity = '1';
-		aBtn[now].className = 'active';
-	}
-	//2.添加下一张事件
-	oRightArrow.onclick = function(){
-		now++;
-		if(now >= aImg.length){
-			now = 0;
-		}
-		tab();
-	}
-	//3.添加上一张事件
-	oLeftArrow.onclick = function(){
-		now--;
-		if(now < 0){
-			now = aImg.length - 1;
-		}
-		tab();	
-	}
-	//4.底部指示按钮事件
-	for(var i = 0;i<aBtn.length;i++){
-		aBtn[i].index = i;
-		aBtn[i].onclick = function(){
-			now = this.index;
+		oRightArrow.onclick = function(){
+			now++;
+			if(now >= aImg.length){
+				now = 0;
+			}
 			tab();
 		}
-	}
-	//5.自动播放
-	//直接写oRightArrow.onclick也是代表了函数
-	timer = setInterval(oRightArrow.onclick,5000);
-	oCarousel.onmouseover = function(){
-		clearInterval(timer);
-	}
-
-	// 定时器关掉是没办法再打开的，所以需要再调用setInterval()方法
-	oCarousel.onmouseout = function(){
+		oLeftArrow.onclick = function(){
+			now--;
+			if(now < 0){
+				now = aImg.length - 1;
+			}
+			tab();	
+		}
+		for(var i = 0;i<aBtn.length;i++){
+			aBtn[i].index = i;
+			aBtn[i].onclick = function(){
+				now = this.index;
+				tab();
+			}
+		}
 		timer = setInterval(oRightArrow.onclick,5000);
+		oCarousel.onmouseover = function(){
+			clearInterval(timer);
+		}
+		oCarousel.onmouseout = function(){
+			timer = setInterval(oRightArrow.onclick,5000);
+		}
 	}
+	window.onload = carousel;
+
+	
+
+
 </script>
 </html>
 

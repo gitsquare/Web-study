@@ -22,7 +22,7 @@
 	$(function(){
 		$("button").on('click',function(){
 			//多个动画按调用的顺序执行
-			$('div').animate({width:200},1000,function(){
+			/*$('div').animate({width:200},1000,function(){
 				console.log('width done');
 			});
 			$('div').animate({height:'200px'},1000,function(){
@@ -30,7 +30,7 @@
 			});
 			$('div').animate({opacity:0.5},1000,function(){
 				console.log('opacity done');
-			});
+			});*/
 
 			//在动画方法的回调中再执行动画,回调中的动画会等待前面的动画执行完毕
 			/*$('div').animate({width:200},1000,function(){
@@ -42,7 +42,7 @@
 			})*/
 
 			//多个动画链式调用,后面的动画会等待前面的动画执行完毕
-			/*$('div')
+			$('div')
 			.animate({width:200},1000,function(){
 				console.log('width done');
 			})
@@ -51,7 +51,7 @@
 			})
 			.animate({opacity:0.5},1000,function(){
 				console.log('opacity done');
-			});*/
+			});
 		})
 	})
 	

@@ -27,14 +27,14 @@
 	console.log($.isFunction({}));
 
 	var obj1 = {name:'jack',age:'10'};
-	var obj2 = {name:'Tom',age:'10',sex:'male'};
+	var obj2 = {name:'Tom',sex:'male'};
 
-	var obj3 = $.extend(obj1,obj2);
+	/*var obj3 = $.extend(obj1,obj2);
 	console.log(obj3);
-	console.log(obj1 == obj3);
+	console.log(obj1 === obj3);*/
 
 	var obj4 = $.extend({},obj1,obj2);
+	console.log(obj1)
 	console.log(obj4);
-	console.log(obj1 == obj4);
 </script>
 </html>

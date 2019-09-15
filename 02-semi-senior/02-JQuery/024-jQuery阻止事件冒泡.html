@@ -40,16 +40,16 @@
 <script>
 	$(function(){
 		$('.s').on('click',function(ev){
-			alert('s');
-			// return false;
+			console.log('s');
 			console.log(ev);
+			// return false;
 			event.stopPropagation();
 		});
 		$('.f').on('click',function(){
-			alert('f');
+			console.log('f');
 		});
 		$('.gf').on('click',function(){
-			alert('gf');
+			console.log('gf');
 		});
 	})
 	

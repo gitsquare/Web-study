@@ -18,14 +18,14 @@
 		console.log($('div').index($(document.querySelector('.div2'))));
 
 		$('div').each(function(index,element){
-			console.log(index,element);
+			// console.log(index,element);
 			console.log(this);//
 		})//这种方法更加灵活
 		$.each($('div'),function(index,element){
 			console.log(index,element);
 		})
 
-		$('.div2').data('age','20');//存储数据
+		$('.div2').data('age',20);//存储数据
 		console.log($('.div2').data('age'));//获取数据
 
 		console.log($('.div3').data('key2'));

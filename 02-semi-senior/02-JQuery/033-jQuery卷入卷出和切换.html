@@ -20,7 +20,7 @@
 <script src="js/jquery-1.12.4.js"></script>
 <script>
 	$(function(){
-		$('button').eq(0).on('click',function(){
+		/*$('button').eq(0).on('click',function(){
 			$('div').slideDown(1000,function(){
 				console.log('show');
 			})
@@ -33,6 +33,24 @@
 		$('button').eq(2).on('click',function(){
 			$('div').slideToggle(1000,function(){
 				console.log('toggle');
+			})
+		})*/
+
+
+
+		$('button').eq(0).on('click',function(){
+			$('div').slideDown(1000,function(){
+				console.log('slideDown');
+			})
+		})
+		$('button').eq(1).on('click',function(){
+			$('div').slideUp(1000,function(){
+				console.log('slideUp');
+			})
+		})
+		$('button:eq(2)').on('click',function(){
+			$('div').slideToggle(1000,function(){
+				console.log('slideToggle');
 			})
 		})
 	})

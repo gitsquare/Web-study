@@ -26,11 +26,11 @@
 		})
 		$('div').trigger('myclick');*/
 
-		$('div').on('myclick',function(ev,arguments,ar){
-			console.log(arguments);
-			console.log(ar);
-		})
-		$('div').trigger('myclick',{name:'jack',age:18},111);
+		$('div').on('myclick',function(ev,obj1,obj2){
+			console.log(ev);
+			console.log(obj1);
+			console.log(obj2);
+		}).trigger('myclick',[{name:'jack'},{age:18}]);
 
 	})
 	

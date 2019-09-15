@@ -8,10 +8,14 @@
 	
 </body>
 <script>
-	999
-	'888'
-
-
-
+function fn1(){
+fn2()
+	
+	var a = 1;
+}
+function fn2(){
+	console.log(fn2.caller)
+}
+fn1()
 </script>
 </html>

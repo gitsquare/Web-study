@@ -40,17 +40,17 @@
 <script>
 	$(function(){
 		$('.s').on('click',function(){
-			alert('s');
+			console.log('s');
 		});
 		$('.f').on('click',function(){
-			alert('f');
+			console.log('f');
 		});
 		$('.gf').on('click',function(){
-			alert('gf');
+			console.log('gf');
 		});
 
-		// $('.s').trigger('click');
-		$('.s').triggerHandler("click");
+		$('.s').trigger('click');
+		// $('.s').triggerHandler("click");
 	})
 	
 </script>

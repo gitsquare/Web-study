@@ -16,14 +16,15 @@
 <script>
 	$(function(){
 		$('body').on('click',function(){
-			alert('body');
+			console.log('body');
 		});
 		$('a').on('click',function(){
-			alert('a');
+			console.log('a');
 		});
 		// $('a').trigger('click');
-		// $('p').trigger('click');
-		$('a').triggerHandler('click');
+		$('p').trigger('click');
+		// $('p').triggerHandler('click');
+		// $('a').triggerHandler('click');
 	})
 	
 </script>

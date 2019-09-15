@@ -65,9 +65,9 @@ const mapDispatchToProps = (dispatch)=>{
 		}
 	}
 }
-//mapDispatchToProps,mapStateToProps都必须返回一个对象
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
-// connect 是一个函数，它的返回值为另外一个函数
-// 执行返回的函数，返回值为 HOC，它会返回已经连接 Redux store 的组件
+// connect 是一个函数，它的返回值为另外一个函数，即返回值为 HOC（高阶组件,高阶组件实质是一个函数），
+//再执行高阶组件，把App组件作为参数传入高阶组件，会返回已经连接 Redux store 的新组件。
 //换句话说，connect 是一个返回值为高阶组件的高阶函数！

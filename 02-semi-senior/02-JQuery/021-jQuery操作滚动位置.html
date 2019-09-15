@@ -9,7 +9,7 @@
 			padding: 0;
 		}
 		.father{
-			width: 100px;
+			width: 200px;
 			height: 100px;
 			border: 1px solid #000;
 			overflow: auto;
@@ -22,7 +22,22 @@
 </head>
 <body>
 	<div class="father">
-		<div class="son"></div>
+		<div class="son">
+			什么是HTML
+			W3C对HTML5的需求整体原则
+			DOCTYPE 和字符编码charset声明
+			新增的语义/结构化标签
+			HTML4 --> HTML5语义化标签迁移
+			新增的input的type类型和属性
+			HTML5专有的API 地理位置 本地存储 缓存等
+			新的图形标签 svg canvas 二者区别
+			新的多媒体标签 video audio source
+			浏览器支持度
+			废弃的一些元素标签
+			自定义元素标签
+			解决浏览器兼容性的 HTML5Shiv
+			HTML扩展名.html和.htm的区别
+		</div>
 	</div>
 	<input type="button" value="获取">
 </body>
@@ -31,8 +46,8 @@
 	$(function(){
 		var oBtn = $('input')[0];
 		oBtn.onclick = function(){
-			console.log($('.father').scrollTop(500));
-			console.log($('.father').scrollLeft(500));
+			// console.log($('.father').scrollTop(500));
+			// console.log($('.father').scrollLeft(500));
 			console.log($('.father').scrollTop());
 			console.log($('.father').scrollLeft());
 		}

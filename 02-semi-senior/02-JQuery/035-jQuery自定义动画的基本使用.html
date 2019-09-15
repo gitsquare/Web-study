@@ -22,13 +22,14 @@
 	$(function(){
 		$("button").on('click',function(){
 			$("div").animate({
-				/*width:'200',
-				height:'200'*/
-				width:'+=200',
-				height:'-=10',
-				background:'purple'
+				width:'200',
+				height:'200',
+				/*width:'+=200',
+				height:'-=10',*/
+				background:'purple',
+				opacity:'toggle'
 			},1000,function(){
-				alert('ending');
+				console.log('ending');
 			})
 		})
 	})

@@ -11,89 +11,357 @@
 		li{
 			list-style: none;
 		}
+		.carousel{
+			width: 1226px;
+			height: 460px;
+			position: relative;
+			margin: 100px auto;
+		}
+		.carousel .carousel-imgs-item{
+			position: absolute;
+			top:0;
+			left:0;
+			height: 100%;
+			transition: all 0.5s;
+		}
+		.carousel .arrow{
+			position: absolute;
+			bottom: -50px;
+			z-index: 888;
+			width: 80px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 30px;
+			font-weight: bold;
+			color: #999;
+			background: rgba(0,0,0,0.1);
+			text-align: center;
+			cursor: pointer;
+			user-select: none;
+		}
+		.carousel .arrow:hover{
+			background: rgba(0,0,0,0.4);
+		}
+		.carousel .left-arrow{
+				left:400px;
+		}
+		.carousel .right-arrow{
+				right:600px;
+		}
+		.carousel .carousel-imgs-item img{
+			width: 100%;
+			height: 460px;
+		}
+		.carousel .carousel-btn{
+			position: absolute;
+			bottom: 20px;
+			left: 50%;
+			margin-left: -40px;
+			padding: 3px 10px 3px 2px;
+			background: #333;
+			opacity: 0.2;
+			border-radius: 10px 10px;
+			z-index: 888;
+		}
+		.carousel .carousel-btn li{
+			float: left;
+			width: 0px;
+			height: 0px;
+			border: 5px solid #fff;
+			margin-left: 10px;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.carousel .carousel-btn li:hover,
+		.carousel .carousel-btn li.active{
+			border-color: orange;
+		}		
 		.tab-list{
 			overflow: hidden;
-			margin-bottom: 10px;
+			width: 800px; 
+			margin: 0px auto 10px auto;
 		}
 		.tab-list li{
 			float: left;
 			width: 100px;
-			height: 50px;
-			line-height: 50px;
+			height: 20px;
+			line-height: 20px;
+			margin-bottom: 10px;
 			text-align: center;
 			cursor: pointer;
 		}
-		.tab-container li{
-			width: 400px;
-			height: 600px;
-			line-height: 600px;
-			border: 1px solid #000;
-			display: none;
-			font-size: 80px;
-			text-align: center;
-		}
 		.active{
 			color: #ff6700;
-			border-bottom: 2px solid #ff6700;
+		}
+		.box{
+			width: 500px;
+			margin: 100px auto;
+			position: relative;
+		}
+		#wrap{
+			width: 1px;
+			height: 202px;
+			background-color: #ccc;
+			position: absolute;
+			top:0;
+			left:620px;
+		}
+		#btn{
+			position: absolute;
+			top:0px;
+			left:0px;
+			margin-left: -5px;
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: #ff3333;
+			z-index: 999;
+		}
+		#content{
+			width: 600px;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #000;
+			position: relative;
+			overflow: hidden;
+		}
+		#content h3{
+			margin-bottom: 10px;
+		}
+		#txt{
+			margin-left: 10px;	
+		}
+		#right-btn{
+			position: absolute;
+			top: 15px;
+			right: 5px;
+			width: 10px;
+			height: 10px;
+			border: 1px solid #000;
 		}
 	</style>
 </head>
 <body>
-	<ul id="tab-list" class="tab-list">
-		<li class="active">热门</li>
-		<li>电视</li>
-		<li>电脑</li>
-		<li>家居</li>
-	</ul>
-	<ul id="tab-container" class="tab-container">
-		<li style="display: block;">1</li>
-		<li>2</li>
-		<li>3</li>
-		<li>4</li>
-	</ul>
-	<ul id="tab-list2" class="tab-list">
-		<li class="active">热门</li>
-		<li>电视</li>
-		<li>电脑</li>
-		<li>家居</li>
-	</ul>
-	<ul id="tab-container2" class="tab-container">
-		<li style="display: block;">1</li>
-		<li>2</li>
-		<li>3</li>
-		<li>4</li>
-	</ul>	 
+	<div class="carousel">
+		<ul class="carousel-imgs">
+			<li class="carousel-imgs-item" style="z-index: 99;"><img src="images/b1.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b1.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b2.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b3.jpg" alt=""></li>
+			<li class="carousel-imgs-item"><img src="images/b1.jpg" alt=""></li>
+		</ul>
+		<span class="arrow left-arrow">&lt;</span>
+		<span class="arrow right-arrow">&gt;</span>
+		<ul class="carousel-btn">
+			<li class="active"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="tab">
+		<ul id="tab-list" class="tab-list">
+			<li class="active">北京</li>
+			<li>上海</li>
+			<li>广州</li>
+			<li>深圳</li>
+			<li>厦门</li>
+			<li>青岛</li>
+			<li>武汉</li>
+			<li>成都</li>
+			<li>北京</li>
+			<li>上海</li>
+			<li>广州</li>
+			<li>深圳</li>
+			<li>厦门</li>
+			<li>青岛</li>
+			<li>武汉</li>
+			<li>成都</li>
+		</ul>
+		<ul id="tab-container" class="tab-container">
+			<li style="display: block;">
+				<div class="box">
+					<div id="wrap">
+						<div id="btn"></div>
+					</div>
+					<div id="content">
+						<div id="txt">
+							<h3>财务管理岗</h3>
+							<div id = 'right-btn'></div>
+						   <p>岗位职责</p>
+						   <p>1. 负责分部日常费用负责分部日常费用负责分部日常费用负责分部日常费用负责；</p>
+						   <p>2. 做好纳税计划及纳税。</p>
+						   <p>任职要求：</p>
+						   <p>1. 2016年应届统招本科及以上毕业生；</p>
+						   <p>2. 会计，财务管理专业。</p>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+			<li>4</li>
+		</ul>
+	</div>
 </body>
 <script>
+	var aImg = document.querySelectorAll('.carousel-imgs-item');
+	var oLeftArrow = document.querySelector('.left-arrow');
+	var oRightArrow = document.querySelector('.right-arrow');
+	var aBtn = document.querySelector('.carousel-btn').children;
+	var oCarousel = document.querySelector('.carousel');
+	var timer = 0;
+	var now = 0;
+	function tab(){
+		for(var i = 0;i<aImg.length;i++){
+			aImg[i].style.zIndex = '0';
+			aBtn[i].className = '';
+			aImg[i].style.opacity = '0';
+		}
+		aImg[now].style.zIndex = '99';
+		aImg[now].style.opacity = '1';
+		aBtn[now].className = 'active';
+	}
+	oRightArrow.onclick = function(){
+		now++;
+		if(now >= aImg.length){
+			now = 0;
+		}
+		tab();
+	}
+	oLeftArrow.onclick = function(){
+		now--;
+		if(now < 0){
+			now = aImg.length - 1;
+		}
+		tab();	
+	}
+	for(var i = 0;i<aBtn.length;i++){
+		aBtn[i].index = i;
+		aBtn[i].onclick = function(){
+			now = this.index;
+			tab();
+		}
+	}
+	timer = setInterval(oRightArrow.onclick,5000);
+	oCarousel.onmouseover = function(){
+		clearInterval(timer);
+	}
+	oCarousel.onmouseout = function(){
+		timer = setInterval(oRightArrow.onclick,5000);
+	}
+
 
 	function Tab(listSelector,containerSelector){
-		//1.罗列需要的属性
 		this.aBtn = document.querySelectorAll(listSelector);
 		this.aContent = document.querySelectorAll(containerSelector);
-		//2.绑定事件
 		this.bindEvent();
 	}
-	
 	Tab.prototype.bindEvent = function(){
 		for(var i = 0;i<this.aBtn.length;i++){
 			this.aBtn[i].index = i;
 			this.aBtn[i].onclick = this.fnClick.bind(this,this.aBtn[i]);
 		}
 	}
-
 	Tab.prototype.fnClick = function(oBtn){
 		for(var i = 0;i<this.aBtn.length;i++){
 			this.aBtn[i].className = '';
 			this.aContent[i].style.display = 'none';
 		}
-		// this.aBtn[oBtn.index].className = 'active';
 		oBtn.className = 'active';
 		this.aContent[oBtn.index].style.display  = 'block';
 	}
-
 	new Tab('#tab-list li','#tab-container li');
-	new Tab('#tab-list2 li','#tab-container2 li');
 
+	var oBtn = document.getElementById('btn');
+	var oBox = document.getElementById('box');
+	var oWrap = document.getElementById('wrap');
+	var oTxt = document.getElementById('txt');
+	var oContent = document.getElementById('content');
+	var disY = 0,t = 0;
+	oBtn.onmousedown = function(ev){
+		disY = ev.clientY - oBtn.offsetTop;
+		document.onmousemove = function(ev){
+			t = ev.clientY - disY;
+			handleMove();
+		}
+		oBtn.onmousewheel = function(ev){
+			if(ev.wheelDelta > 0){
+				t += 10;
+			}else{
+				t -= 10;
+			}
+			handleMove();
+		}
+		function handleMove(){
+			if(t < 0){
+				t = 0;
+			}else if(t > oWrap.offsetHeight - oBtn.offsetHeight){
+				t = oWrap.offsetHeight - oBtn.offsetHeight;
+			}
+			var scale = t / (oWrap.offsetHeight - oBtn.offsetHeight);
+			oBtn.style.top = t + 'px';
+		}
+		document.onmouseup = function(){
+			document.onmousemove = null;
+			document.onmouseup = null;
+		}
+	}
+
+
+	var oMain = document.getElementById('right-btn');
+	var timer = 0;
+	oMain.onclick= function(){
+		clearInterval(timer);
+		var iSpeed = 0;
+		timer = setInterval(function(){
+			if(oMain.offsetTop > 0){
+				iSpeed = -10;
+			}else{
+				iSpeed = 10;
+			}
+			if(Math.abs(0 - oMain.offsetTop) < Math.abs(iSpeed)){
+				oMain.style.top = '0px';
+				clearInterval(timer);
+			}else{
+				oMain.style.top = oMain.offsetTop + iSpeed + 'px';
+			}
+		},30)		
+	}
+	oMain.onmouseout = function(){
+		clearInterval(timer);
+		var iSpeed = 0;
+		timer = setInterval(function(){
+			if(oMain.offsetTop > 400){
+				iSpeed = -10;
+			}else{
+				iSpeed = 10;
+			}
+			if(Math.abs(400 - oMain.offsetTop) < Math.abs(iSpeed)){
+				oMain.style.top = '400px';
+				clearInterval(timer);
+			}else{
+				oMain.style.top = oMain.offsetTop+ iSpeed + 'px';
+			}
+		},30)		
+	}
 
 </script>
 </html>

@@ -27,17 +27,22 @@
 <script>
 	$(function(){
 		function fn(){
-			alert('hi');
+			console.log('hi');
 		}
-		$('div').click(function(){
-		 	alert('hi1')
-		});
-		$('div').click(fn);
+
+		/*$('div').hover(function(){
+		 	console.log('hi1')
+		},function(){
+			console.log('hi2')
+		});*/
+
+		// $('div').click(fn);
+		
 		$('div').on('click',function(){
-			alert('hi2')
+			console.log('hi2')
 		});
 
-		// $('div').one('click',fn);
+		$('div').one('click',fn);
 	})
 </script>
 </html>
