@@ -1,0 +1,273 @@
+/*header开始*/
+.header{
+	position: relative;
+	width: 100%;
+	height: 80px;
+	margin: 0 auto;
+	background: orange;
+}
+.header .logo{
+	position: absolute;
+	left: 3%;
+	width: 340px;
+	height: 60px;
+}
+.clearfix:after{
+	display: block;
+	clear: both;
+	visibility: hidden;
+	content: '';
+	height: 0;
+}
+.clearfix{
+	*zoom: 1;
+}
+.nav{
+	float: left;
+	margin-left: 40%;
+	width: 480px;
+	height: 80px;
+}
+.nav li{
+	float: left;
+	width: 23%;
+	height: 80px;
+	margin-left: 2%;
+	line-height: 80px;
+}
+.nav li a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+	text-align: center;
+}
+.nav li a:hover{
+	background: rgba(0,0,0,0.5);
+}
+.nav li a.nav-active{
+	background: rgba(0,0,0,0.5);
+}
+.header .logo2{
+	position: absolute;
+	right: 3%;
+	width: 200px;
+	height: 80px;
+}
+/*header结束*/
+.banner #carousel{
+	position: relative;
+	width: 100%;
+	height: 400px;
+}
+.banner #carousel #carousel-imgs-item{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 400px;
+	transition: all 0.3s;
+}
+#carousel{
+	width: 100%;
+	height: 400px;
+}
+#carousel li{
+	width: 100%;
+	height: 400px;
+}
+#carousel img{
+	width: 100%;
+	height: 100%;
+}
+#carousel .leftArrow,.rightArrow{
+	position: absolute;
+	top:50%;
+	width: 30px;
+	height: 60px;
+	line-height: 60px;
+	margin-top: -30px;
+	background-color: rgba(0,0,0,0.6);
+	text-align: center;
+	color: #fff;
+	font-size: 24px;
+	cursor: pointer;
+}
+#carousel .leftArrow{
+	left: 0;
+}
+#carousel .rightArrow{
+	right: 0;
+}
+#carousel .bottomBtn{
+	position: absolute;
+	left:50%;
+	bottom: 10px;
+}
+#carousel .bottomBtn li{
+	float: left;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background-color: rgba(0,0,0,0.6);
+	margin-right: 5px;
+	cursor: pointer;
+}
+#carousel .bottomBtn li.active{
+	background-color: rgba(0,0,0);
+}
+.banner .button-list{
+	width: 100%;
+	height: 140px;
+}
+.button-list li{
+	float: left;
+	width: 150px;
+	height: 120px;
+	margin: 10px 100px 20px 150px;
+	text-align: center;
+}
+.button-list li img{
+	width: 100%;
+	height: 100%;
+}
+/*banner结束*/
+
+/*main开始*/
+.main{
+	width: 100%;
+	height: auto;
+	background: url(../images/main.jpg) top center no-repeat;
+
+}
+.main .container{
+	padding: 20px 0 100px 0;
+}
+.main .container h3 a{
+	display: block;
+	width: 300px;
+	height: 60px;
+	line-height: 60px;
+	color: #fff;
+	font-size: 30px;
+	background: skyblue;
+	margin: 0 auto 25px auto;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 10px;
+}
+.main .job{
+	width: 1100px;
+	height: 550px;
+	margin: 0 auto;
+	background: #fff;
+	border: 2px dashed orange;
+	border-radius: 20px;
+}
+.main .job>p{
+	padding: 20px 0px 10px 40px;
+	color: orange;
+	font-size: 18px;
+	font-weight: bold;
+}
+.main .job .city-list li{
+	float: left;
+	width: 8%;
+	color: gray;
+	margin: 0 0 10px 40px;
+	cursor: pointer;
+}
+.main .job .city-list li:first-child{
+	color: orange;
+}
+.main .job .city-list li:hover{
+	color: orange;
+}
+
+.main .job .content{
+	position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+.main .job .content .post-list{
+	display: none;
+	padding-left: 40px;
+	padding-right: 110px;
+}
+.main .job .content .post-list.post-list-act{
+	display: block;
+}
+.main .job .content .post-list .post-list-item{
+    width: 950px;
+    height: 25px;
+	padding: 10px;
+	margin-bottom: 10px;
+    border: 1px solid orange;
+    color: #555;
+    background: url(../images/down.jpg) 930px 15px no-repeat;
+   	cursor: pointer;
+   	overflow: hidden;
+   	transition: height 0.7s;
+}
+.main .job .content .post-list .current{
+	background: url(../images/up.jpg) 930px 15px no-repeat;
+	height: 240px;
+}
+.post-list-item span{
+	display: block;
+	padding-bottom: 10px;
+	font-weight: bold;
+}
+.post-list-item p{
+	display: block;
+	overflow: hidden;
+}
+.post-list-item .apply{
+    display: block;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    border: 1px solid orange;
+    border-radius: 5px;
+    color: orange;
+    text-decoration: none;
+}
+.post-list-item .apply:hover{
+	color: #000;
+}
+/*main结束*/
+
+/*footer开始*/
+.footer{
+	width: 100%;
+	height: 80px;
+	line-height: 80px;
+	text-align: center;
+	font-size: 20px;
+	color: #555;
+	background: #fff;
+}
+/*footer结束*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
